@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourista - About Us</title>
+     <!-- Logo -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='transparent' stroke='white' stroke-width='2'/%3E%3Cg transform='scale(1.2) translate(4, 4)'%3E%3Cpath fill='%23FFA500' d='M6.428 1.151C6.708.591 7.213 0 7.86 0h.28c.646 0 1.151.59 1.432 1.151L10.29 3.55l3.7 3.7a.5.5 0 0 1-1.029.043L11.4 5.441V13a.5.5 0 0 1-1 0V5.441l-1.58-1.58a.5.5 0 0 1-.043-1.029l3.7-3.7-1.745-3.136-1.375 2.475V13a.5.5 0 0 1-1 0V3.753l-1.375-2.475-1.745 3.136 3.7 3.7a.5.5 0 0 1-.043 1.029L5.6 5.441V13a.5.5 0 0 1-1 0V5.441L3.02 7.02a.5.5 0 0 1-1.029-.043l3.7-3.7L4.28 1.151z'/%3E%3C/g%3E%3C/svg%3E">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Open Sans Font for Nav Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Pacifico Font for Website Title -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Great Vibes Font for Headings -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons (Social Media, etc.) -->
+     <link rel="stylesheet" href="chatbot.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Light gray background */
+            overflow-x: hidden; /* Prevent horizontal scroll during animations */
+            transition: background-color 0.3s ease; /* Smooth transition for theme change */
+            background-image: url(./assets/images/sincerely-media-UWdTDa1Z9DM-unsplash.jpg);
+        }
+        
+        
+        .header {
+            background-image: linear-gradient(to right, #d10ca0 0%, #16a085 100%);
+        }
+
+        /* Custom Keyframe Animations for page/element transitions */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        @keyframes slideUpFadeIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up-fade {
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+        }
+
+        /* Styles for the dropdown submenu */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            background-color: #fff; /* White background for dropdown */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 0.5rem 0;
+            top: calc(100% + 5px); /* Position below the parent link */
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            display: block; /* Show on hover or when active class is applied by JS */
+        }
+
+        .dropdown-menu a {
+            color: #4a5568; /* Dark gray text */
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #e2e8f0; /* Light gray hover */
+        }
+
+        /* Tourista Theme - Orange/Teal Palette */
+        .header-bg {
+            background-image: linear-gradient(to right, #52ece5 0%, #ec791b 100%);
+        }
+        .main-accent {
+            color: #ec791b; /* Orange for main accents/icons */
+        }
+        .btn-primary {
+            background-color: #ec791b; /* Orange for primary buttons */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #d1610e; /* Darker orange on hover */
+            box-shadow: 0 4px 15px rgba(230, 135, 10, 0.884);
+        }
+        .section-bg-light {
+            background-color: #ffffff; /* White section background */
+        }
+        .section-bg-accent {
+            background-color: #fff7ed; /* Lightest orange for sections like features */
+        }
+        .text-primary {
+            color: #4a5568; 
+        }
+        .text-secondary {
+            color: #ffffff; 
+        }
+        .footer-bg {
+            background-image: url(./assets/images/footer.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #cbd5e0; /* Light text for footer */
+        }
+        .footer-link-hover:hover {
+            color: #ffffff;
+        }
+        .nav-link-hover {
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 8px 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            color: white; 
+        }
+        .nav-link-hover:hover {
+            color: #f3a108;
+            background-color: rgb(0, 0, 0); 
+            border-radius: 0.5rem;
+        }
+        
+        /* Consistent Mobile Menu Styles */
+        #mobile-menu {
+            background-color: rgb(0, 0, 0);
+            opacity: 0.9;
+            z-index: 40; /* Match Tailwind z-40 */
+        }
+        #mobile-menu a {
+            color: rgb(255, 145, 0);
+            font-weight: bold;
+        }
+        #mobile-menu a:hover {
+            background-color: rgb(255, 145, 0);
+            color: rgb(255, 255, 255);
+        }
+
+        /* Hero Background for About Page */
+        .about-hero-background {
+            background-image: url('./assets/images/about\ us\ hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 600px;
+        }
+
+        /* Initial hidden state for elements to be animated on scroll */
+        .initial-hidden {
+            opacity: 0;
+        }
+
+        /* Stylish heading class */
+        .stylish-heading {
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2; /* Ensure line height prevents collapse */
+        }
+
+        /* Styles for the "Meet Our Creative Team" section */
+        .mission-section-container {
+            background-color: #000000; /* Light gray background to match body */
+            padding: 10px 20px;
+            margin: 2rem auto; /* Center the section and add vertical margin */
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Subtle shadow */
+            max-width: 1320px;
+        }
+
+        .mission-content-container {
+            max-width: 1320px;
+            align-items: center;
+            justify-content: center;
+            margin: 80px auto;
+            padding: 10px 0px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .mission-left-side {
+            width: auto;
+            align-items: flex-start;
+            padding: 10px 0px;
+            flex-direction: column;
+            position: static;
+            margin: 0px auto;
+            max-width: 480px; /* Adjusted max-width for better text flow */
+        }
+
+        .mission-heading {
+            font-size: 45px;
+            line-height: 1.2; /* Adjusted line-height */
+            font-weight: 900;
+            color: #ec791b; /* Tourista orange */
+            margin-bottom: 40px;
+            text-align: center; /* Center on smaller screens */
+            font-family: 'Great Vibes', cursive; /* Match other headings */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Match other headings */
+        }
+
+        .mission-subheading {
+            font-size: 18px; /* Adjusted font size */
+            line-height: 1.6; /* Adjusted line-height */
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        .mission-right-side {
+            width: 675px;
+            position: relative;
+            padding: 0px;
+            display: flex;
+            height: 700px; /* Original taller height for large screens */
+            min-height: auto;
+        }
+
+        .mission-image {
+            position: absolute;
+            object-fit: cover; /* Ensure images cover their area */
+            border-radius: 0.75rem; /* Rounded corners for images */
+            box-shadow: 0 4px 10px rgb(255, 148, 98); /* Subtle shadow */
+        }
+
+        .mission-image.one {
+            margin-top: 39%;
+            margin-right: 80%;
+            margin-bottom: 29%;
+            margin-left: 0px;
+            height: 32%;
+            width: 20%;
+        }
+
+        .mission-image.two {
+            margin-top: 19%;
+            margin-right: 42%;
+            margin-bottom: 42%;
+            margin-left: 23%;
+            width: 35%;
+            height: 39%;
+        }
+
+        .mission-image.three {
+            width: 13%;
+            height: 21%;
+            margin-top: 62%;
+            margin-right: 64%;
+            margin-bottom: 30%;
+            margin-left: 23%;
+        }
+
+        .mission-video {
+            width: 34%;
+            height: 33%;
+            position: absolute;
+            margin-top: 62%;
+            margin-right: 27%;
+            margin-bottom: 0px;
+            margin-left: 39%;
+            border-radius: 0.75rem; /* Rounded corners for video */
+            box-shadow: 0 4px 10px rgb(255, 114, 79); /* Subtle shadow */
+        }
+
+        .mission-image.five {
+            width: 13%;
+            height: 21%;
+            margin-top: 38%;
+            margin-right: 27%;
+            margin-bottom: 41%;
+            margin-left: 60%;
+        }
+
+        .mission-image.six {
+            margin-top: 0px;
+            margin-right: 3%;
+            margin-bottom: 67%;
+            margin-left: 62%;
+            width: 35%;
+            height: 33%;
+        }
+
+        .mission-image.seven {
+            width: 25%;
+            margin-top: 40%;
+            margin-right: 0px;
+            margin-bottom: 18%;
+            margin-left: 75%;
+            height: 42%;
+        }
+
+        @media (max-width: 1024px) {
+            .mission-content-container {
+                flex-direction: column-reverse;
+            }
+            .mission-heading, .mission-subheading {
+                text-align: center;
+            }
+            .mission-left-side {
+                align-items: center;
+                max-width: 480px;
+            }
+            .mission-right-side {
+                margin: 0 auto 70px auto;
+                height: 550px; /* Adjusted fixed height for tablets */
+                min-height: auto; /* Ensure no conflicting min-height */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mission-right-side {
+                width: 450px;
+                height: 450px; /* Adjusted fixed height for smaller tablets */
+                min-height: auto; /* Ensure no conflicting min-height */
+            }
+            .mission-left-side {
+                max-width: 450px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .mission-image.one, .mission-image.two, .mission-image.three,
+            .mission-image.five, .mission-image.six, .mission-image.seven {
+                /* Removed display: none; to make them visible */
+                position: static; /* Change to static positioning */
+                width: 90%; /* Make them take up most of the width */
+                height: auto; /* Allow height to adjust to content */
+                margin: 10px auto; /* Add vertical margin for spacing */
+                display: block; /* Ensure they are block elements for stacking */
+            }
+            .mission-right-side {
+                width: 100%;
+                height: auto; /* Allow height to be determined by content */
+                min-height: auto; /* Ensure no conflicting min-height */
+                margin: 0 auto 40px auto; /* Adjusted margin for mobile */
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center items horizontally */
+                display: flex; /* Ensure flexbox is applied */
+            }
+            .mission-video {
+                position: static; /* Change to static positioning */
+                margin: 10px auto; /* Add vertical margin for spacing */
+                width: 90%; /* Make it take up most of the width */
+                height: 200px; /* Set a reasonable height for the video */
+            }
+            .mission-heading {
+                font-size: 25px;
+                line-height: 1.6;
+            }
+            .mission-subheading {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+            .mission-left-side {
+                width: 100%;
+            }
+        }
+
+        /* New Travel Gallery Section Styles */
+        .our-vision {
+            background-color: rgb(0, 0, 0); /* Changed to white background */
+            padding: 1.5rem; /* Minimized padding */
+            margin: 2rem auto; /* Centered horizontally */
+            width: 100%; /* Set width to 100% */
+            max-width: 1000px; /* Minimized max-width for overall section */
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column; /* Stack content vertically on small screens */
+            align-items: center; /* Center items when stacked */
+            justify-content: center;
+        }
+
+        .our-vision .flex-col {
+            width: 100%; /* Ensure flex columns take full width on small screens */
+        }
+
+        .our-vision .md\:w-1\/3 {
+            width: 100%; /* Ensure heading takes full width on small screens */
+            margin-bottom: 1rem; /* Add some space below heading */
+        }
+
+        .our-vision .md\:w-2\/3 {
+            width: 100%; /* Ensure content takes full width on small screens */
+        }
+
+        .our-vision-heading {
+            font-family: 'Great Vibes', cursive; /* Apply Great Vibes font */
+            font-size: 40px; /* Match mission-heading font size */
+            line-height: 1.2;
+            font-weight: 900;
+            color: #ec791b; /* Tourista orange */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 20px; /* Adjusted margin */
+        }
+
+        .our-vision .grid-cols-2 {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller grid items */
+            gap: 1rem; /* Smaller gap */
+        }
+
+        .our-vision .rounded-lg img {
+            height: 120px; /* Smaller image height */
+        }
+
+        .our-vision .bg-white.p-4 {
+            padding: 1rem; /* Slightly increased padding for quote box */
+        }
+
+        .our-vision .bg-white.rounded-lg.shadow-md.p-6 {
+            padding: 1.25rem; /* Slightly increased padding for text block */
+        }
+
+        /* Responsive adjustments for the new section */
+        @media (min-width: 768px) {
+            .our-vision {
+                flex-direction: row; /* Revert to row on medium screens and up */
+                align-items: flex-start; /* Align items to start when in row */
+                justify-content: center;
+                padding: 2rem; /* Restore padding for larger screens */
+            }
+            .our-vision .md\:w-1\/3 {
+                width: 33.333333%; /* Restore width for heading */
+                margin-bottom: 0;
+            }
+            .our-vision .md\:w-2\/3 {
+                width: 66.666667%; /* Restore width for content */
+            }
+            .our-vision .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr); /* Restore 2 columns for larger screens */
+                gap: 1rem; /* Restore gap */
+            }
+            .our-vision .rounded-lg img {
+                height: 200px; /* Restore image height */
+            }
+             .our-vision .bg-white.p-4 {
+                padding: 1rem; /* Restore padding for quote box */
+            }
+            .our-vision .bg-white.rounded-lg.shadow-md.p-6 {
+                padding: 1.5rem; /* Restore padding for text block */
+            }
+        }
+
+
+        /* Blog Card Section Styles */
+        .blog-card-section {
+            background-color: orangered; 
+            padding: 2rem; 
+            margin: 2rem auto; /* Centered horizontally */
+            width: 100%; 
+            max-width: 1320px; 
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgb(255, 145, 98);
+            display: flex; /* Use flex for positioning */
+            justify-content: flex-start; /* Align content to the left */
+            align-items: flex-end; /* Align content to the bottom */
+            min-height: 480px; /* Adjusted height for new image size and overlap */
+            position: relative; /* Context for absolute children */
+            overflow: hidden;
+            background-image: url(./assets/images/blog\ about\ us.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .blog-card-image-container {
+            width: 750px; /* Increased width */
+            height: 380px; /* Minimized height */
+            border-radius: 1rem;
+            background-image: url(./assets/images/blog\ about\ us.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: absolute; /* Absolute positioning within .blog-card-section */
+            bottom: 20px; /* Added margin-bottom */
+            left: 10px; /* Added margin-left */
+            z-index: 1; /* Background element */
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 1rem;
+        }
+
+        .blog-content-card {
+            background-color: #fa9d33;
+            border-radius: 1rem;
+            padding: 1.5rem; /* Minimized padding */
+            box-shadow: 0 4px 10px rgb(247, 121, 3);
+            width: 380px; /* Minimized width */
+            height: auto;
+            z-index: 10; /* Foreground element */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: absolute; /* Absolute positioning */
+            bottom: 50px; /* Overlap from bottom */
+            left: 100px; /* Adjusted to maintain overlap with new image position */
+            max-width: 90%; /* Ensure responsiveness */
+        }
+
+        .blog-content-card h3 {
+            font-family: 'Great Vibes', cursive; /* Match other headings */
+            font-size: 2rem; /* Slightly smaller font size */
+            font-weight: bold;
+            color: #ec791b; /* Tourista orange */
+            margin-bottom: 0.75rem; /* Adjusted margin */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .blog-content-card p {
+            line-height: 1.6;
+            text-align: justify;
+            font-size: 0.9rem; /* Slightly smaller text */
+            margin-bottom: 1rem; /* Adjusted margin */
+        }
+
+        .blog-content-card .source-text {
+            font-size: 0.8rem; /* text-sm */
+            margin-bottom: 0.75rem; /* Adjusted margin */
+            text-align: justify;
+
+        }
+
+
+        @media (max-width: 768px) {
+            .blog-card-section {
+                display: flex; /* Revert to flex for stacking */
+                flex-direction: column;
+                gap: 2rem;
+                min-height: auto;
+                margin: 2rem auto; /* Center horizontally */
+                max-width: 90%; /* Full width on smaller screens */
+                padding: 1rem;
+                align-items: center; /* Center items when stacked */
+                justify-content: center;
+                
+            }
+            .blog-card-image-container {
+                position: relative; /* Revert to relative positioning */
+                width: 90%;
+                height: 300px; /* Adjust height for mobile */
+                transform: none; /* Remove transform when stacked */
+                bottom: auto;
+                left: auto;
+            }
+            .blog-content-card {
+                position: relative; /* Revert to relative positioning */
+                width: 90%;
+                transform: none; /* Remove transform when stacked */
+                align-self: center; /* Center when stacked */
+                justify-self: center;
+                margin-top: -50px; /* Create vertical overlap */
+                bottom: auto;
+                left: auto;
+            }
+        }
+
+        /* Profile Card */
+        .card-container {
+            width: 300px;
+            height: 450px; /* Fixed height to accommodate flip */
+            perspective: 1000px; /* For 3D effect */
+            margin-bottom: 20px; /* Add margin for spacing when wrapped */
+            border-radius: 55px; /* Applied the same border-radius as card-header */
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            border-radius: 55px; /* Applied the same border-radius as card-header */
+            box-shadow: 0 10px 20px rgb(255, 187, 148);
+        }
+
+        .card-container:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            border-radius: 55px; /* Applied the same border-radius as card-header */
+            background-color: #000000;
+            overflow: hidden; /* Ensure content respects border-radius */
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .card-back p {
+            font-size: 1em;
+            line-height: 1.8;
+            color: #ffffff;
+        }
+
+        .card-header1
+         {
+            background-image: url(./assets/images/profile\ pc1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 280px; /* Height of the header background */
+            position: relative;
+            border-radius: 55px; /* Increased border-radius for all corners */
+        }
+         .card-header2
+         {
+            background-image: url(./assets/images/profile\ pc2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 280px; /* Height of the header background */
+            position: relative;
+            border-radius: 55px; /* Increased border-radius for all corners */
+        }
+
+
+        .profile-image-container {
+            position: absolute;
+            top: 200px; /* Adjusted to center the image over the larger header and content */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            background-color: #ffffff; /* To create the white border effect */
+            border-radius: 50%;
+            padding: 10px; /* Increased padding for a thicker white border */
+            box-shadow: 0 10px 20px rgb(255, 148, 87);
+        }
+
+        .profile-image {
+            width: 140px; /* Reverted width of the profile image */
+            height: 140px; /* Reverted height to maintain aspect ratio */
+            border-radius: 50%;
+            object-fit: cover;
+            display: block; /* Removes extra space below image */
+        }
+
+        .card-content {
+            padding: 70px 20px 20px; /* Adjust top padding to account for the image */
+            position: relative;
+            z-index: 0; /* Ensures content is below the image but above the header */
+        }
+
+        .card-content h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #eeeaea;
+        }
+
+        .card-content p {
+            color: #fffbfb;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff; /* White icons */
+            background-color: #f0f0f0; /* Light background for icons */
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            color: #007bff; /* Icon color (blue from the gradient) */
+        }
+
+        .social-icons a:hover {
+            background-color: #e0e0e0;
+        }
+
+@media (max-width: 900px) {
+    #navbar 
+    {
+        font-size: smaller;
+        color: #fc6739;
+    }
+ 
+}
+
+
+
+    </style>
+</head>
+<body class="animate-fade-in">
+  <!-- Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url(./assets/images/about\ us\ hero.jpg );">
+             <!-- Header/Navigation Bar -->
+            <header>
+             <nav class="flex justify-between items-center px-6 py-4 bg-white/70 backdrop-blur-sm  fixed w-full top-0 z-50" style="background-color: transparent; ">
+            <a href="index.html" class="text-white rounded-lg flex items-center mr-4" style="font-family: 'Pacifico', cursive; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <!-- Plane icon with orange color and white border -->
+                <i class="fas fa-plane text-3xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                Tourista
+            </a>
+            <div id="navbar" class="hidden md:flex items-center space-x-4"> 
+                <a href="index.html" class="nav-link-hover rounded-lg">Home</a>
+                <a href="./destinations.html" class="nav-link-hover rounded-lg">Destinations</a>
+                <a href="./Guides.html" class="nav-link-hover rounded-lg">Guide</a>
+                <a href="./reviews.html" class="nav-link-hover rounded-lg">Reviews</a>
+                <a href="./contact.html "class="nav-link-hover rounded-lg">Contact</a>
+                <a href="./about_us.html"class="nav-link-hover rounded-lg">About</a>
+
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-secondary hover:text-main-accent focus:outline-none rounded-lg p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-[72px] left-0 w-full bg-white py-2 shadow-lg rounded-b-lg z-40 transition-all duration-300 ease-in-out">
+            <a href="index.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Home</a>
+            <a href="./destinations.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2"> Destinations</a>
+            <a href="./Guides.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Guide</a>
+            <a href="./reviews.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Reviews</a>
+            <a href="contact.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Contact</a>
+            <a href="./about_us.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">About</a>
+
+        </div>
+    </header>
+
+            <div class="flex flex-col justify-center items-center text-center text-white h-full px-4">
+            <div class="bg-black bg-opacity-30 p-8 rounded-xl max-w-3xl" style=" box-shadow: 0 4px 15px rgb(255, 144, 70);">
+
+               
+                <h1 class="text-5xl md:text-7xl font-extrabold  leading-tight mb-6 animate-slide-up-fade " style="animation-delay: 0.1s;font-family: 'Great Vibes', cursive; text-shadow: 5px 5px 5px #000000; color: rgb(248, 143, 6);">
+                Where Innovation Meets Dedication
+
+                </h1>
+            </div>
+        </section>
+
+        <!-- Our Mission -->
+        <div class="mission-section-container initial-hidden" data-animate="slide-up-fade">
+            <div class="mission-content-container">
+                <div class="mission-left-side">
+                    <h1 class="mission-heading " >
+                    Our Promise To Craft Your Unforgettable Journey
+                    </h1>
+                    <p class="mission-subheading text-secondary leading-relaxed"style="text-align: justify;">
+                    Our mission is to make travel accessible, meaningful, and unforgettable. We believe that exploring new cultures and landscapes enriches the soul.We provide travelers with clear, inspiring, and useful information about destinations, local foods, activities, restaurants, hotels, and events, helping them make the most of every journey without needing to book.
+                    </p>
+                </div>
+                <div class="mission-right-side">
+                    <img class="mission-image one" src="./assets/images/mission pc1.jpg" alt="mission pic 1">
+                    <img class="mission-image two" src="./assets/images/mission pc2.jpg" alt="mission pic 2">
+                    <img class="mission-image three" src="./assets/images/mission pc3.jpg" alt="mission pic 3">
+                    <img class="mission-image five" src="./assets/images/mission pc4.jpg" alt="mission pic 4">
+                    <img allowfullscreen="allowfullscreen" class="mission-video" src="./assets/images/mission pc7.jpg" alt="mission pic 5">
+                </img>
+                    <img class="mission-image seven" src="./assets/images/mission pc5.jpg" alt="mission pic 6">
+                    <img class="mission-image six" src="./assets/images/mission pc6.jpg" alt="mission pic 7">
+                </div>
+            </div>
+        </div>
+
+        <!-- New Travel Gallery Section -->
+        <section class="our-vision container mx-auto px-4 py-8 bg-black rounded-xl shadow-lg mt-8 mb-8 initial-hidden" data-animate="slide-up-fade" >
+            <div class="flex flex-col md:flex-row items-center md:items-start justify-center gap-8">
+                <!-- Left Side: Heading -->
+                <div class="md:w-1/3 text-center md:text-left p-4">
+                    <h2 class="our-vision-heading">
+                    The Horizon We're Journeying Towards
+                    </h2>
+                    <p style="text-align: justify; color: white;"> Our vision is to become the most trusted and user-friendly travel guide platform, empowering visitors to explore new places confidently through rich content and curated local insights anytime, anywhere.
+                        Tourista is not just about booking a trip, its about crafting an experience that will stay with you for a lifetime.
+                    
+                    </p>
+
+                </div>
+
+                <!-- Right Side: Image Grid and Text Block -->
+                <div class="md:w-2/3 flex flex-col gap-6 p-4">
+                    <!-- Image Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="./assets/images/vision pc1.jpg" alt="Travel Image 1" class="w-full h-auto object-cover rounded-lg">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-md bg-white p-4 flex items-center justify-center text-center">
+                            <p class="text-lg " style="font-family: pacifico, cursive; color: #d1610e;">Let Tourista be your travel companion, inspiring you to explore the world with curiosity and confidence, no bookings, no pressure, just guidance. </p>
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="./assets/images/vision pc2.jpg" alt="Travel Image 2" class="w-full h-auto object-cover rounded-lg">
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="./assets/images/vision pc3.jpg" alt="Travel Image 3" class="w-full h-auto object-cover rounded-lg">
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Card Section -->
+        <section class="blog-card-section initial-hidden" data-animate="slide-up-fade" >
+            <div class="blog-card-image-container">
+            </div>
+            <div class="blog-content-card">
+                <h3 style="text-align: center;">Your Next Adventure</h3>
+                <p>
+                    Dive into our latest travel guides, tips, and inspiring stories from around the world. We share our expertise to help you plan your next adventure, discover hidden gems, and make the most of every journey. From packing essentials to cultural etiquette, our blog is your go-to resource for all things travel. From hand-picking the best local guides to ensuring your comfort and safety, we go the extra mile.
+                </p>
+                <h5 style="color: rgb(221, 62, 4); font-family: pacifico,cursive; text-align: center;">🌼 A World of Boundless Discovery 🌼</h5>
+            </div>
+        </section>
+
+        <!--  Profile Cards -->
+        <div class="max-w-6xl mx-auto">
+                <section class="py-16 section-bg-white container mx-auto px-4 rounded-xl shadow-lg mb-8">
+                <h1 class="our-vision-heading" data-animate="slide-up-fade" style="text-align: center;">Meet Our Dedicated Team</h1>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- First Profile Card -->
+                    <div class="card-container animate-slide-up-fade" data-animate="slide-up-fade" style="animation-delay: 0.1s;">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-header1"></div>
+                                <div class="profile-image-container">
+                                    <img src="./assets/images/logo for team1.JPG" alt="Profile Picture" class="profile-image">
+                                </div>
+                                <div class="card-content">
+                                    <h2 style="color: orangered; font-family: pacifico,cursive;">Ramsha Khan</h2>
+                                    <h3 style="font-family: pacifico,cursive; color: white;">Leader of our Tourista websiite.</h3>
+                                </div>
+                            </div>
+                            <div class="card-back" style="background-color: #ff7402; ">
+                                <p style="text-align: justify;color: white;">Our team leader brings years of experience in exploring diverse cultures and guiding others to hidden gems around the world. With a deep love for adventure, planning, and people, she ensure every piece of content is informative, honest, and inspiring.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Profile Card -->
+                    <div class="card-container animate-slide-up-fade" data-animate="slide-up-fade" style="animation-delay: 0.2s;">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-header2"></div>
+                                <div class="profile-image-container">
+                                    <img src="./assets/images/logo for team.JPG" alt="Profile Picture" class="profile-image">
+                                </div>
+                                <div class="card-content">
+                                    <h2 style="color: orangered; font-family: pacifico,cursive;">Zainab Shahab</h2>
+                                    <h3 style="font-family: pacifico,cursive; color: white;">Researcher of our tourista website</h3>
+                                   
+                                </div>
+                            </div>
+                            <div class="card-back" style="background-color: #ff7402; ">
+                                <p style="text-align: justify; color: white;">Our dedicated researcher dives deep into destinations, culture, cuisine, and local insights to ensure every guide is accurate, up-to-date, and truly helpful for travelers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+        <!-- Chat Button -->
+        <div id="chat-button">
+            <!-- New Plane icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-8 h-8">
+                <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A1.5 1.5 0 0 1 10.5 16h-5a1.5 1.5 0 0 1-1.062-2.503l1.318-1.318-.375-2.253-5.507.918A.5.5 0 0 1 0 12V9.618a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.569.14-.97.428-1.151Z"/>
+            </svg>
+        </div>
+
+        <!-- Chat Window (initially hiddenchat) -->
+        <div id="chat-window" class="hiddenchat">
+            <div id="chat-header">
+                <span>Touristabot Assistant</span>
+                <button id="close-chat">&times;</button>
+            </div>
+            <div id="chat-messages">
+                <!-- Initial bot message -->
+                <div class="message-bubble bot-message">
+                    Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)
+                </div>
+            </div>
+            <div id="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-button">
+                    <!-- Send icon (SVG) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Existing Tour Suggestion Button -->
+            <button id="suggest-tour-button" class="llm-feature-button">Suggest a Tour ✨</button>
+            <!-- New Itinerary Suggestion Button -->
+            <button id="plan-trip-button" class="llm-feature-button">Plan My Trip ✨</button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-bg py-8 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <a href="index.html" class="text-white rounded-lg flex items-center" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                    <i class="fas fa-plane text-2xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                    Tourista
+                </a>
+            </div>
+            <p class="mb-4 md:mb-0">&copy; 2023 Tourista. All rights reserved.</p>
+             <div class="flex justify-center space-x-6">
+                <a href="index.html" class="hover:text-white transition duration-300 footer-link-hover">Home</a>
+                <a href="about_us.html" class="hover:text-white transition duration-300 footer-link-hover">About</a>
+                <a href="destinations.html" class="hover:text-white transition duration-300 footer-link-hover">Destinations</a>
+                <a href="reviews.html" class="hover:text-white transition duration-300 footer-link-hover">Reviews</a>
+                <a href="contact.html" class="hover:text-white transition duration-300 footer-link-hover">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile Poses Dropdown Toggle (if applicable, though removed from Tourista nav)
+        const mobilePosesDropdownToggle = document.getElementById('mobile-poses-dropdown-toggle');
+        const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
+
+        if (mobilePosesDropdownToggle && mobileDropdownMenu) {
+            mobilePosesDropdownToggle.addEventListener('click', () => {
+                mobileDropdownMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Handle desktop dropdown hover/click state (for accessibility)
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const dropdownButton = dropdown.querySelector('button');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+            if (dropdownButton) {
+                dropdownButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default button action
+                    dropdown.classList.toggle('active'); // Toggle active class
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Function to handle animations on scroll using Intersection Observer
+        const animateOnScroll = () => {
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const animationType = element.dataset.animate;
+
+                        // Apply animation class based on data-animate attribute
+                        if (animationType === 'slide-up-fade') {
+                            element.classList.add('animate-slide-up-fade');
+                        }
+                        // Add more conditions here for other animation types if needed
+
+                        element.classList.remove('initial-hidden'); // Remove the initial hidden state
+                        observer.unobserve(element); // Stop observing once the element has animated
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with the 'data-animate' attribute
+            document.querySelectorAll('[data-animate]').forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        // Call the animation function when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+        });
+        
+    </script>
+     <script type="module">
+        // Get references to DOM elements
+        const chatButton = document.getElementById('chat-button');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChatButton = document.getElementById('close-chat');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-button');
+        const suggestTourButton = document.getElementById('suggest-tour-button'); // Existing button reference
+        const planTripButton = document.getElementById('plan-trip-button'); // New button reference
+
+        // Flags to indicate if the next user message is for a specific LLM feature
+        let tourSuggestionMode = false;
+        let itineraryMode = false; // New flag for itinerary generation
+
+        // Initial chat history for the LLM API call
+        // Removed 'system' role. Instructions are now part of the initial model message or dynamically added to user prompts.
+        let chatHistory = [
+            {
+                role: "model",
+                parts: [{ text: "Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)" }]
+            }
+        ];
+
+        // Function to toggle chat window visibility
+        function toggleChat() {
+            chatWindow.classList.toggle('hiddenchat');
+            if (!chatWindow.classList.contains('hiddenchat')) {
+                chatInput.focus(); // Focus input when chat opens
+                scrollToBottom(); // Scroll to the latest message
+            }
+        }
+
+        // Function to add a message to the chat display
+        function addMessage(text, sender) {
+            const messageBubble = document.createElement('div');
+            messageBubble.classList.add('message-bubble');
+            messageBubble.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageBubble.textContent = text;
+            chatMessages.appendChild(messageBubble);
+            scrollToBottom(); // Always scroll to the bottom after adding a message
+        }
+
+        // Function to scroll chat messages to the bottom
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to display a loading indicator
+        function showLoadingIndicator() {
+            const loadingDiv = document.createElement('div');
+            loadingDiv.classList.add('message-bubble', 'loading-indicator');
+            loadingDiv.id = 'loading-indicator';
+            loadingDiv.textContent = 'Touristabot is typing...';
+            chatMessages.appendChild(loadingDiv);
+            scrollToBottom();
+        }
+
+        // Function to remove the loading indicator
+        function hideLoadingIndicator() {
+            const loadingDiv = document.getElementById('loading-indicator');
+            if (loadingDiv) {
+                loadingDiv.remove();
+            }
+        }
+
+        // Function to send message to the LLM API
+        async function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') {
+                return; // Don't send empty messages
+            }
+
+            // Add user message to display
+            addMessage(userMessage, 'user');
+            chatInput.value = ''; // Clear input field
+
+            showLoadingIndicator(); // Show loading indicator
+
+            try {
+                let currentPrompt = userMessage; // The prompt to send to the AI
+
+                if (tourSuggestionMode) {
+                    // Prepend specific instructions for tour suggestions to the user's message
+                    currentPrompt = `The user is asking for a tour suggestion based on their interests. Their interests are: "${userMessage}". Provide a brief (2-3 sentences) and exciting tour idea. Do not ask follow-up questions in this response. Focus on the type of tour requested (e.g., adventure, cultural, relaxing, family-friendly).`;
+                    tourSuggestionMode = false; // Reset the flag after processing
+                } else if (itineraryMode) {
+                    // New prompt for itinerary generation
+                    currentPrompt = `The user wants a tour itinerary. Their input is: "${userMessage}". Please generate a brief (3-4 bullet points) and exciting itinerary. Include a destination, 2-3 activities, and a concluding remark. For example: "For an adventure in [City], you could [Activity 1], then [Activity 2], and finally [Activity 3]. Enjoy your trip!"`;
+                    itineraryMode = false; // Reset the flag after processing
+                }
+
+                // Prepare the payload for the Gemini API
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: currentPrompt }] }], // Send only the current user message as a new turn
+                    generationConfig: {
+                        maxOutputTokens: 150, // Increased token limit for slightly longer itineraries
+                        temperature: 0.7 // Adjust creativity (0.0-1.0)
+                    }
+                };
+
+                // Log the payload to the console for debugging
+                console.log("Sending payload to Gemini API:", JSON.stringify(payload, null, 2));
+
+                // IMPORTANT: Your actual API key is inserted here.
+                const apiKey = "AIzaSyAPgSrBQxe05u3eS3-EU9LhRcKBxQyqlfg"; 
+                
+                if (!apiKey || apiKey === "YOUR_GENERATED_API_KEY_HERE") {
+                    hideLoadingIndicator();
+                    addMessage("Oops! It looks like the API key is missing or invalid. Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.", 'bot');
+                    console.error("API Key Error: Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.");
+                    return; // Stop execution if API key is invalid
+                }
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                // Make the API call
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorDetails = await response.json().catch(() => ({ message: 'Could not parse error response.' }));
+                    console.error(`HTTP error! Status: ${response.status}, Error Details:`, errorDetails);
+                    throw new Error(`API request failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                hideLoadingIndicator(); // Hide loading indicator
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const botResponse = result.candidates[0].content.parts[0].text;
+                    addMessage(botResponse, 'bot');
+                    // For models that don't support system role, we typically don't add the system instruction to chatHistory
+                    // We only add the direct user-model turns
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] }); // Add original user message to history
+                    chatHistory.push({ role: "model", parts: [{ text: botResponse }] }); // Add bot response to history
+                } else if (result.error) {
+                    console.error("Gemini API returned an error:", result.error);
+                    addMessage(`Sorry, an API error occurred: ${result.error.message || 'Unknown error'}. Please try again.`, 'bot');
+                }
+                else {
+                    addMessage("Sorry, I couldn't get a valid response from the AI. Please try again.", 'bot');
+                    console.error("Unexpected API response structure or no content:", result);
+                }
+            } catch (error) {
+                hideLoadingIndicator(); // Hide loading indicator on error
+                addMessage("Oops! Something went wrong. Please try again later.", 'bot');
+                console.error("Error fetching AI response:", error);
+            }
+        }
+
+        // Event Listener for the existing "Suggest a Tour" button
+        suggestTourButton.addEventListener('click', () => {
+            addMessage("Great! Tell me what kind of tours you're interested in (e.g., 'adventure', 'cultural', 'relaxing', 'family-friendly'). I'll suggest something amazing for you! ✨", 'bot');
+            tourSuggestionMode = true; // Activate tour suggestion mode
+            itineraryMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+        // Event Listener for the new "Plan My Trip" button
+        planTripButton.addEventListener('click', () => {
+            addMessage("Fantastic! To plan your trip, tell me your desired destination and what kind of activities you enjoy (e.g., 'Paris, history and art' or 'Mountains, hiking and nature'). ✨", 'bot');
+            itineraryMode = true; // Activate itinerary mode
+            tourSuggestionMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+
+        // Event Listeners for existing chat functionality
+        chatButton.addEventListener('click', toggleChat);
+        closeChatButton.addEventListener('click', toggleChat);
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Ensure the chat window is hiddenchat on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            chatWindow.classList.add('hiddenchat');
+            scrollToBottom();
+        });
+    </script>
+
+
+</body>
+</html>

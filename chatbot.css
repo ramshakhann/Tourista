@@ -1,0 +1,286 @@
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: "Inter", sans-serif;
+            /* Add max-width to prevent the button from being too far left on very wide screens */
+            max-width: 95vw; /* Ensure it stays within viewport boundaries */
+        }
+
+        /* Chat button styles */
+        #chat-button {
+            background-color: #FF8C00; /* Dark Orange */
+            color: white;
+            padding: 1rem;
+            border-radius: 9999px; /* Fully rounded */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease-in-out;
+            width: 60px;
+            height: 60px;
+            /* Ensure it's always on top of the chat window if it overlaps */
+            position: relative;
+            z-index: 1001;
+        }
+
+        #chat-button:hover {
+            transform: scale(1.05);
+            background-color: #FF7F00; /* Slightly lighter orange on hover */
+        }
+
+        /* Chat window styles */
+        #chat-window {
+            background-color: white;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            width: 350px; /* Fixed width for chat window on larger screens */
+            height: 500px; /* Fixed height for chat window on larger screens */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: absolute;
+            bottom: calc(100% + 15px); /* Position above the button */
+            right: 0;
+            transform-origin: bottom right;
+            animation: fadeInScale 0.3s ease-out;
+        }
+
+        /* Ensure hiddenchat class strongly overrides display */
+        .hiddenchat {
+            display: none !important;
+        }
+
+        /* Animation for chat window appearance */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Chat header styles */
+        #chat-header {
+            background-color: #FFA500; /* Orange */
+            color: black; /* Changed to black for contrast */
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            font-weight: bold;
+        }
+
+        /* Close button in header */
+        #close-chat {
+            background: none;
+            border: none;
+            color: black; /* Changed to black for contrast */
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        #close-chat:hover {
+            color: #333; /* Darker grey on hover */
+        }
+
+        /* Chat messages container */
+        #chat-messages {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: #1A1A1A; /* Dark background for messages */
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* Space between messages */
+        }
+
+        /* Individual message bubble styles */
+        .message-bubble {
+            max-width: 80%; /* Ensure bubbles don't take full width unnecessarily */
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem; /* Rounded corners for bubbles */
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #FFD700; /* Gold for user messages */
+            align-self: flex-end;
+            color: #333; /* Dark text for user messages */
+            border-bottom-right-radius: 0;
+        }
+
+        .bot-message {
+            background-color: #333; /* Dark grey for bot messages */
+            align-self: flex-start;
+            color: #F8F8F8; /* Light text for bot messages */
+            border-bottom-left-radius: 0;
+        }
+
+        /* Loading indicator */
+        .loading-indicator {
+            align-self: flex-start;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            background-color: #333;
+            color: #F8F8F8;
+            font-style: italic;
+        }
+
+        /* Chat input area */
+        #chat-input-container {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #444; /* Darker border */
+            background-color: #1A1A1A; /* Dark background */
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+
+        #chat-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #555; /* Darker grey border */
+            border-radius: 0.5rem;
+            outline: none;
+            font-size: 0.9rem;
+            background-color: #2A2A2A; /* Even darker input background */
+            color: white; /* White text for input */
+            transition: border-color 0.2s ease-in-out;
+        }
+
+        #chat-input:focus {
+            border-color: #FFA500; /* Orange on focus */
+        }
+
+        #send-button {
+            background-color: #FFA500; /* Orange */
+            color: black; /* Changed to black for contrast */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-left: 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #send-button:hover {
+            background-color: #FF7F00; /* Slightly darker orange on hover */
+        }
+
+        /* New buttons for LLM features */
+        .llm-feature-button {
+            background-color: #FFD700; /* Gold */
+            color: black;
+            font-weight: bold;
+            padding: 0.5rem 1rem; /* Minimized padding for all screen sizes */
+            border-radius: 0.75rem;
+            margin-top: 0.5rem; /* Minimized margin for all screen sizes */
+            margin-bottom: 0.5rem; /* Minimized margin for all screen sizes */
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            text-align: center;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc(100% - 2rem); /* 100% minus 1rem padding on each side for container */
+            margin-left: 1rem; /* Align with input padding */
+            margin-right: 1rem; /* Align with input padding */
+        }
+
+        .llm-feature-button:hover {
+            background-color: #FFC400; /* Darker gold on hover */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 640px) {
+            #chatbot-container {
+                /* Keep it anchored to the bottom right */
+                bottom: 10px;
+                right: 10px;
+                /* Set a max-width for the container itself to indirectly control chat window size */
+                max-width: 340px; /* Slightly larger than chat window to account for button */
+                /* Ensure it doesn't stretch across the screen */
+                left: auto;
+                width: auto;
+            }
+
+            #chat-window {
+                width: 320px; /* Fixed smaller width */
+                height: 400px; /* Fixed smaller height */
+                /* Position relative to #chatbot-container */
+                bottom: calc(100% + 15px); /* Position above the button */
+                right: 0; /* Align to the right edge of its container */
+                left: auto; /* Ensure it doesn't try to stretch from left */
+                padding: 0; /* Still no padding on the window itself */
+                max-width: none; /* Override previous max-width: 100% if present */
+            }
+
+            /* Adjust internal paddings for smaller screens */
+            #chat-header {
+                padding: 0.4rem 1rem; /* Reduced vertical padding for header */
+            }
+            #chat-header span {
+                font-size: 0.9rem; /* Slightly smaller font for header text */
+            }
+            #close-chat {
+                font-size: 1.2rem; /* Slightly smaller close button */
+            }
+
+            #chat-messages,
+            #chat-input-container {
+                padding-left: 1rem; /* Maintain consistent padding for content */
+                padding-right: 1rem;
+            }
+
+            /* llm-feature-button styles for max-width: 640px are now handled by the base style,
+               but we can still make them slightly smaller if desired for this breakpoint.
+               I'll keep them as they were to ensure consistent reduction. */
+            .llm-feature-button {
+                padding: 0.4rem 1rem; /* Further reduced padding for this breakpoint */
+                margin-top: 0.4rem; /* Further reduced top margin */
+                margin-bottom: 0.4rem; /* Further reduced bottom margin */
+                font-size: 0.9rem; /* Slightly smaller font for buttons */
+            }
+        }
+
+        /* Add a specific media query for even smaller screens, e.g., less than 375px wide */
+        @media (max-width: 375px) {
+            #chatbot-container {
+                max-width: 310px; /* Adjust container max-width for very small screens */
+            }
+            #chat-window {
+                width: 290px; /* Even smaller width for very narrow screens */
+                height: 380px; /* Even smaller height */
+            }
+            #chat-input {
+                font-size: 0.85rem; /* Slightly smaller font for input */
+            }
+
+            #chat-header span {
+                font-size: 0.85rem; /* Even smaller header text for very small screens */
+            }
+
+            .message-bubble {
+                font-size: 0.85rem; /* Slightly smaller message text */
+                padding: 0.6rem 0.8rem;
+            }
+
+            .llm-feature-button {
+                padding: 0.3rem 0.8rem; /* Further reduced padding for very small screens */
+                font-size: 0.8rem; /* Further reduced font size */
+                margin-top: 0.3rem;
+                margin-bottom: 0.3rem;
+            }
+        }

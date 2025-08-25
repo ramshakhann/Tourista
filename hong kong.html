@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourista - Explore Paradise Island</title>
+    <!-- Logo -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='transparent' stroke='white' stroke-width='2'/%3E%3Cg transform='scale(1.2) translate(4, 4)'%3E%3Cpath fill='%23FFA500' d='M6.428 1.151C6.708.591 7.213 0 7.86 0h.28c.646 0 1.151.59 1.432 1.151L10.29 3.55l3.7 3.7a.5.5 0 0 1-1.029.043L11.4 5.441V13a.5.5 0 0 1-1 0V5.441l-1.58-1.58a.5.5 0 0 1-.043-1.029l3.7-3.7-1.745-3.136-1.375 2.475V13a.5.5 0 0 1-1 0V3.753l-1.375-2.475-1.745 3.136 3.7 3.7a.5.5 0 0 1-.043 1.029L5.6 5.441V13a.5.5 0 0 1-1 0V5.441L3.02 7.02a.5.5 0 0 1-1.029-.043l3.7-3.7L4.28 1.151z'/%3E%3C/g%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Open Sans Font for Nav Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Pacifico Font for Website Title -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Great Vibes Font for Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons (Social Media, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light gray background */
+            overflow-x: hidden; /* Prevent horizontal scroll during animations */
+            transition: background-color 0.3s ease; /* Smooth transition for theme change */
+        }
+
+        .header {
+            background-image: linear-gradient(to right, #fc6739 0%,#fda470 50%, #f6f7f5 100%); /* Apply gradient background */
+        }
+
+        /* Custom Keyframe Animations for page/element transitions */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        @keyframes slideUpFadeIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up-fade {
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+        }
+
+        /* Styles for the dropdown submenu */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            background-color: #fff; /* White background for dropdown */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 0.5rem 0;
+            top: calc(100% + 5px); /* Position below the parent link */
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            display: block; /* Show on hover or when active class is applied by JS */
+        }
+
+        .dropdown-menu a {
+            color: #4a5568; /* Dark gray text */
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #e2e8f0; /* Light gray hover */
+        }
+
+        /* Tourista Theme Colors */
+        .main-accent {
+            color: #fc6739; /* Orange for main accents/icons */
+        }
+        .btn-primary {
+            background-color: #fc6739; /* Orange for primary buttons */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #e05e32; /* Darker orange on hover */
+            box-shadow: 0 4px 15px rgba(252, 103, 57, 0.6);
+        }
+        .section-bg-light {
+            background-color: #ffffff; /* White section background */
+        }
+        .section-bg-accent {
+            background-color: #fff7ed; /* Lightest orange for sections */
+        }
+        .text-primary {
+            color: #1a202c; /* Dark text for headings */
+        }
+        .text-secondary {
+            color: #4a5568; /* Slightly lighter text for paragraphs */
+        }
+        .footer-bg {
+            background-image: url(./assets/images/footer.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #cbd5e0; /* Light text for footer */
+        }
+        .footer-link-hover:hover {
+            color: #ffffff;
+        }
+        .nav-link-hover {
+            transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+            padding: 8px 12px; /* Added padding */
+            font-family: 'Open Sans', sans-serif; /* Applied Open Sans to nav links */
+            font-weight: 600; /* Added boldness */
+            color: white; /* Changed to white */
+        }
+       .nav-link-hover:hover {
+             color: #f3a108; /* Orange for nav link hover */
+            background-color: rgb(0, 0, 0); 
+            border-radius: 0.5rem; /* Rounded corners on hover */
+        }
+
+        /* Hero Background with Placeholder */
+        .hero-background {
+            background-image: url('./assets/images/hong kong hero.jpg'); /* Calming green/teal tone */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Initial hidden state for elements to be animated on scroll */
+        .initial-hidden {
+            opacity: 0;
+        }
+        * {
+            font-family: 'Inter', sans-serif; /* Ensure Inter is the default */
+        }
+
+        /* Stylish Heading */
+        .stylish-heading {
+            font-family: 'Great Vibes', cursive; /* Apply Great Vibes font */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(248, 102, 5, 0.3); /* Softer shadow */
+            line-height: 1.2;
+            color: #ff3c00; /* Orange color for the heading */
+        }
+
+        /* Section specific styles for content cards */
+        .content-card {
+            background-color: #000000;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .rating-stars {
+            color: #FFD700; /* Gold color for stars */
+        }
+
+      
+
+        
+          /* Custom scrollbar for a cleaner look */
+        .carousel-track::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-track::-webkit-scrollbar-track {
+            background: #ff5203;
+            border-radius: 10px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb {
+            background: #fd4902;
+            border-radius: 10px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb:hover {
+            background: #f75220;
+            border-radius: 10px;
+        }
+
+        /* Smooth scrolling behavior */
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+     
+
+        /* Custom button styling for hover effects */
+        .carousel-button {
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+
+        .carousel-button:hover {
+            transform: scale(1.1);
+            background-color: rgb(255, 74, 2);
+        }
+
+        /* Modal specific styles */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Custom scrollbar for a cleaner look */
+        .carousel-errow::-webkit-scrollbar::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-errow::-webkit-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .carousel-errow::-webkit-scrollbar::-webkit-scrollbar-thumb {
+            background: #bd0606;
+            border-radius: 10px;
+        }
+
+        .carousel-errow::-webkit-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #b60e0e;
+            border-radius: 10px;
+        }
+
+       
+
+      
+
+        /* Custom button styling for hover effects */
+        .carousel-btn {
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1);
+            background-color: rgb(255, 60, 0);
+        }
+
+        /* For line-clamp utility, if not natively supported by Tailwind JIT/config */
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    /* Custom styles for the overlay effect */
+        .tip-item {
+            position: relative;
+            overflow: hidden; /* Ensures the overlay doesn't spill out */
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out; /* Smooth scale effect on hover */
+        }
+
+        .tip-item:hover {
+            transform: translateY(-5px); /* Slightly lift the card on hover */
+        }
+
+        .overlay-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire area */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease-in-out; /* Smooth fade transition */
+            z-index: 10; /* Ensure it's above the content initially */
+            border-radius: 0.75rem; /* Match parent rounded corners */
+        }
+
+        .tip-content {
+            position: relative;
+            z-index: 20; /* Ensure content is above the overlay when visible */
+            background-color: rgba(0, 0, 0, 0.9); /* Slightly transparent background for readability */
+            padding: 1.5rem; /* Match parent padding */
+            border-radius: 0.75rem; /* Match parent rounded corners */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .tip-item:hover .overlay-image {
+            opacity: 1; /* Show on hover */
+        }
+
+        .tip-item:hover .tip-content {
+            background-color: rgba(0, 0, 0, 0.7); /* More transparent on hover */
+        }
+
+     #mobile-menu 
+        {
+            background-color: rgb(0, 0, 0);
+            opacity: 90%;
+            color: orangered;
+            
+
+        } 
+        #mobile-menu a
+        {
+            color: rgb(255, 145, 0);
+            font-weight: bold;
+
+        }
+         #mobile-menu a:hover
+        {
+            background-color: rgb(255, 145, 0);
+            color: rgb(255, 255, 255);
+
+        }
+    </style>
+</head>
+<body class="animate-fade-in">
+   <!-- Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url(./assets/images/hero.jpg);">
+             <!-- Header/Navigation Bar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-white/70 backdrop-blur-sm  fixed w-full top-0 z-50" style="background-color: transparent; ">
+           <a href="index.html" class="text-white rounded-lg flex items-center mr-4" style="font-family: 'Pacifico', cursive; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <!-- Plane icon with orange color and white border -->
+                <i class="fas fa-plane text-3xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                Tourista
+            </a>
+            <div id="navbar" class="hidden md:flex items-center space-x-4"> 
+                <a href="index.html" class="nav-link-hover rounded-lg">Home</a>
+                <a href="./destinations.html" class="nav-link-hover rounded-lg">Destinations</a>
+                <a href="./Guides.html" class="nav-link-hover rounded-lg">Guide</a>
+                <a href="./reviews.html" class="nav-link-hover rounded-lg">Reviews</a>
+                <a href="./contact.html "class="nav-link-hover rounded-lg">Contact</a>
+                <a href="./about_us.html"class="nav-link-hover rounded-lg">About</a>
+
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-secondary hover:text-main-accent focus:outline-none rounded-lg p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-[72px] left-0 w-full bg-white py-2 shadow-lg rounded-b-lg z-40 transition-all duration-300 ease-in-out">
+            <a href="index.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Home</a>
+            <a href="./destinations.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2"> Destinations</a>
+            <a href="./Guides.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Guide</a>
+            <a href="./reviews.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Reviews</a>
+            <a href="contact.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Contact</a>
+            <a href="./about_us.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">About</a>
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-background h-screen flex items-center justify-center text-center px-4 py-20 bg-cover bg-center rounded-b-2xl">
+            <div class="bg-black bg-opacity-30 p-8 rounded-xl max-w-3xl"  style=" box-shadow: 0 4px 15px rgb(253, 109, 13);">
+           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; text-shadow: 5px 5px 5px #000000; color: rgb(248, 143, 6);">Welcome to Hong Kong <br> Asia’s World City!</h1>
+
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto animate-slide-up-fade" style="animation-delay: 0.3s;">
+                </p>
+                
+            </div>
+        </section>
+
+    <!-- About Destination Section -->
+    <section id="about-destination" class="py-16 px-4 bg-gray-50" style="background-color: rgb(0, 0, 0);">
+        <div class="container mx-auto">
+            <h1 class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #ec791b;">About Hong Kong</h1>
+            <div class="flex flex-col lg:flex-row items-center wid-10">
+                <div class="lg:w-1/2 content-card animate-slide-up-fade" style="background-color: rgb(255, 81, 0); " >
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6" style="color: #ffffff;">
+Hong Kong is a dazzling fusion of East and West — a place where towering skyscrapers stand beside traditional temples, and dim sum meets high fashion. With scenic harbors, bustling street markets, lush mountains, and a world-famous skyline, Hong Kong is a sensory-rich destination where modern life and ancient culture live side by side.</p>                    </div>
+                <div class="lg:w-1/2 grid grid-cols-2 wid-4 animate-slide-up-fade" style="animation-delay: 0.2s;">
+                    <img src="./assets/images/hong kong pc1.jpg" alt="Beach View" class="rounded-xl shadow-md w-full h-auto object-cover">
+                    <img src="./assets/images/hong kong pc2.jpg" alt="Waterfall" class="rounded-xl shadow-md w-full h-auto object-cover">
+                    <img src="./assets/images/hong kong pc3.jpg" alt="Local Culture" class="rounded-xl shadow-md w-full h-auto object-cover">
+                    <img src="./assets/images/hong kong pc4.jpg" alt="Marine Life" class="rounded-xl shadow-md w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 6 Restaurants Section -->
+<section class="bg-gray-100 flex items-center justify-center p-4 font-inter" style="background-color: black;">
+              <div class="w-full max-w-6xl mx-auto">
+       <h1 class="text-6xl font-bold text-white-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #ec791b; " > Restaurants In Hong Kong</h1>
+
+        <div class="relative">
+            <!-- Carousel Container -->
+            <div id="carousel-track" class="flex overflow-x-hidden scroll-smooth space-x-6 pb-4" >
+                <!-- Cards will be dynamically inserted here by JavaScript -->
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button id="prev-btn" class="carousel-button absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg z-10 -ml-4 md:-ml-8 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="next-btn" class="carousel-button absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg z-10 -mr-4 md:-mr-8 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    </div>
+    
+    </section>
+    
+
+    <!-- Top 6 Hotels Section -->
+     
+      <section class="py-16 px-4 bg-black" >
+        <div class="container mx-auto">
+   <div class="w-full max-w-6xl mx-auto">
+        <h1 class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #ec791b;"> Hotels In Hong kong</h1>
+
+        <div class="relative">
+            <!-- Hotel Carousel Container -->
+            <div id="hotel-carousel-errow.carousel-errow::-webkit-scrollbar" class="flex overflow-x-hidden scroll-smooth space-x-6 pb-4">
+                <!-- Hotel Cards will be dynamically inserted here by JavaScript -->
+            </div>
+
+            <!-- Hotel Navigation Buttons -->
+            <button id="hotel-prev-btn" class="carousel-btn absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg z-10 -ml-4 md:-ml-8 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="hotel-next-btn" class="carousel-btn absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg z-10 -mr-4 md:-mr-8 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+        </div>
+      </section>
+
+
+    
+    <!-- Top 6 Famous Foods Section -->
+    <section class="py-16 px-4 bg-black">
+        <div class="container mx-auto bg-black">
+            <h1 class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #ec791b;">Delicious Food Selection</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 wid-6">
+            <!-- Card 1:-->
+            <div class="bg-black rounded-2xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-4 m-5" style="border: 3px solid rgb(252, 136, 42);">
+                <div class="w-full sm:w-1/3 flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+                    <img src="./assets/images/hong kong food 1.jpg" alt="Italian Pasta" class="w-full h-auto rounded-xl object-cover">
+                </div>
+                <div class="flex-grow text-center sm:text-left relative">
+                    <h2 class="text-xl font-semibold text-900 mt-4 sm:mt-0" style="color: white;">Dim Sum	 </h2>
+                    <p class="text-gray-600 text-sm" style="color: white;">Small steamed dishes like dumplings and buns — best shared with tea.	</p>
+                </div> 
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-black rounded-2xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-4 m-5" style="border: 3px solid rgb(252, 136, 42);">
+                <div class="w-full sm:w-1/3 flex-shrink-0 mb-4 sm:mb-0 sm:mr-4" >
+                    <img src="./assets/images/hong kong food 2.jpg" alt="Sushi Rolls" class="w-full h-auto rounded-xl object-cover">
+                </div>
+                <div class="flex-grow text-center sm:text-left relative" >
+                    
+                    <h2 class="text-xl font-semibold text-gray-900 mt-4 sm:mt-0" style="color: white;"> Wonton Noodles	</h2>
+                    <p class="text-gray-600 text-sm" style="color: white;">Thin egg noodles in clear broth with shrimp wontons.	</p>
+                </div>
+            </div>
+
+            <!-- Card 3:-->
+            <div class="bg-black rounded-2xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-4 m-5" style="border: 3px solid rgb(252, 136, 42);">
+                <div class="w-full sm:w-1/3 flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+                    <img src="./assets/images/hong kong food 3.jpg" alt="Gourmet Burger" class="w-full h-auto rounded-xl object-cover">
+                </div>
+                <div class="flex-grow text-center sm:text-left relative">
+                    
+                    <h2 class="text-xl font-semibold text-gray-900 mt-4 sm:mt-0" style="color: white;"> Char Siu (BBQ Pork)	 </h2>
+                    <p class="text-gray-600 text-sm" style="color: white;">Sweet, sticky, roasted pork with red glaze.	</p>
+                </div>
+            </div>
+
+            <!-- Card 4-->
+            <div class="bg-black rounded-2xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-4 m-5" style="border: 3px solid rgb(252, 136, 42);">
+                <div class="w-full sm:w-1/3 flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+                    <img src="./assets/images/hong kong food 4.jpg" alt="Vegan Salad" class="w-full h-auto rounded-xl object-cover">
+                </div>
+                <div class="flex-grow text-center sm:text-left relative">
+                   
+                    <h2 class="text-xl font-semibold text-gray-900 mt-4 sm:mt-0" style="color: white;"> Roast Goose	</h2>
+                    <p class="text-gray-600 text-sm" style="color: white;">Crispy skin and tender meat, a Hong Kong specialty.	</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-black rounded-2xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-4 m-5" style="border: 3px solid rgb(252, 136, 42);">
+                <div class="w-full sm:w-1/3 flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+                    <img src="./assets/images/hong kong food 5.jpg" alt="Spicy Tacos" class="w-full h-auto rounded-xl object-cover">
+                </div>
+                <div class="flex-grow text-center sm:text-left relative">
+                  
+                    <h2 class="text-xl font-semibold text-gray-900 mt-4 sm:mt-0" style="color: white;">Pineapple Bun (Bo Lo Bao)	</h2>
+                    <p class="text-gray-600 text-sm" style="color: white;">Sweet bun with a crunchy topping, often filled with butter.	</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-black rounded-2xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-4 m-5" style="border: 3px solid rgb(252, 136, 42);">
+                <div class="w-full sm:w-1/3 flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+                    <img src="./assets/images/hong kong food 6.jpg" alt="Delicious Dessert" class="w-full h-auto rounded-xl object-cover">
+                </div>
+                <div class="flex-grow text-center sm:text-left relative" >
+                    
+                    <h2 class="text-xl font-semibold text-gray-900 mt-4 sm:mt-0" style="color: white;"> Egg Tarts	</h2>
+                    <p class="text-gray-600 text-sm" style="color: white;">Flaky pastry filled with creamy egg custard.	</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Activities to Try Section -->
+    <section class="py-16 px-4 bg-w-50 bg-black">
+        <div class="container mx-auto bg-black">
+            <h1 class="text-6xl font-bold text-white-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #ec791b;">Activities to Try In Hong kong</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 wid-8 " >
+                <!-- Activity 1 -->
+                <div class="content-card flex items-center animate-slide-up-fade m-5" style="animation-delay: 0.1s; border: 3px solid rgb(252, 136, 42);">
+                    <i class="fas fa-sun text-orange-500 text-4xl mr-4"></i>
+                    <div >
+                        <h3 class="text-xl font-semibold text-800 mb-1" style="color: white;">Victoria Peak Tram & Sky Terrace	</h3>
+                        <p class="text-600" style="color: white;">Ride the iconic tram and enjoy sweeping city views.	</p>
+                    </div>
+                </div>
+                <!-- Activity 2 -->
+                <div class="content-card flex items-center animate-slide-up-fade m-5" style="animation-delay: 0.1s; border: 3px solid rgb(252, 136, 42);">
+                    <i class="fas fa-star text-orange-500 text-4xl mr-4"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold text-800 mb-1" style="color: white;">Star Ferry Ride	</h3>
+                        <p class="text-600" style="color: white;">Cross Victoria Harbour with skyline views for just a few HKD.	</p>
+                    </div>
+                </div>
+                <!-- Activity 3 -->
+                <div class="content-card flex items-center animate-slide-up-fade m-5" style="animation-delay: 0.2s; border: 3px solid rgb(252, 136, 42);">
+                    <i class="fas fa-shopping-basket text-orange-500 text-4xl mr-4"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold text-800 mb-1" style="color: white;">Shop at Temple Street Night Market	</h3>
+                        <p class="text-600" style="color: white;">Hunt for souvenirs, street food, and fortune tellers.	</p>
+                    </div>
+                </div>
+                <!-- Activity 4 -->
+                <div class="content-card flex items-center animate-slide-up-fade m-5" style="animation-delay: 0.3s; border: 3px solid rgb(252, 136, 42);">
+                    <i class="fas fa-ship text-orange-500 text-4xl mr-4"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold text-800 mb-1" style="color: white;"> Explore Lantau Island & Tian Tan Buddha	</h3>
+                        <p class="text-600" style="color: white;">Visit the giant Buddha, Ngong Ping cable car, and peaceful trails.	</p>
+                    </div>
+                </div>
+                <!-- Activity 5 -->
+                <div class="content-card flex items-center animate-slide-up-fade m-5" style="animation-delay: 0.4s; border: 3px solid rgb(252, 136, 42);">
+                    <i class="fas fa-shop text-orange-500 text-4xl mr-4"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold text-800 mb-1" style="color: white;">Wander through Mong Kok	</h3>
+                        <p class="text-600" style="color: white;">See street markets, neon lights, and the real pulse of HK.	</p>
+                    </div>
+                </div>
+                <!-- Activity 6 -->
+                <div class="content-card flex items-center animate-slide-up-fade m-5" style="animation-delay: 0.5s; border: 3px solid rgb(252, 136, 42);">
+                    <i class="fas fa-praying-hands text-orange-500 text-4xl mr-4"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold text-800 mb-1" style="color: white;">Visit Man Mo Temple	</h3>
+                        <p class="text-600" style="color: white;">One of the oldest temples in the city — full of incense and tradition.	</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class=" min-h-screen flex items-center justify-center py-12" style="background-color: rgb(0, 0, 0);">
+
+    <div class="container mx-auto p-4 max-w-6xl bg-black">
+        <h1 class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #ec791b;">
+           Essential Travel Tips 
+        </h1>
+
+    <!-- Travel Tips Section -->
+        <div class="mb-16">
+            <h3 class="text-5xl font-bold text-gray-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #fffb07;">
+                <i class="fas fa-plane-departure mr-3;"></i>Planning & Preparation
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tip 1 -->
+                <div class="tip-item  rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/blue.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-blue-500 mb-4"><i class="fas fa-calendar-check"></i></span>
+                        <p class="tip-text text-xl font-semibold text-800" style="color: white;">Book in Advance</p>
+                        <p class="text-600 mt-2" style="color: white;">Secure flights and accommodation early for better deals and availability, especially during peak seasons.</p>
+                    </div>
+                </div>
+                <!-- Tip 2 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/green.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-green-500 mb-4"><i class="fas fa-globe-americas"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Research Your Destination</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Understand local customs, currency, transportation, and safety guidelines before you go.</p>
+                    </div>
+                </div>
+                <!-- Tip 3 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/orange.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-yellow-500 mb-4"><i class="fas fa-suitcase-rolling"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Pack Smart</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Make a packing list and consider rolling clothes to save space. Don't forget essentials like chargers and adapters.</p>
+                    </div>
+                </div>
+                <!-- Tip 4 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/red.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-red-500 mb-4"><i class="fas fa-shield-alt"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Travel Insurance is Key</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Protect yourself against unforeseen circumstances like medical emergencies, trip cancellations, or lost luggage.</p>
+                    </div>
+                </div>
+                <!-- Tip 5 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/bluee.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-indigo-500 mb-4"><i class="fas fa-copy"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Copy Important Documents</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Keep digital and physical copies of your passport, visa, tickets, and reservations separate from the originals.</p>
+                    </div>
+                </div>
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/purple.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-purple-600 mb-4"><i class="fas fa-university"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Notify Your Bank</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Inform your bank and credit card companies about your travel dates to avoid any issues with transactions abroad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- During Your Trip Section -->
+        <div class="mb-16" style="background-color: black;">
+            <h3 class="text-5xl font-bold text-gray-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #07b9ff;">
+                <i class="fas fa-umbrella-beach mr-3"></i>During Your Trip
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tip 7 -->
+                <div class="tip-item bg-black rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/blue.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-blue-400 mb-4"><i class="fas fa-tint"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Stay Hydrated</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Drink plenty of water, especially during flights or in hot climates, to avoid dehydration.</p>
+                    </div>
+                </div>
+                <!-- Tip 8 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/purple.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-purple-500 mb-4"><i class="fas fa-comments"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Learn Basic Phrases</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Even a few words in the local language can enhance your experience and show respect to locals.</p>
+                    </div>
+                </div>
+                <!-- Tip 9 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/orange.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-orange-700 mb-4"><i class="fas fa-handshake"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Be Mindful of Local Customs</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Dress appropriately, especially when visiting religious sites, and respect local traditions and etiquette.</p>
+                    </div>
+                </div>
+                <!-- Tip 10 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/red.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-red-500 mb-4"><i class="fas fa-lock"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Keep Valuables Secure</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Use a money belt, secure backpack, or hotel safe to protect your belongings from theft.</p>
+                    </div>
+                </div>
+                <!-- Tip 11 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/green.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-green-500 mb-4"><i class="fas fa-wifi"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Stay Connected (Safely)</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Consider an international SIM card or Wi-Fi hotspot, but be wary of public Wi-Fi for sensitive transactions.</p>
+                    </div>
+                </div>
+                 <!-- Tip 12 -->
+                
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/bluee.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-blue-300 mb-4"><i class="fas fa-bus"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Embrace Local Transport</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Utilize public transportation or walk to truly immerse yourself in the local atmosphere and save money.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Making Memories & Beyond Section -->
+        <div>
+            <h3 class="text-5xl font-bold text-gray-800 mb-10 text-center stylish-heading"  style="font-family: 'Great Vibes', cursive; color: #ff078f;">
+                <i class="fas fa-camera-retro mr-3"></i>Making Memories & Beyond
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tip 13 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/pink.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-pink-500 mb-4"><i class="fas fa-camera"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Capture the Moment</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Take photos and videos, but also remember to put your camera down and simply enjoy the experience.</p>
+                    </div>
+                </div>
+                <!-- Tip 14 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/orange.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-orange-500 mb-4"><i class="fas fa-utensils"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Try Local Cuisine</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Be adventurous and sample authentic dishes – it's a fantastic way to experience the local culture.</p>
+                    </div>
+                </div>
+                <!-- Tip 15 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/teal.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-teal-400 mb-4"><i class="fas fa-random"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Stay Flexible</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Travel can be unpredictable. Embrace unexpected changes and go with the flow for a less stressful trip.</p>
+                    </div>
+                </div>
+                <!-- Tip 16 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/yellow.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-yellow-400 mb-4"><i class="fas fa-envelope-open-text"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Send Postcards (or E-cards)</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Share your journey with loved ones back home and send them a piece of your adventure.</p>
+                    </div>
+                </div>
+                <!-- Tip 17 -->
+                <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/purple.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-purple-300 mb-4"><i class="fas fa-book-open"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Reflect and Journal</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Document your experiences and thoughts; it's a wonderful way to remember your adventures and growth.</p>
+                    </div>
+                </div>
+                 <!-- Tip 18 -->
+                 <div class="tip-item bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 relative" style="background-image:url(./assets/images/bluee.jpg) ;">
+                    <div class="tip-content">
+                        <span class="icon text-5xl text-violet-500 mb-4"><i class="fas fa-store"></i></span>
+                        <p class="tip-text text-xl font-semibold text-gray-800" style="color: white;">Support Local Businesses</p>
+                        <p class="text-gray-600 mt-2" style="color: white;">Buy souvenirs and eat at establishments that directly benefit the local community and economy.</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer-bg py-8 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <a href="index.html" class="text-white rounded-lg flex items-center" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                    <i class="fas fa-plane text-2xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                    Tourista
+                </a>
+            </div>
+            <p class="mb-4 md:mb-0">&copy; 2023 Tourista. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="index.html" class="hover:text-white transition duration-300 footer-link-hover">Home</a>
+                <a href="about_us.html" class="hover:text-white transition duration-300 footer-link-hover">About </a>
+                <a href="destinations.html" class="hover:text-white transition duration-300 footer-link-hover">Destinations</a>
+                <a href="reviews.html" class="hover:text-white transition duration-300 footer-link-hover">Reviews</a>
+                <a href="contact.html" class="hover:text-white transition duration-300 footer-link-hover">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // JavaScript for Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // JavaScript for Dropdown Menu Toggle (for mobile, if needed)
+        document.querySelectorAll('.dropdown > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Only prevent default if it's a mobile dropdown to allow desktop hover
+                if (window.innerWidth < 768) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+        // JavaScript for Marquee Duplication
+        document.addEventListener('DOMContentLoaded', () => {
+            const marqueeTrack = document.querySelector('.site-footer-marquee__track');
+            const marqueeGrid = document.querySelector('.site-footer-marquee__grid');
+
+            if (marqueeTrack && marqueeGrid) {
+                // Duplicate the content to create a seamless loop
+                const clonedContent = marqueeGrid.cloneNode(true);
+                marqueeTrack.appendChild(clonedContent);
+
+                // Calculate animation duration based on content width
+                const contentWidth = marqueeGrid.offsetWidth;
+                const animationDuration = contentWidth / 50; // Adjust 50 for speed (pixels per second)
+                marqueeTrack.style.setProperty('--animation-duration', `${animationDuration}s`);
+            }
+        });
+
+        // Intersection Observer for Scroll Animations
+        const animateOnScrollElements = document.querySelectorAll('.animate-slide-up-fade');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('initial-hidden');
+                    entry.target.classList.add('animate-slide-up-fade');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        
+   
+    </script>
+    
+    <script>
+        // Array of restaurant data
+        const restaurants = [
+            {
+                id: 1,
+                name: "Tsim Chai Kee	",
+                location: " Hong kong",
+                rating: 4.7,
+                description: " Giant wonton noodles served fast and fresh.	",
+                imageUrl: "./assets/images/hong kong restaurent 1.jpg"
+            },
+            {
+                id: 2,
+                name: "Tim Ho Wan	",
+                location: "Hong kong",
+                rating: 4.8,
+                description: "The world’s cheapest Michelin-starred dim sum.	",
+                imageUrl: "./assets/images/hong kong restaurent 2.jpg"
+            },
+            {
+                id: 3,
+                name: "Lung King Heen	",
+                location: "Hong kong",
+                rating: 5.0,
+                description: "First 3-Michelin-star Chinese restaurant.	",
+                imageUrl: "./assets/images/hong kong restaurent 3.jpg"
+            },
+            {
+                id: 4,
+                name: "Mak’s Noodle	",
+                location: "Hong kong",
+                rating: 4.6,
+                description: "Iconic for wonton noodles since the 1960s.	",
+                imageUrl: "./assets/images/hong kong restaurent 4.jpg"
+            },
+            {
+                id: 5,
+                name: "Amber	",
+                location: "Hong kong",
+                rating: 4.7,
+                description: "Stylish fine dining with artistic presentation.	",
+                imageUrl: "./assets/images/hong kong restaurent 5.jpg"
+            },
+            {
+                id: 6,
+                name: "Ho Lee Fook	",
+                location: "Hong kong",
+                rating: 4.6,
+                description: "Funky fusion flavors in a cool Soho setting.	",
+                imageUrl: "./assets/images/hong kong restaurent 6.jpg"
+            },
+            {
+                id: 7,
+                name: "Bo Innovation	",
+                location: "Hong kong",
+                rating: 4.7,
+                description: "Avant-garde dishes from celebrity chef Alvin Leung.	.",
+                imageUrl: "./assets/images/hong kong restaurent 7.jpg"
+            }
+        ];
+   
+            
+
+        const carouselTrack = document.getElementById('carousel-track');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function getStarRatingHtml(rating) {
+            const fullStar = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z" /></svg>`;
+            const halfStar = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292zM10 4.21l-.725 2.234a1 1 0 00-.95.69h-2.348l1.905 1.385a1 1 0 00.364 1.118l-.725 2.234 1.905-1.385a1 1 0 001.175 0l1.905 1.385-.725-2.234a1 1 0 00-.364-1.118l1.905-1.385h-2.348a1 1 0 00-.95-.69L10 4.21z" clip-rule="evenodd" /></svg>`;
+            const emptyStar = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z" /></svg>`;
+
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (rating >= i) {
+                    starsHtml += fullStar;
+                } else if (rating >= i - 0.5) {
+                    starsHtml += halfStar;
+                } else {
+                    starsHtml += emptyStar;
+                }
+            }
+            return starsHtml;
+        }
+
+      
+        function createRestaurantCard(restaurant) {
+            const card = document.createElement('div');
+            card.className = 'flex-none w-64 md:w-72  rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col';
+
+            card.innerHTML = `
+                <div class="relative" >
+                    <img src="${restaurant.imageUrl}" alt="${restaurant.name}" class="w-full h-48 object-cover rounded-t-xl  border border-orange-300" onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/000000?text=Image+Not+Found';">
+                </div>
+                <div class="p-5 flex flex-col flex-grow border border-orange-300" "> 
+                    <div>
+                        <h2 class="text-xl font-semibold text-white-800 mb-2" style="color: white ;">${restaurant.name}</h2>
+                        <div class="flex items-center text-600 text-sm mb-3" style="color: white ;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.727A8 8 0 016.343 7.273L7.273 6.343a9.999 9.999 0 0114.14 14.14l-1.01-1.01z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.75V21m-6-6h-3m18 0h-3" />
+                            </svg>
+                            <span>${restaurant.location}</span>
+                            <span class="mx-2">•</span>
+                            <div class="flex items-center">
+                                ${getStarRatingHtml(restaurant.rating)}
+                                <span class="ml-1 text-gray-700">${restaurant.rating.toFixed(1)}</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4 line-clamp-3" style="color: white ;">${restaurant.description}</p>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // Populate the carousel with cards
+        restaurants.forEach(restaurant => {
+            carouselTrack.appendChild(createRestaurantCard(restaurant));
+        });
+
+        // Carousel navigation logic
+        let scrollAmount = 0;
+        const gap = 24; // space-x-6 is 1.5rem = 24px
+
+        function getScrollPerClick() {
+            if (carouselTrack.children.length > 0) {
+                const firstCard = carouselTrack.children[0];
+                // OffsetWidth includes padding and border, but not margin. We add the gap.
+                return firstCard.offsetWidth + gap;
+            }
+            return 0; // Fallback if no cards are present
+        }
+
+        function updateButtonVisibility() {
+            // Show prev button if not at the beginning
+            prevBtn.style.display = carouselTrack.scrollLeft > 0 ? 'block' : 'none';
+
+            // Show next button if not at the end.
+            // A small tolerance (e.g., 1px) is used due to potential floating point inaccuracies.
+            const maxScrollLeft = carouselTrack.scrollWidth - carouselTrack.clientWidth;
+            nextBtn.style.display = carouselTrack.scrollLeft < maxScrollLeft - 1 ? 'block' : 'none';
+        }
+
+        // Event listener for next button
+        nextBtn.addEventListener('click', () => {
+            const scrollStep = getScrollPerClick();
+            carouselTrack.scrollLeft += scrollStep;
+            // updateButtonVisibility is called by the scroll event itself due to smooth scrolling
+        });
+
+        // Event listener for previous button
+        prevBtn.addEventListener('click', () => {
+            const scrollStep = getScrollPerClick();
+            carouselTrack.scrollLeft -= scrollStep;
+            // updateButtonVisibility is called by the scroll event itself due to smooth scrolling
+        });
+
+        function openModal(data) {
+            modalTitle.textContent = data.name;
+            modalImage.src = data.image;
+            modalImage.alt = data.name;
+            modalLocation.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.727A8 8 0 016.343 7.273L7.273 6.343a9.999 9.999 0 0114.14 14.14l-1.01-1.01z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.75V21m-6-6h-3m18 0h-3" />
+                                        </svg> ${data.location}`;
+            modalRating.innerHTML = `<div class="flex items-center">${getStarRatingHtml(parseFloat(data.rating))} <span class="ml-1 text-gray-700">${parseFloat(data.rating).toFixed(1)}</span></div>`;
+            modalDescription.textContent = data.description;
+            modalPrice.textContent = `Avg. $${data.price}`;
+
+            modal.classList.remove('hidden');
+            // Animate modal entry
+            setTimeout(() => {
+                modalContentWrapper.classList.remove('scale-95', 'opacity-0');
+                modalContentWrapper.classList.add('scale-100', 'opacity-100');
+            }, 10); // Small delay to allow 'hidden' to be removed first for transition to work
+        }
+
+        /**
+         * Closes the restaurant details modal.
+         */
+        function closeModal() {
+            // Animate modal exit
+            modalContentWrapper.classList.remove('scale-100', 'opacity-100');
+            modalContentWrapper.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Match transition duration
+        }
+
+        // Event listeners for view details buttons (using event delegation)
+        carouselTrack.addEventListener('click', (event) => {
+            const viewBtn = event.target.closest('.view-details-btn');
+            if (viewBtn) {
+                // Extract data from dataset attributes
+                const data = {
+                    id: viewBtn.dataset.id,
+                    name: viewBtn.dataset.name,
+                    location: viewBtn.dataset.location,
+                    rating: viewBtn.dataset.rating,
+                    description: viewBtn.dataset.description,
+                    image: viewBtn.dataset.image,
+                    price: viewBtn.dataset.price
+                };
+                openModal(data);
+            }
+        });
+
+        // Event listener for close modal button
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside the content area
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) { // Check if the click was directly on the overlay
+                closeModal();
+            }
+        });
+
+        // Update buttons on initial load and resize
+        window.addEventListener('load', updateButtonVisibility);
+        window.addEventListener('resize', updateButtonVisibility);
+        carouselTrack.addEventListener('scroll', updateButtonVisibility); // Update on manual scroll
+    </script>
+  <script>
+        // Array of hotel data
+        const hotels = [
+            {
+                id: 1,
+                name: "The Peninsula	",
+                rating: 5.0,
+                imageUrl: "./assets/images/hong kong hotel 1.jpg",
+                overlayImageUrl: "./assets/images/hong kong hotel overlay 1.jpg",
+            },
+            {
+                id: 2,
+                name: "Four Seasons Hong Kong	",
+                rating: 5.0,
+                imageUrl: "./assets/images/hong kong hotel 2.jpg",
+                overlayImageUrl: "./assets/images/hong kong hotel overlay 2.jpg",
+            },
+            {
+                id: 3,
+                name: "Rosewood Hong Kong	",
+                rating: 4.9,
+                imageUrl: "./assets/images/hong kong hotel 3.jpg",
+                overlayImageUrl: "./assets/images/hong kong hotel overlay 3.jpg",
+            },
+            {
+                id: 4,
+                name: "The Upper House	",
+                rating: 4.8,
+                imageUrl: "./assets/images/hong kong hotel 4.jpg",
+                overlayImageUrl: "./assets/images/hong kong hotel overlay 4.jpg",
+            },
+            {
+                id: 5,
+                name: "The Ritz-Carlton Hong Kong	",
+                rating: 4.9,
+                imageUrl: "./assets/images/hong kong hotel 5.jpg",
+                overlayImageUrl: "./assets/images/hong kong hotel overlay 5.jpg",
+            }
+        ];
+
+        const hotelCarouselTrack = document.getElementById('hotel-carousel-errow.carousel-errow::-webkit-scrollbar');
+        const hotelPrevBtn = document.getElementById('hotel-prev-btn');
+        const hotelNextBtn = document.getElementById('hotel-next-btn');
+
+      
+        function getStarRatingHtml(rating) {
+            const fullStar = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z" /></svg>`;
+            const halfStar = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292zM10 4.21l-.725 2.234a1 1 0 00-.95.69h-2.348l1.905 1.385a1 1 0 00.364 1.118l-.725 2.234 1.905-1.385a1 1 0 001.175 0l1.905 1.385-.725-2.234a1 1 0 00-.364-1.118l1.905-1.385h-2.348a1 1 0 00-.95-.69L10 4.21z" clip-rule="evenodd" /></svg>`;
+            const emptyStar = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z" /></svg>`;
+
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (rating >= i) {
+                    starsHtml += fullStar;
+                } else if (rating >= i - 0.5) {
+                    starsHtml += halfStar;
+                } else {
+                    starsHtml += emptyStar;
+                }
+            }
+            return starsHtml;
+        }
+
+       
+        function createCard(item) {
+            const card = document.createElement('div');
+            card.className = 'flex-none w-56 md:w-64 bg-black rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col relative';
+
+            card.innerHTML = `
+                <!-- Main Image Wrapper with rounded top and overflow hidden -->
+                <div class="relative rounded-t-xl overflow-hidden">
+                    <img src="${item.imageUrl}" alt="${item.name}" class="w-full h-64 object-cover rounded-t-xl border border-orange-300" onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/000000?text=Image+Not+Found';">
+                </div>
+
+                <!-- Circular Overlay Image - increased size to w-32 h-32 -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-32 h-32  rounded-full shadow-lg p-1 flex items-center justify-center z-40" style="top: calc(256px - 64px); background-color:white">
+                    <img src="${item.overlayImageUrl}" alt="Overlay Icon" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/100x100/eeeeee/000000?text=Icon';">
+                </div>
+
+                <!-- Text Label - positioned relative to the card, z-index 30 -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 text-center z-30" style="top: calc(256px + 64px + 8px);">
+                </div>
+
+                <!-- Content Section - padding adjusted to clear the absolute elements -->
+                <div class="p-5 flex flex-col flex-grow pt-[100px] border border-orange-300">
+                    <div>
+                        <h2 class="text-xl font-semibold text-white-800 mb-2 style="color: white ;"" style="color: white ;">${item.name}</h2>
+                        <div class="flex items-center text-600 text-sm mb-3" style="color: white ;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.727A8 8 0 016.343 7.273L7.273 6.343a9.999 9.999 0 0114.14 14.14l-1.01-1.01z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.75V21m-6-6h-3m18 0h-3" />
+                            </svg>
+                            <span>${item.location}</span>
+                            <span class="mx-2">•</span>
+                            <div class="flex items-center" >
+                                ${getStarRatingHtml(item.rating)}
+                                <span class="ml-1 text-gray-700" >${item.rating.toFixed(1)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // Populate the hotel carousel with cards
+        hotels.forEach(hotel => {
+            hotelCarouselTrack.appendChild(createCard(hotel));
+        });
+
+        const gap2 = 24; // space-x-6 is 1.5rem = 24px
+
+      
+        function getScrollClick(track) {
+            if (track.children.length > 0) {
+                const firstCard = track.children[0];
+                return firstCard.offsetWidth + gap2;
+            }
+            return 0; // Fallback if no cards are present
+        }
+
+        function updateButtonVisibility(track, prevBtn, nextBtn) {
+            prevBtn.style.display = track.scrollLeft > 0 ? 'block' : 'none';
+            const maxScrollLeft = track.scrollWidth - track.clientWidth;
+            nextBtn.style.display = track.scrollLeft < maxScrollLeft - 1 ? 'block' : 'none';
+        }
+
+        // Setup carousel navigation for Hotels
+        hotelNextBtn.addEventListener('click', () => {
+            const scrollStep = getScrollPerClick(hotelCarouselTrack);
+            hotelCarouselTrack.scrollLeft += scrollStep;
+        });
+
+        hotelPrevBtn.addEventListener('click', () => {
+            const scrollStep = getScrollPerClick(hotelCarouselTrack);
+            hotelCarouselTrack.scrollLeft -= scrollStep;
+        });
+
+        // Update buttons on initial load and resize for the hotel carousel
+        window.addEventListener('load', () => {
+            updateButtonVisibility(hotelCarouselTrack, hotelPrevBtn, hotelNextBtn);
+        });
+
+        window.addEventListener('resize', () => {
+            updateButtonVisibility(hotelCarouselTrack, hotelPrevBtn, hotelNextBtn);
+        });
+
+        hotelCarouselTrack.addEventListener('scroll', () => {
+            updateButtonVisibility(hotelCarouselTrack, hotelPrevBtn, hotelNextBtn);
+        });
+    </script>
+    <script>
+        // Get all tip items
+        const tipItems = document.querySelectorAll('.tip-item');
+
+        tipItems.forEach(item => {
+            // Get the overlay image and content for each tip item
+            const overlayImage = item.querySelector('.overlay-image');
+            const tipContent = item.querySelector('.tip-content');
+
+            // Add mouseover event listener
+            item.addEventListener('mouseover', () => {
+                overlayImage.style.opacity = '1'; // Show the image
+                // Optional: Adjust content for better visibility on hover
+                tipContent.style.backgroundColor = 'rgba(255, 255, 255, 0.7)'; // Make content slightly more transparent
+                tipContent.style.backdropFilter = 'blur(2px)'; // Add a subtle blur behind content
+            });
+
+            // Add mouseout event listener
+            item.addEventListener('mouseout', () => {
+                overlayImage.style.opacity = '0'; // Hide the image
+                // Reset content background and blur
+                tipContent.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                tipContent.style.backdropFilter = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

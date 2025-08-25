@@ -1,0 +1,2827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready-to-Go Travel Kits</title>
+   <!-- Logo -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='transparent' stroke='white' stroke-width='2'/%3E%3Cg transform='scale(1.2) translate(4, 4)'%3E%3Cpath fill='%23FFA500' d='M6.428 1.151C6.708.591 7.213 0 7.86 0h.28c.646 0 1.151.59 1.432 1.151L10.29 3.55l3.7 3.7a.5.5 0 0 1-1.029.043L11.4 5.441V13a.5.5 0 0 1-1 0V5.441l-1.58-1.58a.5.5 0 0 1-.043-1.029l3.7-3.7-1.745-3.136-1.375 2.475V13a.5.5 0 0 1-1 0V3.753l-1.375-2.475-1.745 3.136 3.7 3.7a.5.5 0 0 1-.043 1.029L5.6 5.441V13a.5.5 0 0 1-1 0V5.441L3.02 7.02a.5.5 0 0 1-1.029-.043l3.7-3.7L4.28 1.151z'/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="stylesheet" href="chatbot.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Open Sans Font for Nav Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Pacifico Font for Website Title -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Great Vibes Font for Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons (Social Media, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Light gray background */
+            transition: background-color 0.3s ease; /* Smooth transition for theme change */
+            background-image: url(./assets/images/sincerely-media-UWdTDa1Z9DM-unsplash.jpg);
+            box-sizing: border-box;
+            width: 100%;
+        }
+          
+
+        /* Custom Keyframe Animations for page/element transitions */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        @keyframes slideUpFadeIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up-fade {
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+        }
+
+        /* Styles for the dropdown submenu */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            background-color: #fff; /* White background for dropdown */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 0.5rem 0;
+            top: calc(100% + 5px); /* Position below the parent link */
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            display: block; /* Show on hover or when active class is applied by JS */
+        }
+
+        .dropdown-menu a {
+            color: #4a5568; /* Dark gray text */
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #e2e8f0; /* Light gray hover */
+        }
+
+       
+        .main-accent {
+            color: #ec791b; /* Orange for main accents/icons */
+        }
+        .btn-primary {
+            background-color: #ec791b; /* Orange for primary buttons */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #d1610e; /* Darker orange on hover */
+            box-shadow: 0 4px 15px rgba(230, 135, 10, 0.884);
+        }
+        .section-bg-light {
+            background-color: #ffffff; /* White section background */
+        }
+        .section-bg-accent {
+            background-color: #fff7ed; /* Lightest orange for sections like features */
+        }
+        .text-primary {
+            color: #1a202c; /* Dark text for headings */
+        }
+        .text-secondary {
+            color: #4a5568; /* Slightly lighter text for paragraphs */
+        }
+        .footer-bg {
+            background-image: url(./assets/images/footer.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;           
+            color: #cbd5e0; /* Light text for footer */
+        }
+        .footer-link-hover:hover {
+            color: #ffffff;
+        }
+        .nav-link-hover {
+            transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+            padding: 8px 12px; /* Added padding */
+            font-family: 'Open Sans', sans-serif; /* Applied Open Sans to nav links */
+            font-weight: 600; /* Added boldness */
+            color: white; /* Changed to white */
+        }
+        .nav-link-hover:hover {
+            color: #ec791b; /* Orange for nav link hover */
+            background-color: rgb(0, 0, 0); /* Transparent orange background on hover */
+            border-radius: 0.5rem; /* Rounded corners on hover */
+        }
+          /* Initial hidden state for elements to be animated on scroll */
+        .initial-hidden {
+            opacity: 0;
+        }
+
+        /* Stylish heading class (for hero section and other main headings) */
+        .stylish-heading {
+            font-weight: bold;
+            line-height: 1.2; /* Ensure line height prevents collapse */
+        }
+        /* Custom styles for better aesthetics */
+        .card {
+            background-color: #000000; /* Darker orange card background */
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 5px 10px rgb(255, 148, 87);
+            transition: transform 0.3s ease; /* Added hover effect */
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+        /*  minimized cards */
+        .minimized-card {
+            max-width: 280px; /* Set a max-width for smaller cards */
+            margin-left: auto; /* Center the card within its grid column */
+            margin-right: auto; /* Center the card within its grid column */
+        }
+        .btn-primary {
+            background-color: #ed8936; /* Orange button */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #ff7e57; /* Darker orange on hover */
+        }
+        .accordion-header {
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .accordion-header:hover {
+            background-color: #c44902; /* Darker on hover */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-content.active {
+            max-height: 500px; /* Adjust as needed for content height */
+            transition: max-height 0.5s ease-in;
+        }
+        .select-box, .input-field {
+            background-color: #521c01;
+            border: 1px solid #ff8c2e;
+            color: #ffffff;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+        }
+        .select-box {
+            appearance: none; /* Remove default select arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23ed8936'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.5em 1.5em;
+        }
+        .input-field::placeholder {
+            color: #fbd38d80; /* Lighter placeholder text */
+        }
+         #mobile-menu 
+        {
+            background-color: rgb(0, 0, 0);
+            opacity: 90%;
+            color: orangered;
+            
+
+        } 
+        #mobile-menu a
+        {
+            color: rgb(255, 145, 0);
+            font-weight: bold;
+
+        }
+         #mobile-menu a:hover
+        {
+            background-color: rgb(255, 145, 0);
+            color: rgb(255, 255, 255);
+
+        }
+        
+        @media (max-width: 1200px) {
+         #navbar 
+    {
+        font-size: smaller;
+        color: #fc6739;
+    }
+ 
+    }
+
+ 
+ 
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 0 1rem; /* Add padding to prevent content from touching the edges */
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem; /* Further reduce padding for small mobile devices */
+    }
+}
+        @media (max-width: 640px) {
+    .select-box, .input-field {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    #headings {
+        font-size: 3rem; /* Adjust for tablet size */
+    }
+}
+
+@media (max-width: 480px) {
+    #headings {
+        font-size: 2rem; /* Ensure they fit on all mobile screens */
+    }
+}
+
+
+
+
+
+    </style>
+</head>
+<body class="animate-fade-in">
+  <!-- Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url(./assets/images/guide\ hero.jpg );">
+             <!-- Header/Navigation Bar -->
+            <header>
+             <nav class="flex justify-between items-center px-6 py-4 bg-white/70 backdrop-blur-sm  fixed w-full top-0 z-50" style="background-color: transparent; ">
+            <a href="index.html" class="text-white rounded-lg flex items-center mr-4" style="font-family: 'Pacifico', cursive; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <!-- Plane icon with orange color and white border -->
+                <i class="fas fa-plane text-3xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                Tourista
+            </a>
+            <div id="navbar" class="hidden md:flex items-center space-x-4"> 
+                <a href="index.html" class="nav-link-hover rounded-lg">Home</a>
+                <a href="./destinations.html" class="nav-link-hover rounded-lg">Destinations</a>
+                <a href="./Guides.html" class="nav-link-hover rounded-lg">Guide</a>
+                <a href="./reviews.html" class="nav-link-hover rounded-lg">Reviews</a>
+                <a href="./contact.html "class="nav-link-hover rounded-lg">Contact</a>
+                <a href="./about_us.html"class="nav-link-hover rounded-lg">About</a>
+
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-secondary hover:text-main-accent focus:outline-none rounded-lg p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-[72px] left-0 w-full bg-white py-2 shadow-lg rounded-b-lg z-40 transition-all duration-300 ease-in-out">
+            <a href="index.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Home</a>
+            <a href="./destinations.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2"> Destinations</a>
+            <a href="./Guides.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Guide</a>
+            <a href="./reviews.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Reviews</a>
+            <a href="contact.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Contact</a>
+            <a href="./about_us.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">About</a>
+
+        </div>
+    </header>
+      <main>
+        <!-- Hero Section for Destinations Page -->
+        <section class="destinations-hero-background h-screen flex items-center justify-center text-center px-4 py-20 bg-cover bg-center rounded-b-2xl">
+            <div class="bg-black bg-opacity-30 p-8 rounded-xl max-w-3xl" style=" box-shadow: 0 4px 15px rgb(255, 144, 70);">
+                <h1  class="text-5xl md:text-7xl font-extrabold  leading-tight mb-6 animate-slide-up-fade " style="animation-delay: 0.1s;font-family: 'Great Vibes', cursive; text-shadow: 5px 5px 5px #000000; color: rgb(248, 143, 6);">
+                All-in-One Travel Essentials & Guides                
+                </h1>
+           
+            </div>
+        </section>
+    
+
+
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+        <!-- Chat Button -->
+        <div id="chat-button">
+            <!-- New Plane icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-8 h-8">
+                <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A1.5 1.5 0 0 1 10.5 16h-5a1.5 1.5 0 0 1-1.062-2.503l1.318-1.318-.375-2.253-5.507.918A.5.5 0 0 1 0 12V9.618a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.569.14-.97.428-1.151Z"/>
+            </svg>
+        </div>
+
+        <!-- Chat Window (initially hiddenchat) -->
+        <div id="chat-window" class="hiddenchat">
+            <div id="chat-header">
+                <span>Touristabot Assistant</span>
+                <button id="close-chat">&times;</button>
+            </div>
+            <div id="chat-messages">
+                <!-- Initial bot message -->
+                <div class="message-bubble bot-message">
+                    Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)
+                </div>
+            </div>
+            <div id="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-button">
+                    <!-- Send icon (SVG) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Existing Tour Suggestion Button -->
+            <button id="suggest-tour-button" class="llm-feature-button">Suggest a Tour ✨</button>
+            <!-- New Itinerary Suggestion Button -->
+            <button id="plan-trip-button" class="llm-feature-button">Plan My Trip ✨</button>
+        </div>
+    </div>
+        <!-- Packing List Section -->
+      <section id="highlights" class="py-5 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 " >
+            <div class="max-w-6xl mx-auto "  >
+            <h2 id="headings" class="text-5xl font-bold text-gray-800 mb-10 text-center stylish-heading animate-slide-up-fade"  style="font-family: 'Great Vibes', cursive; color: #ff6702;">Packing Lists by Location/Weather</h2>
+            <div class="space-y-4" data-animate="slide-up-fade" style="animation-delay: 0.1s;">
+                <!-- Packing List Item 1: Tropical Getaway -->
+                <div class="card"  >
+                    <div class="accordion-header p-6 flex justify-between items-center text-white font-semibold text-lg" >
+                        <span>🌴 Tropical Getaway (Warm & Humid)</span>
+                        <span class="arrow-icon transform transition-transform duration-300">▼</span>
+                    </div>
+                    <div class="accordion-content p-6 pt-0 text-orange-200" >
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Lightweight clothing (shorts, t-shirts, sundresses)</li>
+                            <li>Swimsuit(s)</li>
+                            <li>Sunscreen (reef-safe recommended)</li>
+                            <li>Insect repellent</li>
+                            <li>Wide-brimmed hat & sunglasses</li>
+                            <li>Flip-flops/sandals</li>
+                            <li>Quick-dry towel</li>
+                            <li>Portable fan</li>
+                            <li>Waterproof phone pouch</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Packing List Item 2: Mountain Adventure -->
+                <div class="card">
+                    <div class="accordion-header p-6 flex justify-between items-center text-white font-semibold text-lg">
+                        <span>⛰️ Mountain Adventure (Cool & Variable)</span>
+                        <span class="arrow-icon transform transition-transform duration-300">▼</span>
+                    </div>
+                    <div class="accordion-content p-6 pt-0 text-orange-200">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Layered clothing (base, mid, outer layers)</li>
+                            <li>Waterproof/windproof jacket</li>
+                            <li>Hiking boots & thick socks</li>
+                            <li>Backpack (daypack)</li>
+                            <li>Reusable water bottle/hydration pack</li>
+                            <li>Snacks for energy</li>
+                            <li>First-aid kit</li>
+                            <li>Headlamp/flashlight</li>
+                            <li>Navigation tools (map, compass, GPS)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Packing List Item 3: City Exploration -->
+                <div class="card">
+                    <div class="accordion-header p-6 flex justify-between items-center text-white font-semibold text-lg">
+                        <span>🏙️ City Exploration (Urban & Diverse)</span>
+                        <span class="arrow-icon transform transition-transform duration-300">▼</span>
+                    </div>
+                    <div class="accordion-content p-6 pt-0 text-orange-200">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Comfortable walking shoes</li>
+                            <li>Stylish yet practical outfits</li>
+                            <li>Small backpack or cross-body bag</li>
+                            <li>Portable charger</li>
+                            <li>Camera</li>
+                            <li>Compact umbrella/rain jacket</li>
+                            <li>Guidebook/offline maps</li>
+                            <li>Reusable coffee cup</li>
+                            <li>Travel-sized toiletries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Real-Time Weather/Seasonal Highlights Section -->
+         <section id="highlights" class="py-5 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 ">
+            <div class="max-w-6xl mx-auto">
+            <h2 id="headings" class="text-5xl font-bold text-gray-800 mb-10 text-center stylish-heading animate-slide-up-fade"  style="font-family: 'Great Vibes', cursive; color: #ff6702;">Real-Time Weather & Seasonal Highlights</h2>
+            <div class="card p-6">
+                <div class="mb-6">
+                    <label for="weather-city-select" class="block text-lg font-medium text-white mb-2">Select a City:</label>
+                    <select id="weather-city-select" class="select-box w-full sm:w-1/2 lg:w-1/3">
+                        <option value="">Choose a City </option>
+                        <option value="Seoul">Seoul</option>
+                        <option value="Paris">Paris</option>
+                        <option value="London">London</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Rome">Rome</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="New York">New York</option>
+                        <option value="Hong Kong">Hong Kong</option>
+                        <option value="Tokyo">Tokyo</option>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="Bangkok">Bangkok</option>
+                        <option value="Istanbul">Istanbul</option>
+                    </select>
+                </div>
+
+                <div id="weather-display" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 hidden">
+                    <h3 class="text-2xl font-semibold mb-3 text-white"></h3>
+                    <p class="mb-2"><strong class="text-orange-300">Current Weather:</strong> <span id="current-weather"></span></p>
+                    <p class="mb-2"><strong class="text-orange-300">Seasonal Highlights:</strong> <span id="seasonal-highlights"></span></p>
+                    <p><strong class="text-orange-300">In Season (Food/Activities):</strong> <span id="in-season"></span></p>
+                </div>
+                <div id="no-weather-city-selected" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 text-center">
+                    Please select a city to view its weather and seasonal highlights.
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Sim Card / eSIM Guide Section -->
+         <section id="highlights" class="py-5 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 mb-8">
+            <div class="max-w-6xl mx-auto">
+            <h2 id="headings"  class="text-5xl font-bold text-gray-800 mb-10 text-center stylish-heading animate-slide-up-fade"  style="font-family: 'Great Vibes', cursive; color: #ff6702;">Sim Card / Esim Guide</h2>
+            <div class="card p-6">
+                <div class="mb-6">
+                    <label for="sim-city-select" class="block text-lg font-medium text-white mb-2">Select a City:</label>
+                    <select id="sim-city-select" class="select-box w-full sm:w-1/2 lg:w-1/3">
+                        <option value="">Choose a City </option>
+                        <option value="Seoul">Seoul</option>
+                        <option value="Paris">Paris</option>
+                        <option value="London">London</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Rome">Rome</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="New York">New York</option>
+                        <option value="Hong Kong">Hong Kong</option>
+                        <option value="Tokyo">Tokyo</option>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="Bangkok">Bangkok</option>
+                        <option value="Istanbul">Istanbul</option>
+                    </select>
+                </div>
+
+                <div id="sim-display" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 hidden">
+                    <h3 class="text-2xl font-semibold mb-3 text-white"></h3>
+                    <p class="mb-2"><strong class="text-orange-300">Best Mobile Providers:</strong> <span id="sim-providers"></span></p>
+                    <p class="mb-2"><strong class="text-orange-300">Tourist SIMs/eSIM Compatibility:</strong> <span id="sim-compatibility"></span></p>
+                    <p><strong class="text-orange-300">Where to buy & Average Cost:</strong> <span id="sim-cost"></span></p>
+                </div>
+                <div id="no-sim-city-selected" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 text-center">
+                    Please select a city to view its SIM card and eSIM guide.
+                </div>
+            </div>
+            </div>
+        </section>
+
+  <section id="highlights" class=" py-5 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 mb-8">
+    <div class="max-w-6xl mx-auto">
+    <h2 id="headings"  class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading animate-slide-up-fade"  style="font-family: 'Great Vibes', cursive; color: #ff6702;">Currency Smart Converter & Price Reality Check</h2>
+    <div class="card p-6">
+        <div class="mb-6 flex flex-col sm:flex-row gap-4 items-center">
+            <div class="w-full sm:w-1/3">
+                <label for="currency-amount-input" class="block text-lg font-medium text-white mb-2">Enter Amount:</label>
+                <div class="flex items-center gap-2">
+                    <input type="number" id="currency-amount-input" placeholder="e.g., 10" class="input-field w-full" min="1" pattern="^[1-9]\d*$" title="Please enter a whole number greater than zero.">
+                </div>
+            </div>
+            <div class="w-full sm:w-1/3">
+                <label for="currency-from-city-select" class="block text-lg font-medium text-white mb-2">From City:</label>
+                <select id="currency-from-city-select" class="select-box w-full">
+                    <option value=""> Select Source City </option>
+                    <option value="Seoul">Seoul</option>
+                    <option value="Paris">Paris</option>
+                    <option value="London">London</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Rome">Rome</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="New York">New York</option>
+                    <option value="Hong Kong">Hong Kong</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Bangkok">Bangkok</option>
+                    <option value="Istanbul">Istanbul</option>
+                </select>
+            </div>
+            <div class="w-full sm:w-1/3">
+                <label for="currency-to-city-select" class="block text-lg font-medium text-white mb-2">To City:</label>
+                <select id="currency-to-city-select" class="select-box w-full">
+                    <option value=""> Select Target City </option>
+                    <option value="Seoul">Seoul</option>
+                    <option value="Paris">Paris</option>
+                    <option value="London">London</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Rome">Rome</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="New York">New York</option>
+                    <option value="Hong Kong">Hong Kong</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Bangkok">Bangkok</option>
+                    <option value="Istanbul">Istanbul</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="currency-display" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 hidden">
+            <h3 class="text-2xl font-semibold mb-3 text-white"></h3>
+            <p class="mb-2"><strong class="text-orange-300">Entered Amount:</strong> <span id="entered-local-value"></span></p>
+            <p class="mb-2"><strong class="text-orange-300">Converted To:</strong> <span id="converted-target-value"></span></p>
+            <p class="mb-2"><strong class="text-orange-300">Equivalent Value (USD):</strong> <span id="converted-usd-value"></span></p>
+            <p><strong class="text-orange-300">What it buys locally (in target city):</strong> <span id="local-purchase"></span></p>
+        </div>
+        <div id="no-currency-info-selected" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 text-center">
+            Enter an amount and select both source and target cities to see the conversion and price reality check.
+        </div>
+    </div>
+    </div>
+
+        <!-- Visa & Entry Checker Section -->
+      <section id="highlights" class="mt-16 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 mb-8">
+            <div class="max-w-6xl mx-auto">
+            <h2 id="headings"  class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading animate-slide-up-fade"  style="font-family: 'Great Vibes', cursive; color: #ff6702;">Visa & Entry Checker</h2>
+            <div class="card p-6">
+                <div class="mb-6 flex flex-col sm:flex-row gap-4 items-center">
+                    <div class="w-full sm:w-1/2">
+                        <label for="nationality-select" class="block text-lg font-medium text-white mb-2">Select Your Nationality:</label>
+                        <select id="nationality-select" class="select-box w-full">
+                            <option value="">Select Nationality </option>
+                            <option value="USA">United States</option>
+                            <option value="Canada">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="India">India</option>
+                            <option value="China">China</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Japan">Japan</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <!-- Add more nationalities as needed -->
+                        </select>
+                    </div>
+                    <div class="w-full sm:w-1/2">
+                        <label for="visa-destination-select" class="block text-lg font-medium text-white mb-2">Select Destination City:</label>
+                        <select id="visa-destination-select" class="select-box w-full">
+                            <option value="">Select Destination </option>
+                            <option value="Seoul">Seoul</option>
+                            <option value="Paris">Paris</option>
+                            <option value="London">London</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Rome">Rome</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="New York">New York</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Tokyo">Tokyo</option>
+                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                            <option value="Bangkok">Bangkok</option>
+                            <option value="Istanbul">Istanbul</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="visa-display" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 hidden">
+                    <h3 class="text-2xl font-semibold mb-3 text-white"></h3>
+                    <p class="mb-2"><strong class="text-orange-300">Visa Requirements:</strong> <span id="visa-requirements"></span></p>
+                    <p class="mb-2"><strong class="text-orange-300">Entry Restrictions:</strong> <span id="entry-restrictions"></span></p>
+                    <p><strong class="text-orange-300">Vaccination Needs:</strong> <span id="vaccination-needs"></span></p>
+                </div>
+                <div id="no-visa-info-selected" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 text-center">
+                    Please select your nationality and a destination to see visa and entry information.
+                </div>
+            </div>
+        </section>
+
+        <!-- Multilingual Mode with Local Slang Section -->
+        <section id="highlights" class="py-5 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 mb-8">
+            <div class="max-w-6xl mx-auto">
+            <h2 id="headings"  class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading animate-slide-up-fade"  style="font-family: 'Great Vibes', cursive; color: #ff6702;">Multilingual Mode with Local Slang</h2>
+            <div class="card p-6">
+                <div class="mb-6 flex flex-col sm:flex-row gap-4 items-center">
+                    <div class="w-full sm:w-1/2">
+                        <label for="language-city-select" class="block text-lg font-medium text-white mb-2">Select a City:</label>
+                        <select id="language-city-select" class="select-box w-full">
+                            <option value="">Choose a City </option>
+                            <option value="Seoul">Seoul</option>
+                            <option value="Paris">Paris</option>
+                            <option value="London">London</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Rome">Rome</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="New York">New York</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Tokyo">Tokyo</option>
+                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                            <option value="Bangkok">Bangkok</option>
+                            <option value="Istanbul">Istanbul</option>
+                        </select>
+                    </div>
+                    <div class="w-full sm:w-1/2">
+                        <label for="visitor-language-select" class="block text-lg font-medium text-white mb-2">Translate to:</label>
+                        <select id="visitor-language-select" class="select-box w-full">
+                            <option value="">Select Your Language </option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Chinese">Chinese (Simplified)</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Urdu">Urdu</option>
+                            <option value="Japanese">Japanese</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="language-display" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 hidden">
+                    <h3 class="text-2xl font-semibold mb-3 text-white"></h3>
+                    <div id="phrases-list" class="space-y-3">
+                        <!-- Phrases will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div id="no-language-info-selected" class="mt-4 p-4 rounded-lg bg-orange-800/20 border border-orange-700 text-orange-100 text-center">
+                    Please select a city and your language to see common phrases and local slang.
+                </div>
+            </div>
+        </section>
+
+        <!-- Suggested Products Section (Moved to end) -->
+         <section id="highlights" class="py-5 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 mb-8">
+            <div class="max-w-6xl mx-auto">
+            <h2 id="headings"  class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading animate-slide-up-fade"  style="font-family: 'Great Vibes', cursive; color: #ff6702;">Suggested Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/Portable Power Bank.jpg" alt="Portable Power Bank" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Portable Power  <br>Bank</h3>
+                    <p class="text-orange-200 mb-4">Power banks are compact and lightweight, easy to carry in pockets, bags, or backpacks. </p>
+                   <a href="" target="_blank" class="btn-primary">Buy on Amazon</a>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/Universal Travel Adapter.jpg" alt="Universal Travel Adapter" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Universal Travel Adapter</h3>
+                    <p class="text-orange-200 mb-4">It offers numerous benefits for international travelers, primarily by allowing you to charge devices in any country.</p> 
+                    <a href="" target="_blank" class="btn-primary">Buy on Amazon</a>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/Comfortable Neck Pillow.jpg" alt="Comfortable Neck Pillow" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Comfortable Neck Pillow</h3>
+                    <p class="text-orange-200 mb-4">Ensure a restful journey with this ergonomic and  enhance comfort </p>
+                    <br><a href="" target="_blank" class="btn-primary">Buy on Amazon</a>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/Mini First Aid Kit.jpg" alt="Mini First Aid Kit" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Mini First Aid Kit</h3>
+                    <p class="text-orange-200 mb-4">Be prepared for minor scrapes and emergencies.</p> <br>  
+                    <br><a href="" target="_blank" class="btn-primary">Buy on Amazon</a>
+                </div>
+                <!-- Product Card 5 -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/Reusable Water Bottle.jpg" alt="Reusable Water Bottle" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Reusable Water <br>Bottle</h3>
+                    <p class="text-orange-200 mb-4">Stay hydrated and eco-friendly on your adventures.</p>
+                    <br><a href="" target="_blank" class="btn-primary">Buy on Amazon</a>
+                </div>
+                <!-- Product Card 6 -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/Quick-Dry Travel Towel.jpg" alt="Quick-Dry Travel Towel" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Quick-Dry Travel Towel</h3>
+                    <p class="text-orange-200 mb-4">Lightweight and fast-drying, perfect for any trip.</p> <br>  
+                    <a href="" target="_blank" class="btn-primary">Buy on Amazon</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Guides Section (Moved to end) -->
+        <section id="highlights" class="py-5 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 mb-8">
+            <div class="max-w-6xl mx-auto">
+            <h2 id="headings"  class="text-6xl font-bold text-gray-800 mb-10 text-center stylish-heading animate-slide-up-fade"  style="font-family: 'Great Vibes', cursive; color: #ff6702;">Digital Guides for Each City</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Guide Card: Paris -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/paris landmark.jpg" alt="Paris City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Paris City Guide</h3>
+                    <p class="text-orange-200 mb-4">Explore the City of Lights and beauty <br></p> 
+                    <button class="btn-primary" onclick="downloadGuide('Paris')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Tokyo -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/tokyo landmark.jpg" alt="Tokyo City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Tokyo City Guide</h3>
+                    <p class="text-orange-200 mb-4">Where Tradition Meets Tomorrow!.</p>
+                    <button class="btn-primary" onclick="downloadGuide('Tokyo')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Rome -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/rome landmark.jpg" alt="Rome City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Rome City Guide</h3>
+                    <p class="text-orange-200 mb-4">The Eternal City of the ancient sited</p> 
+                    <button class="btn-primary" onclick="downloadGuide('Rome')">Download Guide</button>
+                </div>
+                <!-- Guide Card: New York -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/new york landmark.jpg" alt="New York City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">New York City Guide</h3>
+                    <p class="text-orange-200 mb-4">The City That Never Sleeps.</p> 
+                    <button class="btn-primary" onclick="downloadGuide('New York')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Seoul -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/seoul landmark.jpg" alt="Seoul City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Seoul City Guide</h3>
+                    <p class="text-orange-200 mb-4"> City of Culture, Cuisine & Contrast.</p>
+                    <button class="btn-primary" onclick="downloadGuide('Seoul')">Download Guide</button>
+                </div>
+                <!-- Guide Card: London -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/london landmark.jpg" alt="London City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">London City Guide</h3>
+                    <p class="text-orange-200 mb-4">City of Timeless Charm and Modern Marvels!.</p>
+                    <button class="btn-primary" onclick="downloadGuide('London')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Dubai -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/dubai landmark.jpg" alt="Dubai City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Dubai City Guide</h3>
+                    <p class="text-orange-200 mb-4">Where Luxury Meets the Desert!.</p> 
+                    <button class="btn-primary" onclick="downloadGuide('Dubai')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Singapore -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/singapore landmark .jpg" alt="Singapore City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Singapore City Guide</h3>
+                    <p class="text-orange-200 mb-4">The City in a Garden!</p> <br>
+                    <button class="btn-primary" onclick="downloadGuide('Singapore')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Hong Kong -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/hong kong landmark.jpg" alt="Hong Kong City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Hong Kong City Guide</h3>
+                    <p class="text-orange-200 mb-4">Asia’s World City</p> <br>
+                    <button class="btn-primary" onclick="downloadGuide('Hong Kong')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Kuala Lumpur -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/Kuala-Lumpur landmark.jpg" alt="Kuala Lumpur City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Kuala Lumpur City Guide</h3>
+                    <p class="text-orange-200 mb-4">A Cultural Melting Pot with a Skyline to Match!</p>
+                    <button class="btn-primary" onclick="downloadGuide('Kuala Lumpur')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Bangkok -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/bangkok landmark.jpg" alt="Bangkok City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Bangkok City Guide</h3>
+                    <p class="text-orange-200 mb-4">A Cultural Melting Pot with a Skyline to Match!</p> <br>
+                    <button class="btn-primary" onclick="downloadGuide('Bangkok')">Download Guide</button>
+                </div>
+                <!-- Guide Card: Istanbul -->
+                <div class="card minimized-card p-6 flex flex-col items-center text-center">
+                    <img src="./assets/images/istanbul landmark.jpg" alt="Istanbul City Guide" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Istanbul City Guide</h3>
+                    <p class="text-orange-200 mb-4">Where Continents Collide and Cultures Unite!</p> <br>
+                    <button class="btn-primary" onclick="downloadGuide('Istanbul')">Download Guide</button>
+                </div>
+            </div>
+        </section>
+        </main>
+
+    <!-- Footer -->
+    <footer class="footer-bg py-8 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <a href="index.html" class="text-white rounded-lg flex items-center" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                    <i class="fas fa-plane text-2xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                    Tourista
+                </a>
+            </div>
+            <p class="mb-4 md:mb-0">&copy; 2023 Tourista. All rights reserved.</p>
+             <div class="flex justify-center space-x-6">
+                <a href="index.html" class="hover:text-white transition duration-300 footer-link-hover">Home</a>
+                <a href="about_us.html" class="hover:text-white transition duration-300 footer-link-hover">About </a>
+                <a href="destinations.html" class="hover:text-white transition duration-300 footer-link-hover">Destinations</a>
+                <a href="reviews.html" class="hover:text-white transition duration-300 footer-link-hover">Reviews</a>
+                <a href="contact.html" class="hover:text-white transition duration-300 footer-link-hover">Contact</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+         // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile Poses Dropdown Toggle
+        const mobilePosesDropdownToggle = document.getElementById('mobile-poses-dropdown-toggle');
+        const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
+
+        if (mobilePosesDropdownToggle && mobileDropdownMenu) {
+            mobilePosesDropdownToggle.addEventListener('click', () => {
+                mobileDropdownMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Handle desktop dropdown hover/click state (for accessibility)
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const dropdownButton = dropdown.querySelector('button');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+            // Toggle on click for better accessibility
+            if (dropdownButton) {
+                dropdownButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default button action
+                    dropdown.classList.toggle('active'); // Toggle active class
+                });
+
+                // Close dropdown if clicked outside
+                document.addEventListener('click', (event) => {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Function to handle animations on scroll using Intersection Observer
+        const animateOnScroll = () => {
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const animationType = element.dataset.animate;
+
+                        // Apply animation class based on data-animate attribute
+                        if (animationType === 'slide-up-fade') {
+                            element.classList.add('animate-slide-up-fade');
+                        }
+                        // Add more conditions here for other animation types if needed
+
+                        element.classList.remove('initial-hidden'); // Remove the initial hidden state
+                        observer.unobserve(element); // Stop observing once the element has animated
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with the 'data-animate' attribute
+            document.querySelectorAll('[data-animate]').forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+
+        
+        // JavaScript for Packing List Accordion
+        document.addEventListener('DOMContentLoaded', () => {
+            const packingListAccordionHeaders = document.querySelectorAll('.accordion-header');
+
+            packingListAccordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const arrowIcon = header.querySelector('.arrow-icon');
+
+                    // Toggle the 'active' class on the content
+                    content.classList.toggle('active');
+
+                    // Rotate the arrow icon
+                    arrowIcon.classList.toggle('rotate-180');
+
+                    // Close other open accordions (optional, but good for single-open behavior)
+                    packingListAccordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            const otherContent = otherHeader.nextElementSibling;
+                            const otherArrowIcon = otherHeader.querySelector('.arrow-icon');
+                            otherContent.classList.remove('active');
+                            otherArrowIcon.classList.remove('rotate-180');
+                        }
+                    });
+                });
+            });
+
+            // JavaScript for Real-Time Weather/Seasonal Highlights
+            const weatherCitySelect = document.getElementById('weather-city-select');
+            const weatherDisplay = document.getElementById('weather-display');
+            const noWeatherCitySelected = document.getElementById('no-weather-city-selected');
+            const weatherCityName = weatherDisplay.querySelector('h3');
+            const currentWeatherSpan = document.getElementById('current-weather');
+            const seasonalHighlightsSpan = document.getElementById('seasonal-highlights');
+            const inSeasonSpan = document.getElementById('in-season');
+
+            // Simulated data for each city (Weather)
+            const weatherCityData = {
+                "Seoul": {
+                    weather: "Partly cloudy, 25°C (77°F)",
+                    seasonal: "Autumn foliage (October-November), Cherry Blossom (April), Lantern Festival (May)",
+                    inSeason: "Kimchi making classes, hiking in Bukhansan National Park, street food tours"
+                },
+                "Paris": {
+                    weather: "Mostly sunny, 22°C (72°F)",
+                    seasonal: "Paris Fashion Week (Sept/Mar), Christmas Markets (Dec), Fête de la Musique (June)",
+                    inSeason: "Croissants, macarons, Seine River cruises, museum visits"
+                },
+                "London": {
+                    weather: "Light rain, 18°C (64°F)",
+                    seasonal: "Notting Hill Carnival (Aug), Wimbledon (July), Christmas Lights (Nov-Jan)",
+                    inSeason: "Fish and chips, afternoon tea, theatre shows, pub crawls"
+                },
+                "Dubai": {
+                    weather: "Clear, 38°C (100°F)",
+                    seasonal: "Dubai Shopping Festival (Jan-Feb), Dubai Food Festival (Feb-Mar), Desert Safaris (cooler months)",
+                    inSeason: "Dates, camel rides, indoor skiing, water parks"
+                },
+                "Rome": {
+                    weather: "Sunny, 28°C (82°F)",
+                    seasonal: "Easter celebrations (Spring), Rome Film Fest (Oct), Christmas Nativity Scenes (Dec-Jan)",
+                    inSeason: "Gelato, pasta, exploring ancient ruins, outdoor cafes"
+                },
+                "Singapore": {
+                    weather: "Humid with thunderstorms, 30°C (86°F)",
+                    seasonal: "Great Singapore Sale (June-July), Singapore Food Festival (July), Formula 1 Grand Prix (Sept)",
+                    inSeason: "Durian, chili crab, hawker center food, Gardens by the Bay"
+                },
+                "New York": {
+                    weather: "Clear, 26°C (79°F)",
+                    seasonal: "Macy's Thanksgiving Day Parade (Nov), New Year's Eve (Dec), SummerStage (June-Aug)",
+                    inSeason: "Pizza, bagels, Broadway shows, Central Park activities"
+                },
+                "Hong Kong": {
+                    weather: "Humid, 31°C (88°F)",
+                    seasonal: "Chinese New Year (Jan/Feb), Dragon Boat Festival (June), Mid-Autumn Festival (Sept)",
+                    inSeason: "Dim sum, street food, hiking, ferry rides"
+                },
+                "Tokyo": {
+                    weather: "Sunny, 27°C (81°F)",
+                    seasonal: "Cherry Blossom (Mar-Apr), Golden Week (May), Sumo Tournaments (Jan, May, Sept)",
+                    inSeason: "Sushi, ramen, anime goods, temple visits"
+                },
+                "Kuala Lumpur": {
+                    weather: "Partly cloudy, 32°C (90°F)",
+                    seasonal: "Malaysia Fest (Aug), Deepavali (Oct/Nov), Thaipusam (Jan/Feb)",
+                    inSeason: "Nasi Lemak, satay, Petronas Towers visit, Batu Caves exploration"
+                },
+                "Bangkok": {
+                    weather: "Hot and humid, 34°C (93°F)",
+                    seasonal: "Songkran (Thai New Year - April), Loy Krathong (Nov), Vegetarian Festival (Oct)",
+                    inSeason: "Mango sticky rice, pad Thai, floating markets, temple tours"
+                },
+                "Istanbul": {
+                    weather: "Sunny, 29°C (84°F)",
+                    seasonal: "Istanbul Film Festival (Apr), Tulip Festival (Apr), Rumi Commemoration (Dec)",
+                    inSeason: "Turkish delight, kebabs, Bosphorus cruises, Grand Bazaar shopping"
+                }
+            };
+
+            weatherCitySelect.addEventListener('change', () => {
+                const selectedCity = weatherCitySelect.value;
+                updateWeatherDisplay(selectedCity);
+            });
+
+            // Initial call to hide display if no city is pre-selected
+            updateWeatherDisplay(weatherCitySelect.value);
+
+            function updateWeatherDisplay(selectedCity) {
+                if (selectedCity && weatherCityData[selectedCity]) {
+                    const data = weatherCityData[selectedCity];
+                    weatherCityName.textContent = `${selectedCity} Highlights`;
+                    currentWeatherSpan.textContent = data.weather;
+                    seasonalHighlightsSpan.textContent = data.seasonal;
+                    inSeasonSpan.textContent = data.inSeason;
+                    weatherDisplay.classList.remove('hidden');
+                    noWeatherCitySelected.classList.add('hidden');
+                } else {
+                    weatherDisplay.classList.add('hidden');
+                    noWeatherCitySelected.classList.remove('hidden');
+                }
+            }
+
+            // JavaScript for Sim Card / eSIM Guide
+            const simCitySelect = document.getElementById('sim-city-select');
+            const simDisplay = document.getElementById('sim-display');
+            const noSimCitySelected = document.getElementById('no-sim-city-selected');
+            const simCityName = simDisplay.querySelector('h3');
+            const simProvidersSpan = document.getElementById('sim-providers');
+            const simCompatibilitySpan = document.getElementById('sim-compatibility');
+            const simCostSpan = document.getElementById('sim-cost');
+
+            // Simulated data for each city (SIM/eSIM)
+            const simCityData = {
+                "Seoul": {
+                    providers: "SK Telecom, KT, LG U+",
+                    compatibility: "Tourist SIMs widely available at airports and convenience stores. eSIM support is common on newer phones.",
+                    cost: "Incheon (ICN) & Gimpo (GMP) Airports; Convenience stores (e.g., CU, GS25); Online via providers like Klook or Trazy for pickup. Average cost: ~$20-30 for 5-10 days with unlimited data."
+                },
+                "Paris": {
+                    providers: "Orange, SFR, Bouygues Telecom, Free Mobile",
+                    compatibility: "Tourist SIMs (e.g., Orange Holiday) are popular. eSIMs are supported by major providers.",
+                    cost: "Major airports (CDG, Orly); Operator stores (Orange, SFR, Bouygues); Supermarkets and tobacco shops (Tabacs). Average cost: ~$30-50 for 10-20GB for 2-4 weeks."
+                },
+                "London": {
+                    providers: "EE, Vodafone, O2, Three",
+                    compatibility: "Pay-as-you-go SIMs are easy to find. eSIMs are increasingly supported.",
+                    cost: "Heathrow (LHR) and Gatwick (LGW) Airports; Operator stores on high streets; Supermarkets (Tesco, Sainsbury's) and convenience stores. Average cost: ~$15-25 for 10-20GB for 1 month."
+                },
+                "Dubai": {
+                    providers: "Etisalat, Du",
+                    compatibility: "Free tourist SIMs often provided on arrival. eSIMs are available.",
+                    cost: "Dubai International Airport (DXB) upon arrival; Operator stores in malls. Average cost: Free SIM with some data, top-ups ~$15-30 for additional data."
+                },
+                "Rome": {
+                    providers: "TIM, Vodafone, WindTre, Iliad",
+                    compatibility: "Tourist SIMs are common. eSIM availability depends on provider/device.",
+                    cost: "Rome Fiumicino Airport (FCO); Official operator stores. Average cost: ~$25-40 for 20-50GB for 1 month."
+                },
+                "Singapore": {
+                    providers: "Singtel, StarHub, M1",
+                    compatibility: "Tourist SIMs are very popular and easy to get. eSIMs are available.",
+                    cost: "Changi Airport (SIN) upon arrival; Convenience stores (7-Eleven, Cheers); Operator stores. Average cost: ~$10-30 for 10-100GB for 7-30 days."
+                },
+                "New York": {
+                    providers: "T-Mobile, AT&T, Verizon",
+                    compatibility: "Prepaid SIMs are common. eSIM is widely supported, especially by T-Mobile.",
+                    cost: "Operator stores (T-Mobile, AT&T); Electronics stores (Best Buy). Average cost: ~$30-50 for 10-30GB for 1 month."
+                },
+                "Hong Kong": {
+                    providers: "CSL, SmarTone, 3 Hong Kong, China Mobile HK",
+                    compatibility: "Tourist SIMs are readily available. eSIMs are supported by major carriers.",
+                    cost: "Hong Kong International Airport (HKG); Convenience stores (7-Eleven, Circle K); Operator stores. Average cost: ~$10-20 for 5-10GB for 7-14 days."
+                },
+                "Tokyo": {
+                    providers: "Docomo, au, SoftBank",
+                    compatibility: "Data-only SIMs and pocket Wi-Fi are popular. eSIMs are becoming more common.",
+                    cost: "Narita (NRT) & Haneda (HND) Airports; Electronics stores (Bic Camera, Yodobashi Camera); Online for airport pickup. Average cost: ~$20-40 for 5-10GB for 7-15 days."
+                },
+                "Kuala Lumpur": {
+                    providers: "Maxis, Celcom, Digi, U Mobile",
+                    compatibility: "Tourist SIMs are widely available and affordable. eSIMs are supported.",
+                    cost: "Kuala Lumpur International Airport (KUL); Convenience stores and operator kiosks. Average cost: ~$5-15 for 10-30GB for 7-15 days."
+                },
+                "Bangkok": {
+                    providers: "AIS, TrueMove H, Dtac",
+                    compatibility: "Tourist SIMs are extremely popular and easy to purchase. eSIMs are available.",
+                    cost: "Suvarnabhumi Airport (BKK) and Don Mueang Airport (DMK); Convenience stores (7-Eleven) and operator stores. Average cost: ~$10-20 for 15-30GB for 8-15 days."
+                },
+                "Istanbul": {
+                    providers: "Turkcell, Vodafone Turkey, Turk Telekom",
+                    compatibility: "Tourist SIMs are available. eSIM support varies by provider and device.",
+                    cost: "Istanbul Airport (IST) and Sabiha Gökçen Airport (SAW); Official operator stores. Average cost: ~$20-40 for 20GB for 1 month."
+                }
+            };
+
+            simCitySelect.addEventListener('change', () => {
+                const selectedCity = simCitySelect.value;
+                updateSimDisplay(selectedCity);
+            });
+
+            // Initial call to hide display if no city is pre-selected
+            updateSimDisplay(simCitySelect.value);
+
+            function updateSimDisplay(selectedCity) {
+                if (selectedCity && simCityData[selectedCity]) {
+                    const data = simCityData[selectedCity];
+                    simCityName.textContent = `${selectedCity} SIM/eSIM Guide`;
+                    simProvidersSpan.textContent = data.providers;
+                    simCompatibilitySpan.textContent = data.compatibility;
+                    simCostSpan.textContent = data.cost;
+                    simDisplay.classList.remove('hidden');
+                    noSimCitySelected.classList.add('hidden');
+                } else {
+                    simDisplay.classList.add('hidden');
+                    noSimCitySelected.classList.remove('hidden');
+                }
+            }
+
+            // JavaScript for Currency Smart Converter + Price Reality Check
+            const currencyAmountInput = document.getElementById('currency-amount-input');
+            const currencyFromCitySelect = document.getElementById('currency-from-city-select');
+            const currencyToCitySelect = document.getElementById('currency-to-city-select');
+            const currencyDisplay = document.getElementById('currency-display');
+            const noCurrencyInfoSelected = document.getElementById('no-currency-info-selected');
+            const currencyDisplayCityName = currencyDisplay.querySelector('h3');
+            const enteredLocalValueSpan = document.getElementById('entered-local-value');
+            const convertedTargetValueSpan = document.getElementById('converted-target-value');
+            const convertedUsdValueSpan = document.getElementById('converted-usd-value');
+            const localPurchaseSpan = document.getElementById('local-purchase');
+            const currencyCodeDisplay = document.getElementById('currency-code-display');
+
+            // Simulated data for currency conversion and price reality check
+            const currencyRealityData = {
+                "Seoul": {
+                    currencyCode: "KRW",
+                    localToUsdRate: 1 / 1370, // 1 KRW = ~0.00073 USD
+                    usdToLocalRate: 1370,    // 1 USD = 1370 KRW
+                    buysDescription: "For a small amount, you can get street snacks or a short subway ride. A mid-range meal costs around ₩10,000-20,000."
+                },
+                "Paris": {
+                    currencyCode: "EUR",
+                    localToUsdRate: 1 / 0.92, // 1 EUR = ~1.08 USD
+                    usdToLocalRate: 0.92,    // 1 USD = 0.92 EUR
+                    buysDescription: "A coffee and a pastry is around €5-8. A metro ticket is about €€2.15. A mid-range meal costs around €15-25."
+                },
+                "London": {
+                    currencyCode: "GBP",
+                    localToUsdRate: 1 / 0.79, // 1 GBP = ~1.26 USD
+                    usdToLocalRate: 0.79,    // 1 USD = 0.79 GBP
+                    buysDescription: "A pint of beer and a snack is around £8-12. A single bus fare is about £1.75. A mid-range meal costs around £15-25."
+                },
+                "Dubai": {
+                    currencyCode: "AED",
+                    localToUsdRate: 1 / 3.67, // 1 AED = ~0.27 USD (fixed)
+                    usdToLocalRate: 3.67,    // 1 USD = 3.67 AED
+                    buysDescription: "A small meal at a casual restaurant costs around AED 30-50. A short taxi ride is about AED 15-25."
+                },
+                "Rome": {
+                    currencyCode: "EUR",
+                    localToUsdRate: 1 / 0.92, // 1 EUR = ~1.08 USD
+                    usdToLocalRate: 0.92,    // 1 USD = 0.92 EUR
+                    buysDescription: "A slice of pizza and a gelato is around €7-10. A bus ticket is about €1.50. A mid-range meal costs around €15-25."
+                },
+                "Singapore": {
+                    currencyCode: "SGD",
+                    localToUsdRate: 1 / 1.35, // 1 SGD = ~0.74 USD
+                    usdToLocalRate: 1.35,    // 1 USD = 1.35 SGD
+                    buysDescription: "A delicious hawker center meal costs around SGD 5-10. A couple of MRT rides are about SGD 3-5."
+                },
+                "New York": {
+                    currencyCode: "USD",
+                    localToUsdRate: 1,       // 1 USD = 1 USD
+                    usdToLocalRate: 1,       // 1 USD = 1 USD
+                    buysDescription: "A slice of pizza and a soda is around $8-12. A single subway ride is $2.90. A mid-range meal costs around $20-40."
+                },
+                "Hong Kong": {
+                    currencyCode: "HKD",
+                    localToUsdRate: 1 / 7.8, // 1 HKD = ~0.128 USD (fixed)
+                    usdToLocalRate: 7.8,     // 1 USD = 7.8 HKD
+                    buysDescription: "A dim sum meal costs around HKD 50-100. A ride on the Star Ferry is about HKD 2.70-3.70."
+                },
+                "Tokyo": {
+                    currencyCode: "JPY",
+                    localToUsdRate: 1 / 156, // 1 JPY = ~0.0064 USD
+                    usdToLocalRate: 156,     // 1 USD = 156 JPY
+                    buysDescription: "A bowl of ramen costs around ¥800-1200. A few items from a convenience store are about ¥500-1000."
+                },
+                "Kuala Lumpur": {
+                    currencyCode: "MYR",
+                    localToUsdRate: 1 / 4.7, // 1 MYR = ~0.21 USD
+                    usdToLocalRate: 4.7,     // 1 USD = 4.7 MYR
+                    buysDescription: "A substantial street food meal for two costs around MYR 20-40. A couple of local bus rides are about MYR 4-8."
+                },
+                "Bangkok": {
+                    currencyCode: "THB",
+                    localToUsdRate: 1 / 36.7, // 1 THB = ~0.027 USD
+                    usdToLocalRate: 36.7,    // 1 USD = 36.7 THB
+                    buysDescription: "Several street food dishes cost around THB 100-200. A short tuk-tuk ride is about THB 50-150."
+                },
+                "Istanbul": {
+                    currencyCode: "TRY",
+                    localToUsdRate: 1 / 32.5, // 1 TRY = ~0.031 USD
+                    usdToLocalRate: 32.5,    // 1 USD = 32.5 TRY
+                    buysDescription: "A few cups of Turkish tea and a simit cost around TRY 50-100. A ferry ride across the Bosphorus is about TRY 20-30."
+                }
+            };
+
+            function updateCurrencyDisplay() {
+                const amount = parseFloat(currencyAmountInput.value);
+                const fromCity = currencyFromCitySelect.value;
+                const toCity = currencyToCitySelect.value;
+
+                // Update currency code display next to input field based on 'From City'
+                if (fromCity && currencyRealityData[fromCity]) {
+                    currencyCodeDisplay.textContent = currencyRealityData[fromCity].currencyCode;
+                } else {
+                    currencyCodeDisplay.textContent = "---"; // Default
+                }
+
+                if (fromCity && toCity && !isNaN(amount) && amount > 0) {
+                    const fromData = currencyRealityData[fromCity];
+                    const toData = currencyRealityData[toCity];
+
+                    if (fromData && toData) {
+                        // 1. Convert entered amount from source currency to USD
+                        const amountInUsd = amount * fromData.localToUsdRate;
+
+                        // 2. Convert USD amount to target currency
+                        const convertedToTargetAmount = (amountInUsd * toData.usdToLocalRate).toFixed(2);
+
+                        currencyDisplayCityName.textContent = `Conversion & Reality Check for ${toCity}`;
+                        enteredLocalValueSpan.textContent = `${amount} ${fromData.currencyCode} (from ${fromCity})`;
+                        convertedTargetValueSpan.textContent = `${convertedToTargetAmount} ${toData.currencyCode} (in ${toCity})`;
+                        convertedUsdValueSpan.textContent = `$${amountInUsd.toFixed(2)} USD`;
+                        localPurchaseSpan.textContent = toData.buysDescription; // Show what it buys in the TARGET city
+                        currencyDisplay.classList.remove('hidden');
+                        noCurrencyInfoSelected.classList.add('hidden');
+                    } else {
+                        currencyDisplay.classList.add('hidden');
+                        noCurrencyInfoSelected.classList.remove('hidden');
+                    }
+                } else {
+                    currencyDisplay.classList.add('hidden');
+                    noCurrencyInfoSelected.classList.remove('hidden');
+                }
+            }
+
+            currencyAmountInput.addEventListener('input', updateCurrencyDisplay);
+            currencyFromCitySelect.addEventListener('change', updateCurrencyDisplay);
+            currencyToCitySelect.addEventListener('change', updateCurrencyDisplay); // Listen to new dropdown
+
+            // Initial call to set up display
+            updateCurrencyDisplay();
+        });
+
+function downloadGuide(cityName) {
+    const guides = {
+        Paris: `
+📍 Paris Travel Guide
+
+🏙️ Welcome to Paris, the City of Lights!
+Top Attractions:
+- Eiffel Tower
+- Louvre Museum
+- Notre-Dame Cathedral
+
+🍽️ Foods:
+- Croissants
+- Crêpes
+- Baguettes
+
+🗣️ Phrases:
+- Hello: Bonjour
+- Thank you: Merci
+
+🚨 Emergency:
+- Police: 112
+- Info Center: +33 1 23 45 67 89
+        `,
+
+        Tokyo: `
+📍 Tokyo Travel Guide
+
+🏙️ Where Tradition Meets Tomorrow!.
+Top Attractions:
+- Shibuya Crossing
+- Tokyo Skytree
+- Senso-ji Temple
+
+🍱 Foods:
+- Sushi
+- Ramen
+- Mochi
+
+🗣️ Phrases:
+- Hello: Konnichiwa
+- Thank you: Arigatou
+
+🚨 Emergency:
+- Police: 110
+- Info Center: +81 3 1234 5678
+        `,
+
+        Rome: `
+📍 Rome Travel Guide
+
+🏙️ Discover the Eternal City.
+Top Attractions:
+- Colosseum
+- Trevi Fountain
+- Vatican City
+
+🍝 Foods:
+- Pasta Carbonara
+- Gelato
+- Roman Pizza
+
+🗣️ Phrases:
+- Hello: Ciao
+- Thank you: Grazie
+
+🚨 Emergency:
+- Police: 112
+- Info Center: +39 06 123 4567
+        `,
+
+        "New York": `
+📍 New York Travel Guide
+
+🏙️ Welcome to the Big Apple!
+Top Attractions:
+- Statue of Liberty
+- Central Park
+- Times Square
+
+🍕 Foods:
+- New York Pizza
+- Bagels
+- Pretzels
+
+🗣️ Phrases:
+- Restroom?: Where’s the bathroom?
+- Hello
+
+🚨 Emergency:
+- Police/Ambulance: 911
+- Info Center: +1 212 123 4567
+        `,
+
+        Seoul: `
+📍 Seoul Travel Guide
+
+🏙️ Explore the capital of South Korea.
+Top Attractions:
+- Gyeongbokgung Palace
+- Myeongdong Street
+- Han River Park
+
+🍜 Foods:
+- Bibimbap
+- Kimchi
+- Korean BBQ
+
+🗣️ Phrases:
+- Hello: Annyeonghaseyo
+- Thank you: Gamsahamnida
+
+🚨 Emergency:
+- Police: 112
+- Info Center: +82 2 1234 5678
+        `,
+
+        London: `
+📍 London Travel Guide
+
+🏙️ Navigate the historic city.
+Top Attractions:
+- Big Ben
+- London Eye
+- Buckingham Palace
+
+🍽️ Foods:
+- Fish and Chips
+- English Breakfast
+- Scones
+
+🗣️ Phrases:
+- Hello
+- Thank you
+- Mind the gap!
+
+🚨 Emergency:
+- Police: 999
+- Info Center: +44 20 7946 0123
+        `,
+
+        Dubai: `
+📍 Dubai Travel Guide
+
+🏙️ Discover luxury and tradition.
+Top Attractions:
+- Burj Khalifa
+- Dubai Mall
+- Desert Safari
+
+🍢 Foods:
+- Shawarma
+- Dates
+- Mandi
+
+🗣️ Phrases:
+- Hello: Marhaba
+- Thank you: Shukran
+
+🚨 Emergency:
+- Police: 999
+- Info Center: +971 4 123 4567
+        `,
+
+        Singapore: `
+📍 Singapore Travel Guide
+
+🏙️ Explore the Lion City.
+Top Attractions:
+- Marina Bay Sands
+- Gardens by the Bay
+- Sentosa Island
+
+🍲 Foods:
+- Laksa
+- Hainanese Chicken Rice
+- Satay
+
+🗣️ Phrases:
+- Hello: Hello
+- Thank you: Terima kasih
+
+🚨 Emergency:
+- Police: 999
+- Info Center: +65 1234 5678
+        `,
+
+        "Hong Kong": `
+📍 Hong Kong Travel Guide
+
+🏙️ Experience East meets West.
+Top Attractions:
+- Victoria Peak
+- Star Ferry
+- Temple Street Market
+
+🍜 Foods:
+- Dim Sum
+- Egg Tarts
+- Roast Goose
+
+🗣️ Phrases:
+- Hello: Nei hou
+- Thank you: M̀hgōi
+
+🚨 Emergency:
+- Police: 999
+- Info Center: +852 1234 5678
+        `,
+
+        "Kuala Lumpur": `
+📍 Kuala Lumpur Travel Guide
+
+🏙️ Explore Malaysia's capital.
+Top Attractions:
+- Petronas Towers
+- Batu Caves
+- Bukit Bintang
+
+🍛 Foods:
+- Nasi Lemak
+- Satay
+- Roti Canai
+
+🗣️ Phrases:
+- Hello: Hai
+- Thank you: Terima kasih
+
+🚨 Emergency:
+- Police: 999
+- Info Center: +60 3 1234 5678
+        `,
+
+        Bangkok: `
+📍 Bangkok Travel Guide
+
+🏙️ Discover Thailand’s vibrant capital.
+Top Attractions:
+- Grand Palace
+- Wat Arun
+- Chatuchak Market
+
+🍜 Foods:
+- Pad Thai
+- Som Tum
+- Mango Sticky Rice
+
+🗣️ Phrases:
+- Hello: Sawadee ka/krub
+- Thank you: Khob khun ka/krub
+
+🚨 Emergency:
+- Police: 191
+- Info Center: +66 2 123 4567
+        `,
+
+        Istanbul: `
+📍 Istanbul Travel Guide
+
+🏙️ Bridge between continents.
+Top Attractions:
+- Hagia Sophia
+- Blue Mosque
+- Grand Bazaar
+
+🍢 Foods:
+- Kebab
+- Baklava
+- Turkish Tea
+
+🗣️ Phrases:
+- Hello: Merhaba
+- Thank you: Teşekkürler
+
+🚨 Emergency:
+- Police: 155
+- Info Center: +90 212 123 4567
+        `
+    };
+
+    const guideText = guides[cityName] || `Welcome to ${cityName}!\nExplore the city with our travel tips and maps.`;
+
+    const dummyLink = document.createElement('a');
+    dummyLink.href = `data:text/plain;charset=utf-8,${encodeURIComponent(guideText)}`;
+    dummyLink.download = `${cityName}_Travel_Guide.txt`;
+    document.body.appendChild(dummyLink);
+    dummyLink.click();
+    document.body.removeChild(dummyLink);
+
+    const messageBox = document.createElement('div');
+    messageBox.textContent = `"${cityName} Guide" download initiated! Check your downloads.`;
+    messageBox.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ed8936;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    `;
+    document.body.appendChild(messageBox);
+
+    setTimeout(() => {
+        messageBox.style.opacity = 1;
+    }, 10);
+
+    setTimeout(() => {
+        messageBox.style.opacity = 0;
+        messageBox.addEventListener('transitionend', () => messageBox.remove());
+    }, 3000);
+}
+
+        
+
+        // JavaScript for Visa & Entry Checker
+        document.addEventListener('DOMContentLoaded', () => {
+            const nationalitySelect = document.getElementById('nationality-select');
+            const visaDestinationSelect = document.getElementById('visa-destination-select');
+            const visaDisplay = document.getElementById('visa-display');
+            const noVisaInfoSelected = document.getElementById('no-visa-info-selected');
+            const visaDisplayTitle = visaDisplay.querySelector('h3');
+            const visaRequirementsSpan = document.getElementById('visa-requirements');
+            const entryRestrictionsSpan = document.getElementById('entry-restrictions');
+            const vaccinationNeedsSpan = document.getElementById('vaccination-needs');
+
+            // Simulated Visa and Entry Data
+            const visaData = {
+                "USA": {
+                    "Seoul": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. K-ETA required for visa-free entry.",
+                        vaccination: "Routine vaccinations recommended. Check for specific outbreaks."
+                    },
+                    "Paris": {
+                        visa: "Visa not required for stays up to 90 days (Schengen Area).",
+                        entry: "Valid passport. ETIAS will be required from mid-2025.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "London": {
+                        visa: "Visa not required for stays up to 6 months.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Dubai": {
+                        visa: "Visa on arrival for up to 30 days. Can be extended.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Rome": {
+                        visa: "Visa not required for stays up to 90 days (Schengen Area).",
+                        entry: "Valid passport. ETIAS will be required from mid-2025.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Singapore": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. SG Arrival Card must be submitted.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "New York": {
+                        visa: "N/A (Domestic travel for US citizens). For non-US, ESTA or visa required.",
+                        entry: "Valid ID for US citizens. For non-US, valid passport and visa/ESTA.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Hong Kong": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Tokyo": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Kuala Lumpur": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "Bangkok": {
+                        visa: "Visa not required for stays up to 30 days (can be extended).",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Istanbul": {
+                        visa: "Visa not required for stays up to 90 days within 180 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    }
+                },
+                "Canada": {
+                    "Seoul": {
+                        visa: "Visa not required for stays up to 6 months.",
+                        entry: "Valid passport. K-ETA required for visa-free entry.",
+                        vaccination: "Routine vaccinations recommended. Check for specific outbreaks."
+                    },
+                    "Paris": {
+                        visa: "Visa not required for stays up to 90 days (Schengen Area).",
+                        entry: "Valid passport. ETIAS will be required from mid-2025.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "London": {
+                        visa: "Visa not required for stays up to 6 months.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Dubai": {
+                        visa: "Visa on arrival for up to 30 days. Can be extended.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Rome": {
+                        visa: "Visa not required for stays up to 90 days (Schengen Area).",
+                        entry: "Valid passport. ETIAS will be required from mid-2025.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Singapore": {
+                        visa: "Visa not required for stays up to 30 days.",
+                        entry: "Valid passport. SG Arrival Card must be submitted.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "New York": {
+                        visa: "Visa not required for stays up to 6 months.",
+                        entry: "Valid passport or Enhanced Driver's License/NEXUS card.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Hong Kong": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Tokyo": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Kuala Lumpur": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "Bangkok": {
+                        visa: "Visa not required for stays up to 30 days (can be extended).",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Istanbul": {
+                        visa: "Visa not required for stays up to 90 days within 180 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    }
+                },
+                "UK": {
+                    "Seoul": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. K-ETA required for visa-free entry.",
+                        vaccination: "Routine vaccinations recommended. Check for specific outbreaks."
+                    },
+                    "Paris": {
+                        visa: "Visa not required for stays up to 90 days (Schengen Area).",
+                        entry: "Valid passport. ETIAS will be required from mid-2025.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "London": {
+                        visa: "N/A (Domestic travel for UK citizens).",
+                        entry: "Valid ID for UK citizens.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Dubai": {
+                        visa: "Visa on arrival for up to 30 days. Can be extended.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Rome": {
+                        visa: "Visa not required for stays up to 90 days (Schengen Area).",
+                        entry: "Valid passport. ETIAS will be required from mid-2025.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Singapore": {
+                        visa: "Visa not required for stays up to 30 days.",
+                        entry: "Valid passport. SG Arrival Card must be submitted.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "New York": {
+                        visa: "ESTA required for visa-free entry under VWP.",
+                        entry: "Valid passport. ESTA approval.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Hong Kong": {
+                        visa: "Visa not required for stays up to 180 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Tokyo": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Kuala Lumpur": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "Bangkok": {
+                        visa: "Visa not required for stays up to 30 days (can be extended).",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Istanbul": {
+                        visa: "Visa not required for stays up to 90 days within 180 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    }
+                },
+                "Australia": {
+                    "Seoul": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. K-ETA required for visa-free entry.",
+                        vaccination: "Routine vaccinations recommended. Check for specific outbreaks."
+                    },
+                    "Paris": {
+                        visa: "Visa not required for stays up to 90 days (Schengen Area).",
+                        entry: "Valid passport. ETIAS will be required from mid-2025.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "London": {
+                        visa: "Visa not required for stays up to 6 months.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Dubai": {
+                        visa: "Visa on arrival for up to 30 days. Can be extended.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Rome": {
+                        visa: "Visa not required for stays up to 90 days (Schengen Area).",
+                        entry: "Valid passport. ETIAS will be required from mid-2025.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Singapore": {
+                        visa: "Visa not required for stays up to 30 days.",
+                        entry: "Valid passport. SG Arrival Card must be submitted.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "New York": {
+                        visa: "ESTA required for visa-free entry under VWP.",
+                        entry: "Valid passport. ESTA approval.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Hong Kong": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Tokyo": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Kuala Lumpur": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "Bangkok": {
+                        visa: "Visa not required for stays up to 30 days (can be extended).",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Istanbul": {
+                        visa: "Visa not required for stays up to 90 days within 180 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    }
+                },
+                "Germany": {
+                    "Seoul": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. K-ETA required for visa-free entry.",
+                        vaccination: "Routine vaccinations recommended. Check for specific outbreaks."
+                    },
+                    "Paris": {
+                        visa: "N/A (Schengen Area, EU citizen).",
+                        entry: "Valid ID card or passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "London": {
+                        visa: "Visa not required for stays up to 6 months.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Dubai": {
+                        visa: "Visa on arrival for up to 30 days. Can be extended.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Rome": {
+                        visa: "N/A (Schengen Area, EU citizen).",
+                        entry: "Valid ID card or passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Singapore": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. SG Arrival Card must be submitted.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "New York": {
+                        visa: "ESTA required for visa-free entry under VWP.",
+                        entry: "Valid passport. ESTA approval.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Hong Kong": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Tokyo": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Kuala Lumpur": {
+                        visa: "Visa not required for stays up to 90 days.",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "Bangkok": {
+                        visa: "Visa not required for stays up to 30 days (can be extended).",
+                        entry: "Valid passport. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Istanbul": {
+                        visa: "Visa not required for stays up to 90 days within 180 days.",
+                        entry: "Valid passport.",
+                        vaccination: "Routine vaccinations recommended."
+                    }
+                },
+                "India": {
+                    "Seoul": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, approved visa.",
+                        vaccination: "Routine vaccinations recommended. Check for specific outbreaks."
+                    },
+                    "Paris": {
+                        visa: "Schengen Visa required. Apply in advance.",
+                        entry: "Valid passport, valid Schengen visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "London": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, valid UK visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Dubai": {
+                        visa: "Visa required. Can be applied online or via airlines.",
+                        entry: "Valid passport, valid UAE visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Rome": {
+                        visa: "Schengen Visa required. Apply in advance.",
+                        entry: "Valid passport, valid Schengen visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Singapore": {
+                        visa: "Visa required. Can apply for e-Visa.",
+                        entry: "Valid passport, valid Singapore visa. SG Arrival Card must be submitted.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "New York": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, valid US visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Hong Kong": {
+                        visa: "Visa required for stays over 14 days. Pre-arrival registration for visa-free.",
+                        entry: "Valid passport. Pre-arrival registration or valid visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Tokyo": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, valid Japan visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Kuala Lumpur": {
+                        visa: "Visa required. Can apply for e-Visa.",
+                        entry: "Valid passport, valid Malaysia visa. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "Bangkok": {
+                        visa: "Visa on arrival available, or apply in advance.",
+                        entry: "Valid passport, valid visa or visa on arrival.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Istanbul": {
+                        visa: "e-Visa available for some categories, otherwise visa required.",
+                        entry: "Valid passport, valid visa/e-Visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    }
+                },
+                "Pakistan": {
+                    "Seoul": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, approved visa.",
+                        vaccination: "Routine vaccinations recommended. Check for specific outbreaks."
+                    },
+                    "Paris": {
+                        visa: "Schengen Visa required. Apply in advance.",
+                        entry: "Valid passport, valid Schengen visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "London": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, valid UK visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Dubai": {
+                        visa: "Visa required. Can be applied online or via airlines.",
+                        entry: "Valid passport, valid UAE visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Rome": {
+                        visa: "Schengen Visa required. Apply in advance.",
+                        entry: "Valid passport, valid Schengen visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Singapore": {
+                        visa: "Visa required. Apply for e-Visa or through embassy.",
+                        entry: "Valid passport, valid Singapore visa. SG Arrival Card must be submitted.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "New York": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, valid US visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Hong Kong": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, valid Hong Kong visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Tokyo": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, valid Japan visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Kuala Lumpur": {
+                        visa: "Visa required. Can apply for e-Visa.",
+                        entry: "Valid passport, valid Malaysia visa. Must have a return ticket.",
+                        vaccination: "Routine vaccinations recommended. Yellow Fever if coming from endemic country."
+                    },
+                    "Bangkok": {
+                        visa: "Visa required. Apply in advance.",
+                        entry: "Valid passport, valid Thai visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    },
+                    "Istanbul": {
+                        visa: "e-Visa available for some categories, otherwise visa required.",
+                        entry: "Valid passport, valid visa/e-Visa.",
+                        vaccination: "Routine vaccinations recommended."
+                    }
+                }
+                // Add more nationality data here following the same structure
+            };
+
+            function updateVisaDisplay() {
+                const nationality = nationalitySelect.value;
+                const destination = visaDestinationSelect.value;
+
+                if (nationality && destination && visaData[nationality] && visaData[nationality][destination]) {
+                    const data = visaData[nationality][destination];
+                    visaDisplayTitle.textContent = `Entry Requirements for ${destination} (for ${nationality} citizens)`;
+                    visaRequirementsSpan.textContent = data.visa;
+                    entryRestrictionsSpan.textContent = data.entry;
+                    vaccinationNeedsSpan.textContent = data.vaccination;
+                    visaDisplay.classList.remove('hidden');
+                    noVisaInfoSelected.classList.add('hidden');
+                } else {
+                    visaDisplay.classList.add('hidden');
+                    noVisaInfoSelected.classList.remove('hidden');
+                }
+            }
+
+            nationalitySelect.addEventListener('change', updateVisaDisplay);
+            visaDestinationSelect.addEventListener('change', updateVisaDisplay);
+
+            // Initial call to hide display if no selections are made
+            updateVisaDisplay();
+        });
+
+        // JavaScript for Multilingual Mode with Local Slang
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageCitySelect = document.getElementById('language-city-select');
+            const visitorLanguageSelect = document.getElementById('visitor-language-select'); // New dropdown
+            const languageDisplay = document.getElementById('language-display');
+            const noLanguageInfoSelected = document.getElementById('no-language-info-selected');
+            const languageDisplayTitle = languageDisplay.querySelector('h3');
+            const phrasesList = document.getElementById('phrases-list');
+
+            // Simulated data for multilingual phrases and slang
+            const languageData = {
+                "Seoul": {
+                    language: "Korean",
+                    phrases: [
+                        { formal: "안녕하세요 (Annyeonghaseyo)", slang: "안녕 (Annyeong)", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "감사합니다 (Gamsahamnida)", slang: "고마워요 (Gomawoyo)", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "죄송합니다 (Joesonghamnida)", slang: "미안 (Mian)", english: "Sorry", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "실례합니다 (Sillyehamnida)", slang: "저기요 (Jeogiyo)", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "네 (Ne)", slang: "응 (Eung)", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "아니요 (Aniyo)", slang: "아니 (Ani)", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "어떻게 지내세요? (Eotteoke jinaeseyo?)", slang: "잘 지내? (Jal jinae?)", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "이것/저것 주세요 (Igeot/Jeogeot juseyo)", slang: "이거/저거 줘 (Igeo/Jeogeo jwo)", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "مجھے یہ/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "얼마예요? (Eolmayeyo?)", slang: "얼마? (Eolma?)", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "화장실이 어디예요? (Hwajangsiri eodiyeyo?)", slang: "화장실 어디? (Hwajangsil eodi?)", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Paris": {
+                    language: "French",
+                    phrases: [
+                        { formal: "Bonjour", slang: "Salut", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "Merci beaucoup", slang: "Merci", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "Pardon", slang: "Désolé(e)", english: "Sorry", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "Excusez-moi", slang: "Pardon", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "Oui", slang: "Ouais", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "Non", slang: "Non", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "Comment allez-vous?", slang: "Ça va?", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "Je voudrais ceci/cela", slang: "Je veux ça", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "مجھے یہ/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "Combien ça coûte?", slang: "C'est combien?", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "Où sont les toilettes?", slang: "Les toilettes?", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "London": {
+                    language: "English",
+                    phrases: [
+                        { formal: "Hello", slang: "Alright?", english: "Hello / How are you?", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "Thank you very much", slang: "Cheers", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "Excuse me", slang: "Sorry mate", english: "Sorry", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "Excuse me (to get attention)", slang: "Mate!", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "Yes", slang: "Yeah", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "No", slang: "Nah", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "How are you?", slang: "How's it going?", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "I would like this/that", slang: "Fancy this/that", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "مجھے یہ/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "How much does it cost?", slang: "How much?", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "Where is the toilet?", slang: "Where's the loo?", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Dubai": {
+                    language: "Arabic (Formal) / English (Common)",
+                    phrases: [
+                        { formal: "السلام عليكم (As-salamu alaykum)", slang: "هلا (Hala)", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "شكرا جزيلا (Shukran jazilan)", slang: "شكرا (Shukran)", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "آسف (Aasif)", slang: "معليش (Ma'lesh)", english: "Sorry", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "عفواً (Afwan)", slang: "لو سمحت (Law samaht)", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "نعم (Na'am)", slang: "إيه (Ee)", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "لا (La)", slang: "لا (La)", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "كيف حالك؟ (Kayfa halak?)", slang: "شلونك؟ (Shlonak?)", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか؟ (O-genki desu ka?)"
+                        }},
+                        { formal: "أريد هذا/ذاك (Ureed hadha/dhak)", slang: "أبغي هذا/ذاك (Abghi hadha/dhak)", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "مجھے یہ/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "كم هذا؟ (Kam hatha?)", slang: "كم؟ (Kam?)", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか؟ (Ikura desu ka?)"
+                        }},
+                        { formal: "أين الحمام؟ (Ayn al-hammam?)", slang: "وين الحمام؟ (Wain al-hammam?)", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है؟ (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか؟ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Rome": {
+                    language: "Italian",
+                    phrases: [
+                        { formal: "Buongiorno", slang: "Ciao", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "Grazie mille", slang: "Grazie", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "Mi dispiace", slang: "Scusa", english: "Sorry", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "Permesso", slang: "Scusi", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "Sì", slang: "Sì", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "No", slang: "No", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "Come sta?", slang: "Come va?", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "Vorrei questo/quello", slang: "Voglio questo/quello", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "मुझे ये/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "Quanto costa?", slang: "Quanto?", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "Dov'è il bagno?", slang: "Il bagno?", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Singapore": {
+                    language: "English (Official) / Singlish (Slang)",
+                    phrases: [
+                        { formal: "Hello", slang: "How are you, lah?", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "Thank you", slang: "Thanks, can?", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "Excuse me", slang: "Sorry, ah", english: "Sorry", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "Excuse me (to get attention)", slang: "Hello, ah?", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "Yes", slang: "Can", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "No", slang: "Cannot", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "How are you?", slang: "How's life, lah?", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "I want this/that", slang: "Want this/that, can?", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "मुझे ये/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "How much is this?", slang: "How much, ah?", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "यह कितने का है؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "Where is the toilet?", slang: "Where's the toilet, hor?", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "New York": {
+                    language: "English",
+                    phrases: [
+                        { formal: "Hello", slang: "Yo!", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "Thank you", slang: "Thanks a bunch", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "Excuse me", slang: "My bad", english: "Sorry", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "Excuse me (to get attention)", slang: "Hey!", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "Yes", slang: "Yeah", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "No", slang: "Nah", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "How are you?", slang: "How's it going?", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "I would like this/that", slang: "I'll take this/that", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "मुझे ये/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "How much does this cost?", slang: "What's the damage?", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "Where is the restroom?", slang: "Where's the john?", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Hong Kong": {
+                    language: "Cantonese (Formal) / English (Common)",
+                    phrases: [
+                        { formal: "你好 (Nei Hou)", slang: "哈囉 (Ha Lo)", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "多謝 (Duo Ze)", slang: "唔該 (M Goi)", english: "Thank you (for service)", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "對不起 (Deui M Chei)", slang: "唔好意思 (M Hou Yi Si)", english: "Sorry / Excuse me", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "唔該 (M Goi)", slang: "喂 (Wai)", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "係 (Hai)", slang: "係 (Hai)", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "唔係 (M Hai)", slang: "唔係 (M Hai)", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "你好嗎? (Nei Hou Ma?)", slang: "點呀? (Dim A?)", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "我要呢個/嗰個 (Ngo Yiu Nei Go/Go Go)", slang: "要呢個/嗰個 (Yiu Nei Go/Go Go)", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "مجھے یہ/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "幾多錢? (Gei Do Chin?)", slang: "幾錢? (Gei Chin?)", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "洗手間喺邊度? (Sai Sau Gaan Hai Bin Dou?)", slang: "廁所喺邊? (Chi So Hai Bin?)", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Tokyo": {
+                    language: "Japanese",
+                    phrases: [
+                        { formal: "こんにちは (Konnichiwa)", slang: "おっす (Ossu)", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "ありがとうございます (Arigatou gozaimasu)", slang: "どうも (Doumo)", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "すみません (Sumimasen)", slang: "ごめん (Gomen)", english: "Sorry / Excuse me", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "すみません (Sumimasen)", slang: "ちょっと (Chotto)", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "はい (Hai)", slang: "うん (Un)", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "いいえ (Iie)", slang: "ううん (Uun)", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "お元気ですか？ (O-genki desu ka?)", slang: "元気？ (Genki?)", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "これをください (Kore o kudasai)", slang: "これちょうだい (Kore choudai)", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "मुझे ये/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "いくらですか？ (Ikura desu ka?)", slang: "いくら？ (Ikura?)", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "トイレはどこですか？ (Toire wa doko desu ka?)", slang: "トイレどこ？ (Toire doko?)", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Kuala Lumpur": {
+                    language: "Malay",
+                    phrases: [
+                        { formal: "Selamat pagi/siang/petang/malam", slang: "Hai", english: "Good morning/afternoon/evening/night", translations: {
+                            "Spanish": "Buenos días/tardes/noches", "French": "Bonjour/Bonsoir", "German": "Guten Morgen/Tag/Abend/Nacht", "Chinese": "早上好/下午好/晚上好 (Zǎoshang hǎo/Xiàwǔ hǎo/Wǎnshàng hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "صبح بخیر/شام بخیر/رات بخیر (Subah bakhair/Sham bakhair/Raat bakhair)", "Japanese": "おはようございます/こんにちは/こんばんは (Ohayō gozaimasu/Konnichiwa/Konbanwa)"
+                        }},
+                        { formal: "Terima kasih banyak", slang: "Terima kasih", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "Maafkan saya", slang: "Maaf", english: "Sorry", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "Tumpang tanya", slang: "Excuse me", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "Ya", slang: "Ya", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "Tidak", slang: "Tak", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "Apa khabar?", slang: "Khabar baik?", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "Saya mahu ini/itu", slang: "Nak ini/itu", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "مجھے یہ/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "Berapa harganya?", slang: "Berapa?", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "Di mana tandas?", slang: "Tandas mana?", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Bangkok": {
+                    language: "Thai",
+                    phrases: [
+                        { formal: "สวัสดีครับ/ค่ะ (Sawadee krap/ka)", slang: "หวัดดี (Watdee)", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "ขอบคุณครับ/ค่ะ (Khop khun krap/ka)", slang: "ขอบคุณ (Khop khun)", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "ขอโทษครับ/ค่ะ (Kho thot krap/ka)", slang: "โทษที (Thot tee)", english: "Sorry / Excuse me", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "ขอโทษครับ/ค่ะ (Kho thot krap/ka)", slang: "ขอทางหน่อย (Kho thang noi)", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "ใช่ครับ/ค่ะ (Chai krap/ka)", slang: "ใช่ (Chai)", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "ไม่ใช่ครับ/ค่ะ (Mai chai krap/ka)", slang: "ไม่ (Mai)", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "สบายดีไหมครับ/ค่ะ? (Sabai dee mai krap/ka?)", slang: "เป็นไงบ้าง? (Pen ngai bang?)", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか？ (O-genki desu ka?)"
+                        }},
+                        { formal: "ผม/ฉันต้องการอันนี้/อันนั้น (Phom/Chan tongkan an nee/an nan)", slang: "เอาอันนี้/อันนั้น (Ao an nee/an nan)", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "مجھے یہ/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "ราคาเท่าไหร่ครับ/ค่ะ? (Raka thao rai krap/ka?)", slang: "เท่าไหร่? (Thao rai?)", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "ห้องน้ำอยู่ที่ไหนครับ/ค่ะ? (Hong nam yoo tee nai krap/ka?)", slang: "ห้องน้ำอยู่ไหน? (Hong nam yoo nai?)", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है? (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか？ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                },
+                "Istanbul": {
+                    language: "Turkish",
+                    phrases: [
+                        { formal: "Merhaba", slang: "Selam", english: "Hello", translations: {
+                            "Spanish": "Hola", "French": "Bonjour", "German": "Hallo", "Chinese": "你好 (Nǐ hǎo)", "Hindi": "नमस्ते (Namaste)", "Urdu": "ہیلو (Hello)", "Japanese": "こんにちは (Konnichiwa)"
+                        }},
+                        { formal: "Teşekkür ederim", slang: "Sağ ol", english: "Thank you", translations: {
+                            "Spanish": "Gracias", "French": "Merci", "German": "Danke", "Chinese": "谢谢 (Xièxie)", "Hindi": "धन्यवाद (Dhanyavaad)", "Urdu": "شکریہ (Shukriya)", "Japanese": "ありがとう (Arigatou)"
+                        }},
+                        { formal: "Affedersiniz", slang: "Pardon", english: "Sorry / Excuse me", translations: {
+                            "Spanish": "Lo siento", "French": "Désolé", "German": "Entschuldigung", "Chinese": "对不起 (Duìbuqǐ)", "Hindi": "माफ़ करना (Maaf karna)", "Urdu": "معذرت (Maazrat)", "Japanese": "ごめんなさい (Gomen nasai)"
+                        }},
+                        { formal: "Pardon", slang: "Bakar mısınız?", english: "Excuse me (to get attention)", translations: {
+                            "Spanish": "Disculpe", "French": "Excusez-moi", "German": "Entschuldigen Sie", "Chinese": "打扰一下 (Dǎrǎo yīxià)", "Hindi": "माफ़ कीजिए (Maaf kījie)", "Urdu": "معاف کیجئے (Maaf kijiye)", "Japanese": "すみません (Sumimasen)"
+                        }},
+                        { formal: "Evet", slang: "Evet", english: "Yes", translations: {
+                            "Spanish": "Sí", "French": "Oui", "German": "Ja", "Chinese": "是 (Shì)", "Hindi": "हाँ (Haan)", "Urdu": "ہاں (Haan)", "Japanese": "はい (Hai)"
+                        }},
+                        { formal: "Hayır", slang: "Yok", english: "No", translations: {
+                            "Spanish": "No", "French": "Non", "German": "Nein", "Chinese": "不 (Bù)", "Hindi": "नहीं (Nahin)", "Urdu": "نہیں (Nahin)", "Japanese": "いいえ (Iie)"
+                        }},
+                        { formal: "Nasılsınız?", slang: "N'aber?", english: "How are you?", translations: {
+                            "Spanish": "¿Cómo estás?", "French": "Comment ça va?", "German": "Wie geht es Ihnen?", "Chinese": "你好吗 (Nǐ hǎo ma)?", "Hindi": "आप कैसे हैं? (Aap kaise hain?)", "Urdu": "آپ کیسے ہیں؟ (Aap kaise hain?)", "Japanese": "お元気ですか؟ (O-genki desu ka?)"
+                        }},
+                        { formal: "Bunu/şunu istiyorum", slang: "Bunu/şunu ver", english: "I want this/that", translations: {
+                            "Spanish": "Quiero esto/eso", "French": "Je veux ceci/cela", "German": "Ich möchte das/dieses", "Chinese": "我要这个/那个 (Wǒ yào zhège/nàge)", "Hindi": "मुझे यह/वह चाहिए (Mujhe yah/vah chāhie)", "Urdu": "مجھے یہ/وہ چاہئے (Mujhe yeh/woh chahiye)", "Japanese": "これ/あれをください (Kore/Are o kudasai)"
+                        }},
+                        { formal: "Ne kadar?", slang: "Kaç para?", english: "How much is it?", translations: {
+                            "Spanish": "¿Cuánto cuesta?", "French": "C'est combien?", "German": "Wie viel kostet es?", "Chinese": "多少钱 (Duōshǎo qián)?", "Hindi": "यह कितने का है? (Yah kitne ka hai?)", "Urdu": "یہ کتنے کا ہے؟ (Yeh kitne ka hai?)", "Japanese": "いくらですか？ (Ikura desu ka?)"
+                        }},
+                        { formal: "Tuvalet nerede?", slang: "Tuvalet nerede?", english: "Where is the restroom?", translations: {
+                            "Spanish": "¿Dónde está el baño?", "French": "Où sont les toilettes?", "German": "Wo ist die Toilette?", "Chinese": "洗手间在哪里 (Xǐshǒujiān zài nǎlǐ)?", "Hindi": "शौचालय कहाँ है؟ (Shauchalay kahan hai?)", "Urdu": "باتھ روم کہاں ہے؟ (Bathroom kahan hai?)", "Japanese": "トイレはどこですか؟ (Toire wa doko desu ka?)"
+                        }}
+                    ]
+                }
+            };
+
+            function updateLanguageDisplay() {
+                const selectedCity = languageCitySelect.value;
+                const selectedVisitorLanguage = visitorLanguageSelect.value; // Get selected visitor language
+                phrasesList.innerHTML = ''; // Clear previous phrases
+
+                if (selectedCity && languageData[selectedCity]) {
+                    const data = languageData[selectedCity];
+                    languageDisplayTitle.textContent = `${selectedCity} (${data.language}) Phrases`;
+
+                    data.phrases.forEach(phrase => {
+                        const phraseDiv = document.createElement('div');
+                        phraseDiv.className = 'bg-orange-800/30 p-3 rounded-md';
+                        let translationHtml = '';
+
+                        // Add visitor language translation if selected and available
+                        if (selectedVisitorLanguage && phrase.translations && phrase.translations[selectedVisitorLanguage]) {
+                            translationHtml = `<p class="text-orange-100"><strong class="text-orange-300">${selectedVisitorLanguage}:</strong> ${phrase.translations[selectedVisitorLanguage]}</p>`;
+                        }
+
+                        phraseDiv.innerHTML = `
+                            <p class="text-white"><strong class="text-orange-300">Formal:</strong> ${phrase.formal}</p>
+                            <p class="text-orange-200"><strong class="text-orange-300">Slang:</strong> ${phrase.slang}</p>
+                            <p class="text-orange-100"><strong class="text-orange-300">English:</strong> ${phrase.english}</p>
+                            ${translationHtml} <!-- Insert the new translation line -->
+                        `;
+                        phrasesList.appendChild(phraseDiv);
+                    });
+
+                    languageDisplay.classList.remove('hidden');
+                    noLanguageInfoSelected.classList.add('hidden');
+                } else {
+                    languageDisplay.classList.add('hidden');
+                    noLanguageInfoSelected.classList.remove('hidden');
+                }
+            }
+
+            languageCitySelect.addEventListener('change', updateLanguageDisplay);
+            visitorLanguageSelect.addEventListener('change', updateLanguageDisplay); // Listen to new dropdown
+
+            // Initial call to hide display if no city is pre-selected
+            updateLanguageDisplay();
+        });
+    </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- ELEMENT REFERENCES ---
+    const amountInput = document.getElementById('currency-amount-input');
+    const fromCitySelect = document.getElementById('currency-from-city-select');
+    const toCitySelect = document.getElementById('currency-to-city-select');
+    const displayDiv = document.getElementById('currency-display');
+    const noInfoDiv = document.getElementById('no-currency-info-selected');
+    const displayTitle = displayDiv.querySelector('h3');
+    const enteredValueSpan = document.getElementById('entered-local-value');
+    const convertedTargetSpan = document.getElementById('converted-target-value');
+    const convertedUsdSpan = document.getElementById('converted-usd-value');
+    const localPurchaseSpan = document.getElementById('local-purchase');
+
+    // --- DATA (APPROX. RATES & PRICES FOR AUG 2025) ---
+    // Base currency for conversion is USD.
+    const cityData = {
+        'New York':     { name: 'US Dollar', code: 'USD', symbol: '$', rateToUSD: 1, coffeePrice: 5.00 },
+        'London':       { name: 'British Pound', code: 'GBP', symbol: '£', rateToUSD: 0.82, coffeePrice: 3.50 },
+        'Paris':        { name: 'Euro', code: 'EUR', symbol: '€', rateToUSD: 0.93, coffeePrice: 4.00 },
+        'Rome':         { name: 'Euro', code: 'EUR', symbol: '€', rateToUSD: 0.93, coffeePrice: 3.50 },
+        'Tokyo':        { name: 'Japanese Yen', code: 'JPY', symbol: '¥', rateToUSD: 155, coffeePrice: 500 },
+        'Seoul':        { name: 'South Korean Won', code: 'KRW', symbol: '₩', rateToUSD: 1380, coffeePrice: 5000 },
+        'Dubai':        { name: 'UAE Dirham', code: 'AED', symbol: 'د.إ', rateToUSD: 3.67, coffeePrice: 20 },
+        'Singapore':    { name: 'Singapore Dollar', code: 'SGD', symbol: 'S$', rateToUSD: 1.36, coffeePrice: 6.00 },
+        'Hong Kong':    { name: 'Hong Kong Dollar', code: 'HKD', symbol: 'HK$', rateToUSD: 7.8, coffeePrice: 40 },
+        'Kuala Lumpur': { name: 'Malaysian Ringgit', code: 'MYR', symbol: 'RM', rateToUSD: 4.75, coffeePrice: 12 },
+        'Bangkok':      { name: 'Thai Baht', code: 'THB', symbol: '฿', rateToUSD: 37, coffeePrice: 80 },
+        'Istanbul':     { name: 'Turkish Lira', code: 'TRY', symbol: '₺', rateToUSD: 33, coffeePrice: 60 }
+    };
+
+    // --- CORE FUNCTION ---
+    function updateConversion() {
+        // Check if the input is valid against the pattern
+        const isValid = amountInput.checkValidity();
+        const amount = parseFloat(amountInput.value);
+        const fromCity = fromCitySelect.value;
+        const toCity = toCitySelect.value;
+
+        // Validate that all inputs are selected and the amount is valid
+        if (!isValid || !amount || !fromCity || !toCity) {
+            displayDiv.classList.add('hidden');
+            noInfoDiv.classList.remove('hidden');
+            return;
+        }
+
+        // Show the results display
+        noInfoDiv.classList.add('hidden');
+        displayDiv.classList.remove('hidden');
+
+        const fromData = cityData[fromCity];
+        const toData = cityData[toCity];
+
+        // --- CALCULATIONS ---
+        // 1. Convert the source amount to our base currency (USD)
+        const amountInUSD = amount / fromData.rateToUSD;
+
+        // 2. Convert the USD amount to the target currency
+        const convertedAmount = amountInUSD * toData.rateToUSD;
+
+        // 3. Calculate the "reality check" item
+        const coffeeCount = Math.floor(convertedAmount / toData.coffeePrice);
+        let purchaseText = '';
+        if (coffeeCount > 0) {
+            purchaseText = `approx. ${coffeeCount} cup${coffeeCount > 1 ? 's' : ''} of coffee ☕`;
+        } else {
+            purchaseText = `not even enough for a single cup of coffee.`;
+        }
+        
+        // --- DISPLAY RESULTS ---
+        // Helper for formatting currency values
+        const formatCurrency = (value, data, isSource = false) => {
+            // For source integer input, don't show decimals
+            if (isSource) {
+                return `${data.symbol}${parseInt(value).toLocaleString()}`;
+            }
+             return `${data.symbol}${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        };
+        
+        displayTitle.textContent = `Conversion: ${fromData.code} to ${toData.code}`;
+        enteredValueSpan.textContent = `${formatCurrency(amount, fromData, true)} (${fromData.code})`;
+        convertedTargetSpan.textContent = `${formatCurrency(convertedAmount, toData)} (${toData.code})`;
+        convertedUsdSpan.textContent = `${formatCurrency(amountInUSD, cityData['New York'])} (USD)`;
+        localPurchaseSpan.textContent = purchaseText;
+    }
+
+    // --- EVENT LISTENERS ---
+    amountInput.addEventListener('input', updateConversion);
+    fromCitySelect.addEventListener('change', updateConversion);
+    toCitySelect.addEventListener('change', updateConversion);
+
+    // --- INITIAL CALL ---
+    // Set the initial state when the page loads
+    updateConversion();
+});
+</script>
+ <script type="module">
+        // Get references to DOM elements
+        const chatButton = document.getElementById('chat-button');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChatButton = document.getElementById('close-chat');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-button');
+        const suggestTourButton = document.getElementById('suggest-tour-button'); // Existing button reference
+        const planTripButton = document.getElementById('plan-trip-button'); // New button reference
+
+        // Flags to indicate if the next user message is for a specific LLM feature
+        let tourSuggestionMode = false;
+        let itineraryMode = false; // New flag for itinerary generation
+
+        // Initial chat history for the LLM API call
+        // Removed 'system' role. Instructions are now part of the initial model message or dynamically added to user prompts.
+        let chatHistory = [
+            {
+                role: "model",
+                parts: [{ text: "Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)" }]
+            }
+        ];
+
+        // Function to toggle chat window visibility
+        function toggleChat() {
+            chatWindow.classList.toggle('hiddenchat');
+            if (!chatWindow.classList.contains('hiddenchat')) {
+                chatInput.focus(); // Focus input when chat opens
+                scrollToBottom(); // Scroll to the latest message
+            }
+        }
+
+        // Function to add a message to the chat display
+        function addMessage(text, sender) {
+            const messageBubble = document.createElement('div');
+            messageBubble.classList.add('message-bubble');
+            messageBubble.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageBubble.textContent = text;
+            chatMessages.appendChild(messageBubble);
+            scrollToBottom(); // Always scroll to the bottom after adding a message
+        }
+
+        // Function to scroll chat messages to the bottom
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to display a loading indicator
+        function showLoadingIndicator() {
+            const loadingDiv = document.createElement('div');
+            loadingDiv.classList.add('message-bubble', 'loading-indicator');
+            loadingDiv.id = 'loading-indicator';
+            loadingDiv.textContent = 'Touristabot is typing...';
+            chatMessages.appendChild(loadingDiv);
+            scrollToBottom();
+        }
+
+        // Function to remove the loading indicator
+        function hideLoadingIndicator() {
+            const loadingDiv = document.getElementById('loading-indicator');
+            if (loadingDiv) {
+                loadingDiv.remove();
+            }
+        }
+
+        // Function to send message to the LLM API
+        async function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') {
+                return; // Don't send empty messages
+            }
+
+            // Add user message to display
+            addMessage(userMessage, 'user');
+            chatInput.value = ''; // Clear input field
+
+            showLoadingIndicator(); // Show loading indicator
+
+            try {
+                let currentPrompt = userMessage; // The prompt to send to the AI
+
+                if (tourSuggestionMode) {
+                    // Prepend specific instructions for tour suggestions to the user's message
+                    currentPrompt = `The user is asking for a tour suggestion based on their interests. Their interests are: "${userMessage}". Provide a brief (2-3 sentences) and exciting tour idea. Do not ask follow-up questions in this response. Focus on the type of tour requested (e.g., adventure, cultural, relaxing, family-friendly).`;
+                    tourSuggestionMode = false; // Reset the flag after processing
+                } else if (itineraryMode) {
+                    // New prompt for itinerary generation
+                    currentPrompt = `The user wants a tour itinerary. Their input is: "${userMessage}". Please generate a brief (3-4 bullet points) and exciting itinerary. Include a destination, 2-3 activities, and a concluding remark. For example: "For an adventure in [City], you could [Activity 1], then [Activity 2], and finally [Activity 3]. Enjoy your trip!"`;
+                    itineraryMode = false; // Reset the flag after processing
+                }
+
+                // Prepare the payload for the Gemini API
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: currentPrompt }] }], // Send only the current user message as a new turn
+                    generationConfig: {
+                        maxOutputTokens: 150, // Increased token limit for slightly longer itineraries
+                        temperature: 0.7 // Adjust creativity (0.0-1.0)
+                    }
+                };
+
+                // Log the payload to the console for debugging
+                console.log("Sending payload to Gemini API:", JSON.stringify(payload, null, 2));
+
+                // IMPORTANT: Your actual API key is inserted here.
+                const apiKey = "AIzaSyAPgSrBQxe05u3eS3-EU9LhRcKBxQyqlfg"; 
+                
+                if (!apiKey || apiKey === "YOUR_GENERATED_API_KEY_HERE") {
+                    hideLoadingIndicator();
+                    addMessage("Oops! It looks like the API key is missing or invalid. Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.", 'bot');
+                    console.error("API Key Error: Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.");
+                    return; // Stop execution if API key is invalid
+                }
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                // Make the API call
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorDetails = await response.json().catch(() => ({ message: 'Could not parse error response.' }));
+                    console.error(`HTTP error! Status: ${response.status}, Error Details:`, errorDetails);
+                    throw new Error(`API request failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                hideLoadingIndicator(); // Hide loading indicator
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const botResponse = result.candidates[0].content.parts[0].text;
+                    addMessage(botResponse, 'bot');
+                    // For models that don't support system role, we typically don't add the system instruction to chatHistory
+                    // We only add the direct user-model turns
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] }); // Add original user message to history
+                    chatHistory.push({ role: "model", parts: [{ text: botResponse }] }); // Add bot response to history
+                } else if (result.error) {
+                    console.error("Gemini API returned an error:", result.error);
+                    addMessage(`Sorry, an API error occurred: ${result.error.message || 'Unknown error'}. Please try again.`, 'bot');
+                }
+                else {
+                    addMessage("Sorry, I couldn't get a valid response from the AI. Please try again.", 'bot');
+                    console.error("Unexpected API response structure or no content:", result);
+                }
+            } catch (error) {
+                hideLoadingIndicator(); // Hide loading indicator on error
+                addMessage("Oops! Something went wrong. Please try again later.", 'bot');
+                console.error("Error fetching AI response:", error);
+            }
+        }
+
+        // Event Listener for the existing "Suggest a Tour" button
+        suggestTourButton.addEventListener('click', () => {
+            addMessage("Great! Tell me what kind of tours you're interested in (e.g., 'adventure', 'cultural', 'relaxing', 'family-friendly'). I'll suggest something amazing for you! ✨", 'bot');
+            tourSuggestionMode = true; // Activate tour suggestion mode
+            itineraryMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+        // Event Listener for the new "Plan My Trip" button
+        planTripButton.addEventListener('click', () => {
+            addMessage("Fantastic! To plan your trip, tell me your desired destination and what kind of activities you enjoy (e.g., 'Paris, history and art' or 'Mountains, hiking and nature'). ✨", 'bot');
+            itineraryMode = true; // Activate itinerary mode
+            tourSuggestionMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+
+        // Event Listeners for existing chat functionality
+        chatButton.addEventListener('click', toggleChat);
+        closeChatButton.addEventListener('click', toggleChat);
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Ensure the chat window is hiddenchat on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            chatWindow.classList.add('hiddenchat');
+            scrollToBottom();
+        });
+    </script>
+
+
+</body></html>

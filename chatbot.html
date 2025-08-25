@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Website Chatbot</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the chatbot */
+        body {
+            font-family: "Inter", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Light grey background for demonstration */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
+        }
+
+        /* Chatbot container styles */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: "Inter", sans-serif;
+            /* Add max-width to prevent the button from being too far left on very wide screens */
+            max-width: 95vw; /* Ensure it stays within viewport boundaries */
+        }
+
+        /* Chat button styles */
+        #chat-button {
+            background-color: #FF8C00; /* Dark Orange */
+            color: white;
+            padding: 1rem;
+            border-radius: 9999px; /* Fully rounded */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease-in-out;
+            width: 60px;
+            height: 60px;
+            /* Ensure it's always on top of the chat window if it overlaps */
+            position: relative;
+            z-index: 1001;
+        }
+
+        #chat-button:hover {
+            transform: scale(1.05);
+            background-color: #FF7F00; /* Slightly lighter orange on hover */
+        }
+
+        /* Chat window styles */
+        #chat-window {
+            background-color: white;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            width: 350px; /* Fixed width for chat window on larger screens */
+            height: 500px; /* Fixed height for chat window on larger screens */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: absolute;
+            bottom: calc(100% + 15px); /* Position above the button */
+            right: 0;
+            transform-origin: bottom right;
+            animation: fadeInScale 0.3s ease-out;
+        }
+
+        /* Ensure hiddenchat class strongly overrides display */
+        .hiddenchat {
+            display: none !important;
+        }
+
+        /* Animation for chat window appearance */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Chat header styles */
+        #chat-header {
+            background-color: #FFA500; /* Orange */
+            color: black; /* Changed to black for contrast */
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            font-weight: bold;
+        }
+
+        /* Close button in header */
+        #close-chat {
+            background: none;
+            border: none;
+            color: black; /* Changed to black for contrast */
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        #close-chat:hover {
+            color: #333; /* Darker grey on hover */
+        }
+
+        /* Chat messages container */
+        #chat-messages {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: #1A1A1A; /* Dark background for messages */
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* Space between messages */
+        }
+
+        /* Individual message bubble styles */
+        .message-bubble {
+            max-width: 80%; /* Ensure bubbles don't take full width unnecessarily */
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem; /* Rounded corners for bubbles */
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #FFD700; /* Gold for user messages */
+            align-self: flex-end;
+            color: #333; /* Dark text for user messages */
+            border-bottom-right-radius: 0;
+        }
+
+        .bot-message {
+            background-color: #333; /* Dark grey for bot messages */
+            align-self: flex-start;
+            color: #F8F8F8; /* Light text for bot messages */
+            border-bottom-left-radius: 0;
+        }
+
+        /* Loading indicator */
+        .loading-indicator {
+            align-self: flex-start;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            background-color: #333;
+            color: #F8F8F8;
+            font-style: italic;
+        }
+
+        /* Chat input area */
+        #chat-input-container {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #444; /* Darker border */
+            background-color: #1A1A1A; /* Dark background */
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+
+        #chat-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #555; /* Darker grey border */
+            border-radius: 0.5rem;
+            outline: none;
+            font-size: 0.9rem;
+            background-color: #2A2A2A; /* Even darker input background */
+            color: white; /* White text for input */
+            transition: border-color 0.2s ease-in-out;
+        }
+
+        #chat-input:focus {
+            border-color: #FFA500; /* Orange on focus */
+        }
+
+        #send-button {
+            background-color: #FFA500; /* Orange */
+            color: black; /* Changed to black for contrast */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-left: 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #send-button:hover {
+            background-color: #FF7F00; /* Slightly darker orange on hover */
+        }
+
+        /* New buttons for LLM features */
+        .llm-feature-button {
+            background-color: #FFD700; /* Gold */
+            color: black;
+            font-weight: bold;
+            padding: 0.5rem 1rem; /* Minimized padding for all screen sizes */
+            border-radius: 0.75rem;
+            margin-top: 0.5rem; /* Minimized margin for all screen sizes */
+            margin-bottom: 0.5rem; /* Minimized margin for all screen sizes */
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            text-align: center;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc(100% - 2rem); /* 100% minus 1rem padding on each side for container */
+            margin-left: 1rem; /* Align with input padding */
+            margin-right: 1rem; /* Align with input padding */
+        }
+
+        .llm-feature-button:hover {
+            background-color: #FFC400; /* Darker gold on hover */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 640px) {
+            #chatbot-container {
+                /* Keep it anchored to the bottom right */
+                bottom: 10px;
+                right: 10px;
+                /* Set a max-width for the container itself to indirectly control chat window size */
+                max-width: 340px; /* Slightly larger than chat window to account for button */
+                /* Ensure it doesn't stretch across the screen */
+                left: auto;
+                width: auto;
+            }
+
+            #chat-window {
+                width: 320px; /* Fixed smaller width */
+                height: 400px; /* Fixed smaller height */
+                /* Position relative to #chatbot-container */
+                bottom: calc(100% + 15px); /* Position above the button */
+                right: 0; /* Align to the right edge of its container */
+                left: auto; /* Ensure it doesn't try to stretch from left */
+                padding: 0; /* Still no padding on the window itself */
+                max-width: none; /* Override previous max-width: 100% if present */
+            }
+
+            /* Adjust internal paddings for smaller screens */
+            #chat-header {
+                padding: 0.4rem 1rem; /* Reduced vertical padding for header */
+            }
+            #chat-header span {
+                font-size: 0.9rem; /* Slightly smaller font for header text */
+            }
+            #close-chat {
+                font-size: 1.2rem; /* Slightly smaller close button */
+            }
+
+            #chat-messages,
+            #chat-input-container {
+                padding-left: 1rem; /* Maintain consistent padding for content */
+                padding-right: 1rem;
+            }
+
+            /* llm-feature-button styles for max-width: 640px are now handled by the base style,
+               but we can still make them slightly smaller if desired for this breakpoint.
+               I'll keep them as they were to ensure consistent reduction. */
+            .llm-feature-button {
+                padding: 0.4rem 1rem; /* Further reduced padding for this breakpoint */
+                margin-top: 0.4rem; /* Further reduced top margin */
+                margin-bottom: 0.4rem; /* Further reduced bottom margin */
+                font-size: 0.9rem; /* Slightly smaller font for buttons */
+            }
+        }
+
+        /* Add a specific media query for even smaller screens, e.g., less than 375px wide */
+        @media (max-width: 375px) {
+            #chatbot-container {
+                max-width: 310px; /* Adjust container max-width for very small screens */
+            }
+            #chat-window {
+                width: 290px; /* Even smaller width for very narrow screens */
+                height: 380px; /* Even smaller height */
+            }
+            #chat-input {
+                font-size: 0.85rem; /* Slightly smaller font for input */
+            }
+
+            #chat-header span {
+                font-size: 0.85rem; /* Even smaller header text for very small screens */
+            }
+
+            .message-bubble {
+                font-size: 0.85rem; /* Slightly smaller message text */
+                padding: 0.6rem 0.8rem;
+            }
+
+            .llm-feature-button {
+                padding: 0.3rem 0.8rem; /* Further reduced padding for very small screens */
+                font-size: 0.8rem; /* Further reduced font size */
+                margin-top: 0.3rem;
+                margin-bottom: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main content of your static tour website would go here -->
+    <div class="p-8 text-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Our Tour Website!</h1>
+        <p class="text-lg text-gray-600">Explore amazing destinations and unforgettable experiences.</p>
+        <p class="text-md text-gray-500 mt-8">Try out the chatbot in the bottom right corner!</p>
+        <img src="https://placehold.co/600x400/E0F2F7/263238?text=Beautiful+Tour+Destination" alt="Placeholder Tour Image" class="mt-8 mx-auto rounded-lg shadow-lg max-w-full h-auto">
+    </div>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+        <!-- Chat Button -->
+        <div id="chat-button">
+            <!-- New Plane icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-8 h-8">
+                <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A1.5 1.5 0 0 1 10.5 16h-5a1.5 1.5 0 0 1-1.062-2.503l1.318-1.318-.375-2.253-5.507.918A.5.5 0 0 1 0 12V9.618a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.569.14-.97.428-1.151Z"/>
+            </svg>
+        </div>
+
+        <!-- Chat Window (initially hiddenchat) -->
+        <div id="chat-window" class="hiddenchat">
+            <div id="chat-header">
+                <span>Touristabot Assistant</span>
+                <button id="close-chat">&times;</button>
+            </div>
+            <div id="chat-messages">
+                <!-- Initial bot message -->
+                <div class="message-bubble bot-message">
+                    Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)
+                </div>
+            </div>
+            <div id="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-button">
+                    <!-- Send icon (SVG) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Existing Tour Suggestion Button -->
+            <button id="suggest-tour-button" class="llm-feature-button">Suggest a Tour ✨</button>
+            <!-- New Itinerary Suggestion Button -->
+            <button id="plan-trip-button" class="llm-feature-button">Plan My Trip ✨</button>
+        </div>
+    </div>
+
+    <script type="module">
+        // Get references to DOM elements
+        const chatButton = document.getElementById('chat-button');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChatButton = document.getElementById('close-chat');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-button');
+        const suggestTourButton = document.getElementById('suggest-tour-button'); // Existing button reference
+        const planTripButton = document.getElementById('plan-trip-button'); // New button reference
+
+        // Flags to indicate if the next user message is for a specific LLM feature
+        let tourSuggestionMode = false;
+        let itineraryMode = false; // New flag for itinerary generation
+
+        // Initial chat history for the LLM API call
+        // Removed 'system' role. Instructions are now part of the initial model message or dynamically added to user prompts.
+        let chatHistory = [
+            {
+                role: "model",
+                parts: [{ text: "Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)" }]
+            }
+        ];
+
+        // Function to toggle chat window visibility
+        function toggleChat() {
+            chatWindow.classList.toggle('hiddenchat');
+            if (!chatWindow.classList.contains('hiddenchat')) {
+                chatInput.focus(); // Focus input when chat opens
+                scrollToBottom(); // Scroll to the latest message
+            }
+        }
+
+        // Function to add a message to the chat display
+        function addMessage(text, sender) {
+            const messageBubble = document.createElement('div');
+            messageBubble.classList.add('message-bubble');
+            messageBubble.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageBubble.textContent = text;
+            chatMessages.appendChild(messageBubble);
+            scrollToBottom(); // Always scroll to the bottom after adding a message
+        }
+
+        // Function to scroll chat messages to the bottom
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to display a loading indicator
+        function showLoadingIndicator() {
+            const loadingDiv = document.createElement('div');
+            loadingDiv.classList.add('message-bubble', 'loading-indicator');
+            loadingDiv.id = 'loading-indicator';
+            loadingDiv.textContent = 'Touristabot is typing...';
+            chatMessages.appendChild(loadingDiv);
+            scrollToBottom();
+        }
+
+        // Function to remove the loading indicator
+        function hideLoadingIndicator() {
+            const loadingDiv = document.getElementById('loading-indicator');
+            if (loadingDiv) {
+                loadingDiv.remove();
+            }
+        }
+
+        // Function to send message to the LLM API
+        async function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') {
+                return; // Don't send empty messages
+            }
+
+            // Add user message to display
+            addMessage(userMessage, 'user');
+            chatInput.value = ''; // Clear input field
+
+            showLoadingIndicator(); // Show loading indicator
+
+            try {
+                let currentPrompt = userMessage; // The prompt to send to the AI
+
+                if (tourSuggestionMode) {
+                    // Prepend specific instructions for tour suggestions to the user's message
+                    currentPrompt = `The user is asking for a tour suggestion based on their interests. Their interests are: "${userMessage}". Provide a brief (2-3 sentences) and exciting tour idea. Do not ask follow-up questions in this response. Focus on the type of tour requested (e.g., adventure, cultural, relaxing, family-friendly).`;
+                    tourSuggestionMode = false; // Reset the flag after processing
+                } else if (itineraryMode) {
+                    // New prompt for itinerary generation
+                    currentPrompt = `The user wants a tour itinerary. Their input is: "${userMessage}". Please generate a brief (3-4 bullet points) and exciting itinerary. Include a destination, 2-3 activities, and a concluding remark. For example: "For an adventure in [City], you could [Activity 1], then [Activity 2], and finally [Activity 3]. Enjoy your trip!"`;
+                    itineraryMode = false; // Reset the flag after processing
+                }
+
+                // Prepare the payload for the Gemini API
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: currentPrompt }] }], // Send only the current user message as a new turn
+                    generationConfig: {
+                        maxOutputTokens: 150, // Increased token limit for slightly longer itineraries
+                        temperature: 0.7 // Adjust creativity (0.0-1.0)
+                    }
+                };
+
+                // Log the payload to the console for debugging
+                console.log("Sending payload to Gemini API:", JSON.stringify(payload, null, 2));
+
+                // IMPORTANT: Your actual API key is inserted here.
+                const apiKey = "AIzaSyAPgSrBQxe05u3eS3-EU9LhRcKBxQyqlfg"; 
+                
+                if (!apiKey || apiKey === "YOUR_GENERATED_API_KEY_HERE") {
+                    hideLoadingIndicator();
+                    addMessage("Oops! It looks like the API key is missing or invalid. Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.", 'bot');
+                    console.error("API Key Error: Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.");
+                    return; // Stop execution if API key is invalid
+                }
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                // Make the API call
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorDetails = await response.json().catch(() => ({ message: 'Could not parse error response.' }));
+                    console.error(`HTTP error! Status: ${response.status}, Error Details:`, errorDetails);
+                    throw new Error(`API request failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                hideLoadingIndicator(); // Hide loading indicator
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const botResponse = result.candidates[0].content.parts[0].text;
+                    addMessage(botResponse, 'bot');
+                    // For models that don't support system role, we typically don't add the system instruction to chatHistory
+                    // We only add the direct user-model turns
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] }); // Add original user message to history
+                    chatHistory.push({ role: "model", parts: [{ text: botResponse }] }); // Add bot response to history
+                } else if (result.error) {
+                    console.error("Gemini API returned an error:", result.error);
+                    addMessage(`Sorry, an API error occurred: ${result.error.message || 'Unknown error'}. Please try again.`, 'bot');
+                }
+                else {
+                    addMessage("Sorry, I couldn't get a valid response from the AI. Please try again.", 'bot');
+                    console.error("Unexpected API response structure or no content:", result);
+                }
+            } catch (error) {
+                hideLoadingIndicator(); // Hide loading indicator on error
+                addMessage("Oops! Something went wrong. Please try again later.", 'bot');
+                console.error("Error fetching AI response:", error);
+            }
+        }
+
+        // Event Listener for the existing "Suggest a Tour" button
+        suggestTourButton.addEventListener('click', () => {
+            addMessage("Great! Tell me what kind of tours you're interested in (e.g., 'adventure', 'cultural', 'relaxing', 'family-friendly'). I'll suggest something amazing for you! ✨", 'bot');
+            tourSuggestionMode = true; // Activate tour suggestion mode
+            itineraryMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+        // Event Listener for the new "Plan My Trip" button
+        planTripButton.addEventListener('click', () => {
+            addMessage("Fantastic! To plan your trip, tell me your desired destination and what kind of activities you enjoy (e.g., 'Paris, history and art' or 'Mountains, hiking and nature'). ✨", 'bot');
+            itineraryMode = true; // Activate itinerary mode
+            tourSuggestionMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+
+        // Event Listeners for existing chat functionality
+        chatButton.addEventListener('click', toggleChat);
+        closeChatButton.addEventListener('click', toggleChat);
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Ensure the chat window is hiddenchat on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            chatWindow.classList.add('hiddenchat');
+            scrollToBottom();
+        });
+    </script>
+</body>
+</html>

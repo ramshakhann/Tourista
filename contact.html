@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourista - Contact Us</title>
+     <!-- Logo -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='transparent' stroke='white' stroke-width='2'/%3E%3Cg transform='scale(1.2) translate(4, 4)'%3E%3Cpath fill='%23FFA500' d='M6.428 1.151C6.708.591 7.213 0 7.86 0h.28c.646 0 1.151.59 1.432 1.151L10.29 3.55l3.7 3.7a.5.5 0 0 1-1.029.043L11.4 5.441V13a.5.5 0 0 1-1 0V5.441l-1.58-1.58a.5.5 0 0 1-.043-1.029l3.7-3.7-1.745-3.136-1.375 2.475V13a.5.5 0 0 1-1 0V3.753l-1.375-2.475-1.745 3.136 3.7 3.7a.5.5 0 0 1-.043 1.029L5.6 5.441V13a.5.5 0 0 1-1 0V5.441L3.02 7.02a.5.5 0 0 1-1.029-.043l3.7-3.7L4.28 1.151z'/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="stylesheet" href="chatbot.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Open Sans Font for Nav Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Pacifico Font for Website Title -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Great Vibes Font for Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons (Social Media, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Light gray background */
+            overflow-x: hidden; /* Prevent horizontal scroll during animations */
+            transition: background-color 0.3s ease; /* Smooth transition for theme change */
+            background-image: url(./assets/images/sincerely-media-UWdTDa1Z9DM-unsplash.jpg);
+        }
+          * {
+            font-family: Nunito, sans-serif;
+        }
+        .header {
+            background-image: linear-gradient(to right, #d10ca0 0%, #16a085 100%);
+        }
+
+        /* Custom Keyframe Animations for page/element transitions */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        @keyframes slideUpFadeIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up-fade {
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+        }
+
+        /* Styles for the dropdown submenu */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            background-color: #fff; /* White background for dropdown */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 0.5rem 0;
+            top: calc(100% + 5px); /* Position below the parent link */
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            display: block; /* Show on hover or when active class is applied by JS */
+        }
+
+        .dropdown-menu a {
+            color: #ff7920; /* Dark gray text */
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #000000; /* Light gray hover */
+        }
+
+        /* Healthy Mind Theme - Green/Teal Palette */
+        /* Default colors are set by Tailwind, override for specific elements */
+        .header-bg {
+            background-color: #ffffff; /* White header */
+        }
+        .main-accent {
+            color: #047857; /* Teal 600 for main accents/icons */
+        }
+        .btn-primary {
+            background-color: #047857; /* Teal 600 for primary buttons */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #065f46; /* Teal 700 on hover */
+            box-shadow: 0 4px 15px rgba(255, 81, 1, 0.959);
+        }
+        .section-bg-light {
+            background-color: #ffffff; /* White section background */
+        }
+        .section-bg-accent {
+            background-color: #ecfdf5; /* Lightest teal for sections like features */
+        }
+        .text-primary {
+            color: #1a202c; /* Dark text for headings */
+        }
+        .text-secondary {
+            color: #4a5568; /* Slightly lighter text for paragraphs */
+        }
+        .footer-bg {
+            background-image: url(./assets/images/footer.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #cbd5e0; /* Light text for footer */
+        }
+        .footer-link-hover:hover {
+            color: #ffffff;
+        }
+        .nav-link-hover {
+            transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+            padding: 8px 12px; /* Added padding */
+            font-family: 'Open Sans', sans-serif; /* Applied Open Sans to nav links */
+            font-weight: 600; /* Added boldness */
+            color: white; /* Changed to white */
+        }
+        .nav-link-hover:hover {
+             color: #f3a108; /* Orange for nav link hover */
+            background-color: rgb(0, 0, 0); 
+            border-radius: 0.5rem; /* Rounded corners on hover */
+        }
+
+        /* Hero Background with Placeholder */
+        .hero-background {
+            background-image: url(./assets/images/contact\ hero.jpg); /* Calming green/teal tone */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+        }
+
+        .card 
+        {
+            background-color: #000000; /* Light blue card background */
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+        .btn-primary {
+            background-color: #ff3d02; /* Vibrant blue button */
+            color: rgb(255, 255, 255);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #ff9100; /* Darker vibrant blue on hover */
+        }
+        .input-field, .textarea-field {
+            background-color: #cfbcbc; /* Match card background */
+            border: 1px solid #ff3d02; /* Match button color */
+            color: #000000; /* Dark blue text */
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            width: 100%; /* Full width for form fields */
+        }
+        .input-field::placeholder, .textarea-field::placeholder {
+            color: #000000; /* Lighter placeholder text */
+        }
+        /* Style for invalid input */
+        .input-field.invalid, .textarea-field.invalid {
+            border-color: #e53e3e; /* Red border for invalid input */
+        }
+        .error-message {
+            color: #e53e3e; /* Red text for error messages */
+            font-size: 0.875rem; /* Smaller font size */
+            margin-top: 0.25rem;
+            display: none; /* Hidden by default */
+        }
+        /* Pacifico font for headings */
+        h1, h2, h3 {
+            font-family: 'Pacifico', cursive;
+        }     
+       #mobile-menu 
+        {
+            background-color: rgb(0, 0, 0);
+            opacity: 90%;
+            color: orangered;
+            
+
+        } 
+        #mobile-menu a
+        {
+            color: rgb(255, 145, 0);
+            font-weight: bold;
+
+        }
+         #mobile-menu a:hover
+        {
+            background-color: rgb(255, 145, 0);
+            color: rgb(255, 255, 255);
+
+        }
+        
+@media (max-width: 900px) {
+    #navbar 
+    {
+        font-size: smaller;
+        color: #fc6739;
+    }
+ 
+}
+
+
+
+    </style>
+</head>
+<body class="animate-fade-in">
+  <!-- Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url(./assets/images/review\ hero.jpg );">
+             <!-- Header/Navigation Bar -->
+            <header>
+             <nav class="flex justify-between items-center px-6 py-4 bg-white/70 backdrop-blur-sm  fixed w-full top-0 z-50" style="background-color: transparent; ">
+            <a href="index.html" class="text-white rounded-lg flex items-center mr-4" style="font-family: 'Pacifico', cursive; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <!-- Plane icon with orange color and white border -->
+                <i class="fas fa-plane text-3xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                Tourista
+            </a>
+            <div id="navbar" class="hidden md:flex items-center space-x-4"> 
+                <a href="index.html" class="nav-link-hover rounded-lg">Home</a>
+                <a href="./destinations.html" class="nav-link-hover rounded-lg">Destinations</a>
+                <a href="./Guides.html" class="nav-link-hover rounded-lg">Guide</a>
+                <a href="./reviews.html" class="nav-link-hover rounded-lg">Reviews</a>
+                <a href="./contact.html "class="nav-link-hover rounded-lg">Contact</a>
+                <a href="./about_us.html"class="nav-link-hover rounded-lg">About</a>
+
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-secondary hover:text-main-accent focus:outline-none rounded-lg p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-[72px] left-0 w-full bg-white py-2 shadow-lg rounded-b-lg z-40 transition-all duration-300 ease-in-out">
+            <a href="index.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Home</a>
+            <a href="./destinations.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2"> Destinations</a>
+            <a href="./Guides.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Guide</a>
+            <a href="./reviews.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Reviews</a>
+            <a href="contact.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Contact</a>
+            <a href="./about_us.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">About</a>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-background h-screen flex items-center justify-center text-center px-4 py-20 bg-cover bg-center rounded-b-2xl">
+            <div class="bg-black bg-opacity-40 p-8 rounded-xl max-w-3xl"  style=" box-shadow: 0 4px 15px rgb(255, 144, 70); text-shadow: 5px 5px 5px #000000;">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-slide-up-fade " style="animation-delay: 0.1s;font-family: 'Great Vibes', cursive; color: #fc9905;">
+                    Get In Touch With Tourista
+                </h1>
+                
+            </div>
+        </section>
+
+            <div class="max-w-6xl mx-auto">
+       
+
+        <!-- Contact Form Section -->
+        <section class="py-16  text-primary rounded-xl shadow-lg container mx-auto px-4 mb-8 ">
+            <h2 class="text-3xl sm:text-4xl font-semibold text-center mb-8 text-700" style="color: orangered;"><span class="inline-block bg-yellow-600 rounded-lg p-2 mr-3" style=" font-family: 'pacifico', cursive; color: #ff3d02;">✉️</span>Send Us a Message</h2>
+            <div class="flex flex-col md:flex-row gap-6 items-stretch">
+                <div class="md:w-1/2 flex items-center justify-center flex-grow">
+                    <img src="./assets/images/form dp.jpg" alt="Contact Us Illustration" class="rounded-lg shadow-md w-full object-cover" style="border: 3px solid rgb(255, 81, 0);">
+                </div>
+                <!-- Form container -->
+                <div class="card p-6 md:w-1/2 flex-grow" style="border: 3px solid rgb(255, 81, 0);">
+                    <form id="contact-form" class="space-y-6  flex flex-col justify-between" > 
+                        <div>
+                            <label for="name" class="block text-lg font-medium text-800 mb-2" style="color: rgb(255, 255, 255);">Your Name:</label>
+                            <input type="text" id="name" name="name" class="input-field" placeholder="John Doe" required>
+                            <p id="name-error" class="error-message">Please enter a valid name (letters, spaces, hyphens, apostrophes only).</p>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-lg font-medium text-800 mb-2" style="color: rgb(255, 255, 255);">Your Email:</label>
+                            <input type="email" id="email" name="email" class="input-field" placeholder="john.doe@example.com" required>
+                            <p id="email-error" class="error-message">Please enter a valid email address.</p>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-lg font-medium text-800 mb-2" style="color:rgb(255, 255, 255);">Subject:</label>
+                            <input type="text" id="subject" name="subject" class="input-field" placeholder="Inquiry about travel kits" required>
+                            <p id="subject-error" class="error-message">Subject can only contain letters, numbers, spaces, and common punctuation.</p>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-lg font-medium text-800 mb-2" style="color: rgb(255, 255, 255);">Message:</label>
+                            <textarea id="message" name="message" rows="6" class="textarea-field" placeholder="Type your message here..." required></textarea>
+                            <p id="message-error" class="error-message">Message contains invalid characters or is too short/long.</p>
+                        </div>
+                        <div class="text-center mt-auto"> 
+                            <button type="submit" class="btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                    <div id="form-message" class="mt-4 p-4 rounded-lg text-center hidden" role="alert"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section >
+            <h2 class="text-3xl sm:text-4xl font-semibold text-center mb-8 text-700" style="color: rgb(255, 63, 4);">Our Contact Details</h2>
+            <div class="grid  sm:grid-cols-1  md:grid-cols-3 gap-6 text-center items-center mb-10" >
+                <div class="card p-6 items-center " style="border: 3px solid rgb(231, 63, 1) ; ">
+                    <h3 class="text-xl font-semibold mb-3 text-800" style="color: rgb(255, 63, 4);">Email Us</h3>
+                    <p class="text-blue-600 mb-2" style="color: white;">For general inquiries:</p>
+                    <a href="mailto:info@travelkits.com" class="text-blue-500 hover:underline" style="color: white;">ramsha.khan2502c1@gmail.com</a>
+                </div>
+                <div class="card p-6" style="border: 3px solid rgb(231, 63, 1) ;">
+                    <h3 class="text-xl font-semibold mb-3 text-800" style="color: rgb(255, 63, 4);">Call Us</h3>
+                    <p class="text-blue-600 mb-2" style="color: white;">Customer Support:</p>
+                    <a href="tel:+1234567890" class="text-blue-500 hover:underline" style="color: white;">0335-7894650</a>
+                </div>
+                <div class="card p-6 "style="border: 3px solid rgb(231, 63, 1) ;">
+                    <h3 class="text-xl font-semibold mb-3 text-800" style="color: rgb(255, 63, 4);   font-family: 'pacifico', cursive;">Visit Us</h3>
+                    <p class="text-blue-600 mb-2" style="color: white;">Our Office (by appointment):</p>
+                    <p class="text-blue-500" style="color: white;">Aptech, North Nazimabad, karachi</p>
+                </div>
+            </div>
+        </section>
+  
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+        <!-- Chat Button -->
+        <div id="chat-button">
+            <!-- New Plane icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-8 h-8">
+                <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A1.5 1.5 0 0 1 10.5 16h-5a1.5 1.5 0 0 1-1.062-2.503l1.318-1.318-.375-2.253-5.507.918A.5.5 0 0 1 0 12V9.618a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.569.14-.97.428-1.151Z"/>
+            </svg>
+        </div>
+
+        <!-- Chat Window (initially hiddenchat) -->
+        <div id="chat-window" class="hiddenchat">
+            <div id="chat-header">
+                <span>Touristabot Assistant</span>
+                <button id="close-chat">&times;</button>
+            </div>
+            <div id="chat-messages">
+                <!-- Initial bot message -->
+                <div class="message-bubble bot-message">
+                    Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)
+                </div>
+            </div>
+            <div id="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-button">
+                    <!-- Send icon (SVG) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Existing Tour Suggestion Button -->
+            <button id="suggest-tour-button" class="llm-feature-button">Suggest a Tour ✨</button>
+            <!-- New Itinerary Suggestion Button -->
+            <button id="plan-trip-button" class="llm-feature-button">Plan My Trip ✨</button>
+        </div>
+    </div>
+   
+</div></main>
+    <!--  Footer -->
+    <footer class="footer-bg py-8 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <a href="index.html" class="text-white rounded-lg flex items-center" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                    <i class="fas fa-plane text-2xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                    Tourista
+                </a>
+            </div>
+            <p class="mb-4 md:mb-0">&copy; 2023 Tourista. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="index.html" class="hover:text-white transition duration-300 footer-link-hover">Home</a>
+                <a href="about_us.html" class="hover:text-white transition duration-300 footer-link-hover">About </a>
+                <a href="destinations.html" class="hover:text-white transition duration-300 footer-link-hover">Destinations</a>
+                <a href="reviews.html" class="hover:text-white transition duration-300 footer-link-hover">Reviews</a>
+                <a href="contact.html" class="hover:text-white transition duration-300 footer-link-hover">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile Poses Dropdown Toggle
+        const mobilePosesDropdownToggle = document.getElementById('mobile-poses-dropdown-toggle');
+        const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
+
+        if (mobilePosesDropdownToggle && mobileDropdownMenu) {
+            mobilePosesDropdownToggle.addEventListener('click', () => {
+                mobileDropdownMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Handle desktop dropdown hover/click state (for accessibility)
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const dropdownButton = dropdown.querySelector('button');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+            // Toggle on click for better accessibility
+            if (dropdownButton) {
+                dropdownButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default button action
+                    dropdown.classList.toggle('active'); // Toggle active class
+                });
+
+                // Close dropdown if clicked outside
+                document.addEventListener('click', (event) => {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Function to handle animations on scroll using Intersection Observer
+        const animateOnScroll = () => {
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const animationType = element.dataset.animate;
+
+                        // Apply animation class based on data-animate attribute
+                        if (animationType === 'slide-up-fade') {
+                            element.classList.add('animate-slide-up-fade');
+                        }
+                        // Add more conditions here for other animation types if needed
+
+                        element.classList.remove('initial-hidden'); // Remove the initial hidden state
+                        observer.unobserve(element); // Stop observing once the element has animated
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with the 'data-animate' attribute
+            document.querySelectorAll('[data-animate]').forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+       
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            // Get input elements and their corresponding error message paragraphs
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+
+            const nameError = document.getElementById('name-error');
+            const emailError = document.getElementById('email-error');
+            const subjectError = document.getElementById('subject-error');
+            const messageError = document.getElementById('message-error');
+
+            // Regular expressions for validation
+            const nameRegex = /^[a-zA-Z\s'-]+$/; // Letters, spaces, hyphens, apostrophes
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Standard email format
+            const subjectRegex = /^[a-zA-Z0-9\s.,!?'"-]+$/; // Alphanumeric, spaces, common punctuation
+            const messageRegex = /^[\s\S]{10,1000}$/; // Any character, min 10, max 1000 characters (adjust as needed)
+
+            /**
+             * Validates a single input field against a regex and updates its visual state.
+             * @param {HTMLElement} inputElement The input or textarea element.
+             * @param {RegExp} regex The regular expression to test against.
+             * @param {HTMLElement} errorElement The paragraph element to display error messages.
+             * @returns {boolean} True if validation passes, false otherwise.
+             */
+            function validateField(inputElement, regex, errorElement) {
+                const value = inputElement.value.trim();
+                if (regex.test(value)) {
+                    inputElement.classList.remove('invalid');
+                    errorElement.style.display = 'none';
+                    return true;
+                } else {
+                    inputElement.classList.add('invalid');
+                    errorElement.style.display = 'block';
+                    return false;
+                }
+            }
+
+            // Add real-time validation feedback on input
+            nameInput.addEventListener('input', () => validateField(nameInput, nameRegex, nameError));
+            emailInput.addEventListener('input', () => validateField(emailInput, emailRegex, emailError));
+            subjectInput.addEventListener('input', () => validateField(subjectInput, subjectRegex, subjectError));
+            messageInput.addEventListener('input', () => validateField(messageInput, messageRegex, messageError));
+
+
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent default form submission
+
+                // Perform all validations on submit
+                const isNameValid = validateField(nameInput, nameRegex, nameError);
+                const isEmailValid = validateField(emailInput, emailRegex, emailError);
+                const isSubjectValid = validateField(subjectInput, subjectRegex, subjectError);
+                const isMessageValid = validateField(messageInput, messageRegex, messageError);
+
+                // If any validation fails, stop submission and show a general error
+                if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
+                    formMessage.classList.remove('hidden', 'bg-green-200', 'text-green-800');
+                    formMessage.classList.add('bg-red-200', 'text-red-800');
+                    formMessage.textContent = 'Please correct the errors in the form before submitting.';
+                    return; // Stop the function if validation fails
+                }
+
+                // Simulate form submission (only if all fields are valid)
+                const name = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                const subject = subjectInput.value.trim();
+                const message = messageInput.value.trim();
+
+                console.log('Form Submitted:');
+                console.log('Name:', name);
+                console.log('Email:', email);
+                console.log('Subject:', subject);
+                console.log('Message:', message);
+
+                // Display a success message
+                formMessage.classList.remove('hidden', 'bg-red-200', 'text-red-800');
+                formMessage.classList.add('bg-green-200', 'text-green-800');
+                formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
+
+                // Clear the form fields
+                contactForm.reset();
+
+                // Hide the message after a few seconds
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000); // Message disappears after 5 seconds
+            });
+        });
+    </script>
+     <script type="module">
+        // Get references to DOM elements
+        const chatButton = document.getElementById('chat-button');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChatButton = document.getElementById('close-chat');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-button');
+        const suggestTourButton = document.getElementById('suggest-tour-button'); // Existing button reference
+        const planTripButton = document.getElementById('plan-trip-button'); // New button reference
+
+        // Flags to indicate if the next user message is for a specific LLM feature
+        let tourSuggestionMode = false;
+        let itineraryMode = false; // New flag for itinerary generation
+
+        // Initial chat history for the LLM API call
+        // Removed 'system' role. Instructions are now part of the initial model message or dynamically added to user prompts.
+        let chatHistory = [
+            {
+                role: "model",
+                parts: [{ text: "Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)" }]
+            }
+        ];
+
+        // Function to toggle chat window visibility
+        function toggleChat() {
+            chatWindow.classList.toggle('hiddenchat');
+            if (!chatWindow.classList.contains('hiddenchat')) {
+                chatInput.focus(); // Focus input when chat opens
+                scrollToBottom(); // Scroll to the latest message
+            }
+        }
+
+        // Function to add a message to the chat display
+        function addMessage(text, sender) {
+            const messageBubble = document.createElement('div');
+            messageBubble.classList.add('message-bubble');
+            messageBubble.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageBubble.textContent = text;
+            chatMessages.appendChild(messageBubble);
+            scrollToBottom(); // Always scroll to the bottom after adding a message
+        }
+
+        // Function to scroll chat messages to the bottom
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to display a loading indicator
+        function showLoadingIndicator() {
+            const loadingDiv = document.createElement('div');
+            loadingDiv.classList.add('message-bubble', 'loading-indicator');
+            loadingDiv.id = 'loading-indicator';
+            loadingDiv.textContent = 'Touristabot is typing...';
+            chatMessages.appendChild(loadingDiv);
+            scrollToBottom();
+        }
+
+        // Function to remove the loading indicator
+        function hideLoadingIndicator() {
+            const loadingDiv = document.getElementById('loading-indicator');
+            if (loadingDiv) {
+                loadingDiv.remove();
+            }
+        }
+
+        // Function to send message to the LLM API
+        async function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') {
+                return; // Don't send empty messages
+            }
+
+            // Add user message to display
+            addMessage(userMessage, 'user');
+            chatInput.value = ''; // Clear input field
+
+            showLoadingIndicator(); // Show loading indicator
+
+            try {
+                let currentPrompt = userMessage; // The prompt to send to the AI
+
+                if (tourSuggestionMode) {
+                    // Prepend specific instructions for tour suggestions to the user's message
+                    currentPrompt = `The user is asking for a tour suggestion based on their interests. Their interests are: "${userMessage}". Provide a brief (2-3 sentences) and exciting tour idea. Do not ask follow-up questions in this response. Focus on the type of tour requested (e.g., adventure, cultural, relaxing, family-friendly).`;
+                    tourSuggestionMode = false; // Reset the flag after processing
+                } else if (itineraryMode) {
+                    // New prompt for itinerary generation
+                    currentPrompt = `The user wants a tour itinerary. Their input is: "${userMessage}". Please generate a brief (3-4 bullet points) and exciting itinerary. Include a destination, 2-3 activities, and a concluding remark. For example: "For an adventure in [City], you could [Activity 1], then [Activity 2], and finally [Activity 3]. Enjoy your trip!"`;
+                    itineraryMode = false; // Reset the flag after processing
+                }
+
+                // Prepare the payload for the Gemini API
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: currentPrompt }] }], // Send only the current user message as a new turn
+                    generationConfig: {
+                        maxOutputTokens: 150, // Increased token limit for slightly longer itineraries
+                        temperature: 0.7 // Adjust creativity (0.0-1.0)
+                    }
+                };
+
+                // Log the payload to the console for debugging
+                console.log("Sending payload to Gemini API:", JSON.stringify(payload, null, 2));
+
+                // IMPORTANT: Your actual API key is inserted here.
+                const apiKey = "AIzaSyAPgSrBQxe05u3eS3-EU9LhRcKBxQyqlfg"; 
+                
+                if (!apiKey || apiKey === "YOUR_GENERATED_API_KEY_HERE") {
+                    hideLoadingIndicator();
+                    addMessage("Oops! It looks like the API key is missing or invalid. Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.", 'bot');
+                    console.error("API Key Error: Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.");
+                    return; // Stop execution if API key is invalid
+                }
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                // Make the API call
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorDetails = await response.json().catch(() => ({ message: 'Could not parse error response.' }));
+                    console.error(`HTTP error! Status: ${response.status}, Error Details:`, errorDetails);
+                    throw new Error(`API request failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                hideLoadingIndicator(); // Hide loading indicator
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const botResponse = result.candidates[0].content.parts[0].text;
+                    addMessage(botResponse, 'bot');
+                    // For models that don't support system role, we typically don't add the system instruction to chatHistory
+                    // We only add the direct user-model turns
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] }); // Add original user message to history
+                    chatHistory.push({ role: "model", parts: [{ text: botResponse }] }); // Add bot response to history
+                } else if (result.error) {
+                    console.error("Gemini API returned an error:", result.error);
+                    addMessage(`Sorry, an API error occurred: ${result.error.message || 'Unknown error'}. Please try again.`, 'bot');
+                }
+                else {
+                    addMessage("Sorry, I couldn't get a valid response from the AI. Please try again.", 'bot');
+                    console.error("Unexpected API response structure or no content:", result);
+                }
+            } catch (error) {
+                hideLoadingIndicator(); // Hide loading indicator on error
+                addMessage("Oops! Something went wrong. Please try again later.", 'bot');
+                console.error("Error fetching AI response:", error);
+            }
+        }
+
+        // Event Listener for the existing "Suggest a Tour" button
+        suggestTourButton.addEventListener('click', () => {
+            addMessage("Great! Tell me what kind of tours you're interested in (e.g., 'adventure', 'cultural', 'relaxing', 'family-friendly'). I'll suggest something amazing for you! ✨", 'bot');
+            tourSuggestionMode = true; // Activate tour suggestion mode
+            itineraryMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+        // Event Listener for the new "Plan My Trip" button
+        planTripButton.addEventListener('click', () => {
+            addMessage("Fantastic! To plan your trip, tell me your desired destination and what kind of activities you enjoy (e.g., 'Paris, history and art' or 'Mountains, hiking and nature'). ✨", 'bot');
+            itineraryMode = true; // Activate itinerary mode
+            tourSuggestionMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+
+        // Event Listeners for existing chat functionality
+        chatButton.addEventListener('click', toggleChat);
+        closeChatButton.addEventListener('click', toggleChat);
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Ensure the chat window is hiddenchat on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            chatWindow.classList.add('hiddenchat');
+            scrollToBottom();
+        });
+    </script>
+
+
+</body>
+</html>

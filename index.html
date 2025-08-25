@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourista - Home</title>
+    <!-- Logo -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='transparent' stroke='white' stroke-width='2'/%3E%3Cg transform='scale(1.2) translate(4, 4)'%3E%3Cpath fill='%23FFA500' d='M6.428 1.151C6.708.591 7.213 0 7.86 0h.28c.646 0 1.151.59 1.432 1.151L10.29 3.55l3.7 3.7a.5.5 0 0 1-1.029.043L11.4 5.441V13a.5.5 0 0 1-1 0V5.441l-1.58-1.58a.5.5 0 0 1-.043-1.029l3.7-3.7-1.745-3.136-1.375 2.475V13a.5.5 0 0 1-1 0V3.753l-1.375-2.475-1.745 3.136 3.7 3.7a.5.5 0 0 1-.043 1.029L5.6 5.441V13a.5.5 0 0 1-1 0V5.441L3.02 7.02a.5.5 0 0 1-1.029-.043l3.7-3.7L4.28 1.151z'/%3E%3C/g%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Open Sans Font for Nav Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Pacifico Font for Website Title -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Great Vibes Font for Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons (Social Media, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Light gray background */
+            overflow-x: hidden; /* Prevent horizontal scroll during animations */
+            transition: background-color 0.3s ease; /* Smooth transition for theme change */
+            background-image: url(./assets/images/sincerely-media-UWdTDa1Z9DM-unsplash.jpg);
+        }
+        
+        
+
+        /* Custom Keyframe Animations for page/element transitions */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        @keyframes slideUpFadeIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up-fade {
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+        }
+
+        /* Styles for the dropdown submenu */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            background-color: #664e4e; /* White background for dropdown */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 0.5rem 0;
+            top: calc(100% + 5px); /* Position below the parent link */
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            display: block; /* Show on hover or when active class is applied by JS */
+        }
+
+        .dropdown-menu a {
+            color: #4a5568; /* Dark gray text */
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #e2e8f0; /* Light gray hover */
+        }
+
+        /* Healthy Mind Theme - Green/Teal Palette */
+        /* Default colors are set by Tailwind, override for specific elements */
+        .header-bg {
+            background-color: #353333; /* White header */
+        }
+        .main-accent {
+            color: #047857; /* Teal 600 for main accents/icons */
+        }
+        .btn-primary {
+            background-color: #047857; /* Teal 600 for primary buttons */
+            color: white;
+        }
+     
+        .section-bg-light {
+            background-color: #ffffff; /* White section background */
+        }
+        .section-bg-accent {
+            background-color: #ecfdf5; /* Lightest teal for sections like features */
+        }
+        .text-primary {
+            color: #1a202c; /* Dark text for headings */
+        }
+        .text-secondary {
+            color: #ffffff; /* Slightly lighter text for paragraphs */
+        }
+        .footer-bg {
+            background-image: url(./assets/images/footer.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+            color: #cbd5e0; /* Light text for footer */
+        }
+        .footer-link-hover:hover {
+            color: #ffffff;
+        }
+        .nav-link-hover {
+            transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+            padding: 8px 12px; /* Added padding */
+            font-family: 'Open Sans', sans-serif; /* Applied Open Sans to nav links */
+            font-weight: 600; /* Added boldness */
+            color: white; /* Changed to white */
+        }
+        .nav-link-hover:hover {
+            color: #fc6739; /* Orange for nav link hover */
+            background-color: rgb(0, 0, 0); /* Transparent orange background on hover */
+            border-radius: 0.5rem; /* Rounded corners on hover */
+        }
+
+        /* Hero Background with Placeholder */
+        .hero-background {
+            background-image: url('./assets/images/hero.jpg'); /* Calming green/teal tone */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+        }
+
+     
+
+        /* Initial hidden state for elements to be animated on scroll */
+        .initial-hidden {
+            opacity: 0;
+        }
+        
+        .responsive-container-block {
+            min-height: 75px;
+            height: fit-content;
+            width: 100%;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 0px;
+            margin-right: auto;
+            margin-bottom: 0px;
+            margin-left: auto;
+            justify-content: flex-start;
+        }
+
+        a {
+            text-decoration-line: none;
+            text-decoration-thickness: initial;
+            text-decoration-style: initial;
+            text-decoration-color: initial;
+        }
+
+        .text-blk {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            line-height: 25px;
+        }
+
+        .responsive-container-block.bigContainer {
+            padding: 10px 20px; /* Decreased horizontal padding */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mainImg {
+            color: black;
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .text-blk.headingText {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 30px;
+            color: rgb(176, 98, 255);
+            padding-top: 0px;
+            padding-right: 10px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 5px;
+            margin-left: 0px;
+        }
+
+        .allText {
+            padding-top: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            width: 40%;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+        }
+
+        .text-blk.subHeadingText {
+            color: rgb(102, 102, 102);
+            font-size: 26px;
+            line-height: 32px;
+            font-weight: 700;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 15px;
+            margin-left: 0px;
+            padding-top: 0px;
+            padding-right: 10px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+        }
+
+        .text-blk.description {
+            font-size: 18px;
+            line-height: 26px;
+            color: rgb(102, 102, 102);
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 50px;
+            margin-left: 0px;
+            font-weight: 400;
+            padding-top: 0px;
+            padding-right: 10px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+        }
+
+        .explore {
+            font-size: 16px;
+            line-height: 28px;
+            color: rgb(102, 102, 102);
+            border-top-width: 2px;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-top-color: rgb(102, 102, 102);
+            border-right-color: rgb(102, 102, 102);
+            border-bottom-color: rgb(102, 102, 102);
+            border-left-color: rgb(102, 102, 102);
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            cursor: pointer;
+            background-color: white;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            padding-top: 8px;
+            padding-right: 40px;
+            padding-bottom: 8px;
+            padding-left: 40px;
+        }
+
+        .explore:hover {
+            background-image: initial;
+            background-position-x: initial;
+            background-position-y: initial;
+            background-size: initial;
+            
+            background-attachment: initial;
+            background-origin: initial;
+            background-clip: initial;
+            background-color: rgb(176, 98, 255);
+            color: white;
+            border-top-width: initial;
+            border-right-width: initial;
+            border-bottom-width: initial;
+            border-left-width: initial;
+            border-top-style: none;
+            border-right-style: none;
+            border-bottom-style: none;
+            border-left-style: none;
+            border-top-color: initial;
+            border-right-color: initial;
+            border-bottom-color: initial;
+            border-left-color: initial;
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+        }
+
+        .responsive-container-block.Container {
+            margin-top: 80px;
+            margin-right: auto;
+            margin-bottom: 50px;
+            margin-left: auto;
+            justify-content: center;
+            align-items: center;
+            max-width: 1320px;
+            padding: 10px 0px; /* Decreased horizontal padding */
+        }
+
+        .responsive-container-block.Container.bottomContainer {
+            flex-direction: row-reverse;
+            margin-top: 80px;
+            margin-right: auto;
+            margin-bottom: 50px;
+            margin-left: auto;
+            position: static;
+        }
+
+        .allText.aboveText {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px; /* Removed left margin */
+        }
+
+        .allText.bottomText {
+            margin-top: 0px;
+            margin-right: 40px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 0px;
+            padding-right: 15px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+        }
+
+        .purpleBox {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 430px;
+            background-color: rgb(255, 192, 98);
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            position: absolute;
+            bottom: -35px;
+            left: -8%;
+        }
+
+        .purpleText {
+            font-size: 18px;
+            line-height: 26px;
+            color: white;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 10px;
+            margin-left: 0px;
+        }
+
+        .ultimateImg {
+            width: 50%;
+            position: relative;
+        }
+
+        @media (max-width: 1024px) {
+            .responsive-container-block.Container {
+                max-width: 850px;
+            }
+
+            .mainImg {
+                width: 55%;
+                height: auto;
+            }
+
+            .allText {
+                width: 40%;
+                margin-top: 0px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 20px;
+            }
+
+            .responsive-container-block.bigContainer {
+                padding: 10px 10px; /* Decreased horizontal padding */
+            }
+
+            .responsive-container-block.Container.bottomContainer {
+                margin-top: 80px;
+                margin-right: auto;
+                margin-bottom: 50px;
+                margin-left: auto;
+            }
+
+            .responsive-container-block.Container {
+                max-width: 830px;
+            }
+
+            .allText.aboveText {
+                margin-top: 30px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .allText.bottomText {
+                margin-top: 30px;
+                margin-right: 40px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                text-align: left;
+            }
+
+            .text-blk.headingText {
+                text-align: center;
+            }
+
+            .allText.aboveText {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .text-blk.subHeadingText {
+                text-align: left;
+                font-size: 26px;
+                line-height: 32px;
+            }
+
+            .text-blk.description {
+                text-align: left;
+                line-height: 24px;
+            }
+
+            .explore {
+                margin-top: 0px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .responsive-container-block.bigContainer {
+                padding: 10px 10px; /* Decreased horizontal padding */
+            }
+
+            .responsive-container-block.Container {
+                justify-content: space-evenly;
+            }
+
+            .purpleBox {
+                bottom: 10%;
+            }
+
+            .responsive-container-block.Container.bottomContainer {
+                padding: 10px 0px; /* Decreased horizontal padding */
+                max-width: 930px;
+            }
+
+            .allText.bottomText {
+                width: 40%;
+            }
+
+            .purpleBox {
+                bottom: auto;
+                left: -10%;
+                top: 70%;
+            }
+
+            .mainImg {
+                width: 100%;
+            }
+
+            .text-blk.headingText {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .allText {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-top: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+                padding-left: 0px;
+            }
+
+            .responsive-container-block.Container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .text-blk.headingText {
+                text-align: center;
+            }
+
+            .text-blk.subHeadingText {
+                text-align: center;
+                font-size: 24px;
+            }
+
+            .text-blk.description {
+                text-align: center;
+                font-size: 18px;
+            }
+
+            .allText {
+                margin-top: 40px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .allText.aboveText {
+                margin-top: 40px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .responsive-container-block.Container {
+                margin-top: 80px;
+                margin-right: auto;
+                margin-bottom: 50px;
+                margin-left: auto;
+            }
+
+            .responsive-container-block.Container.bottomContainer {
+                margin-top: 50px;
+                margin-right: auto;
+                margin-bottom: 50px;
+                margin-left: auto;
+            }
+
+            .allText.bottomText {
+                margin-top: 40px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .mainImg {
+                width: 100%;
+                margin-top: 0px;
+                margin-right: 0px;
+                margin-bottom: -70px;
+                margin-left: 0px;
+            }
+
+            .responsive-container-block.Container.bottomContainer {
+                flex-direction: column;
+            }
+
+            .ultimateImg {
+                width: 100%;
+            }
+
+            .purpleBox {
+                position: static;
+            }
+
+            .allText.bottomText {
+                width: 100%;
+                align-items: flex-start;
+            }
+
+            .text-blk.headingText {
+                text-align: left;
+            }
+
+            .text-blk.subHeadingText {
+                text-align: left;
+            }
+
+            .text-blk.description {
+                text-align: left;
+            }
+
+            .ultimateImg {
+                position: static;
+            }
+
+            .mainImg {
+                margin-top: 0px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .ultimateImg {
+                position: relative;
+            }
+
+            .purpleBox {
+                margin-top: 0px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                position: absolute;
+                left: 0px;
+                top: 80%;
+            }
+
+            .allText.bottomText {
+                margin-top: 100px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .responsive-container-block.Container {
+                padding: 10px 0px; /* Decreased horizontal padding */
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .mainImg {
+                width: 100%;
+            }
+
+            .responsive-container-block.bigContainer {
+                padding: 10px 5px; /* Decreased horizontal padding */
+            }
+
+            .text-blk.subHeadingText {
+                font-size: 24px;
+                padding-top: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+                padding-left: 0px;
+                line-height: 28px;
+            }
+
+            .text-blk.description {
+                font-size: 16px;
+                padding-top: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+                padding-left: 0px;
+                line-height: 22px;
+            }
+
+            .allText {
+                padding-top: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+                padding-left: 0px;
+                width: 100%;
+            }
+
+            .allText.bottomText {
+                margin-top: 50px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                padding: 0 0 0 0;
+                margin: 30px 0 0 0;
+            }
+
+            .ultimateImg {
+                position: static;
+            }
+
+            .purpleBox {
+                position: static;
+                background-color: #ec791b !important;
+            }
+
+            .stars {
+                width: 55%;
+            }
+
+            .allText.bottomText {
+                margin-top: 75px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .responsive-container-block.bigContainer {
+                padding: 10px 5px; /* Decreased horizontal padding */
+            }
+
+            .purpleText {
+                font-size: 16px;
+                line-height: 22px;
+            }
+
+            .explore {
+                padding: 6px 35px 6px 35px;
+                font-size: 15px;
+            }
+        }
+        /* Destination Card Specific Styles (adapted from Healthy Mind Destinations) */
+        .destination-card-container {
+            width: 100%; /* Default to full width on small screens */
+            max-width: 300px; /* Max width for larger screens */
+            height: 420px; /* Decreased height */
+            background-color: transparent;
+            border-radius: 60px; /* Overall card border-radius, consistent with header */
+            box-shadow: 0 10px 20px rgb(250, 163, 105);
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease; /* Added hover effect */
+            display: block; /* Make the block element */
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit text color */
+        }
+
+        @media (min-width: 640px) { /* Tailwind's 'sm' breakpoint */
+            .destination-card-container {
+                width: 300px; /* Revert to fixed width on larger screens to maintain design */
+            }
+        }
+
+        .destination-card-container:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+
+        .destination-card-header {
+            /* Using the destination image as background */
+            background-size: cover;
+            background-position: center;
+            height: 280px; /* Height of the header background */
+            position: relative;
+            border-top-left-radius: 60px; /* Increased radius */
+            border-top-right-radius: 60px; /* Increased radius */
+            border-bottom-left-radius: 60px; /* Added round border to bottom */
+            border-bottom-right-radius: 60px; /* Added round border to bottom */
+        }
+
+        .destination-image-circle {
+            position: absolute;
+            top: 230px; /* Adjusted to position the image over the white section */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            background-color: #fff; /* To create the white border effect */
+            border-radius: 50%;
+            padding: 5px; /* Padding for the white border */
+            width: 110px; /* Decreased width */
+            height: 110px; /* Decreased height */
+            box-shadow: 0 5px 15px rgb(253, 104, 34);
+        }
+
+        .destination-image-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            border-radius: 50%; /* Changed to 50% for circular image */
+        }
+
+        .destination-card-content {
+            padding: 40px 20px 20px; /* Reduced top padding to minimize white area */
+            position: relative;
+            z-index: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom-left-radius: 60px; /* Match overall card radius */
+            border-bottom-right-radius: 60px; /* Match overall card radius */
+        }
+
+        .destination-title {
+            margin-top: 20px; /* Added margin-top to the title */
+            margin-bottom: 10px;
+            color: #f58a59; 
+            font-size: 1.5em; 
+            font-weight: 600;
+            /* Removed font-family: 'Brush Script MT', cursive; */
+        }
+
+             /* Custom CSS for Marquee Animation and Styling */
+        .site-footer-marquee {
+            width: 100%;
+            overflow: hidden; /* Hide overflowing content for the marquee effect */
+            position: relative;
+            padding: 2rem 0; /* Add some vertical padding */
+            background-color: #000000; /* Solid background color */
+            /* Removed box-shadow: 0 -4px 15px rgba(230, 135, 10, 0.884); */ /* Removed top shadow */
+        }
+
+        .site-footer-marquee__track {
+            display: flex;
+            white-space: nowrap; /* Keep all items in one line */
+            animation: marquee-scroll var(--animation-duration, 30s) linear infinite;
+            /* Duplicate content will be added by JS for seamless loop */
+        }
+
+        .site-footer-marquee__grid {
+            display: flex;
+            gap: 1.5rem; /* Space between items */
+            padding: 0 1.5rem; /* Padding at the start/end of the visible track */
+        }
+
+        .site-footer-marquee-item {
+            flex-shrink: 0; /* Prevent items from shrinking */
+            width: 180px; /* Fixed width for each item */
+            height: 220px; /* Fixed height to accommodate image and title */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align content to the top */
+            border-radius: 1rem; /* Rounded corners for the item */
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 15px -3px rgb(252, 150, 82), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            transition: transform 0.3s ease-in-out;
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .site-footer-marquee-item:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+
+        .site-footer-marquee-item__stack {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            z-index: -1; 
+            background: url(./assets/images/marquee\ .jpg)
+        }
+
+        .site-footer-marquee-item__media {
+            width: calc(100% - 1.5rem); /* Slightly smaller than item width */
+            height: 150px; /* Fixed height for the image container */
+            margin-top: 0.75rem; /* Space from top */
+            border-radius: 0.75rem; /* Rounded corners for media */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e0e0e0; /* Placeholder background */
+        }
+
+        .site-footer-marquee-item__media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            border-radius: 0.75rem; /* Match parent border-radius */
+        }
+
+        .site-footer-marquee-item__title {
+            font-size: 1.5rem;
+            font-family: 'great vibes', cursive;
+            color: white;
+            font-weight: 600;
+            margin-top: 0.75rem; /* Space from image */
+            text-align: center;
+            padding: 0 0.5rem; /* Horizontal padding for text */
+            white-space: normal; /* Allow text to wrap */
+        }
+
+        /* Keyframe for marquee animation */
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%); /* Scroll half the duplicated track length */
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .site-footer-marquee-item {
+                width: 160px; /* Smaller item width on mobile */
+                height: 190px;
+            }
+            .site-footer-marquee-item__media {
+                height: 120px; /* Smaller image height */
+            }
+            .site-footer-marquee-item__title {
+                font-size: 0.9rem;
+            }
+            .site-footer-marquee__grid {
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-footer-marquee-item {
+                width: 35vw; /* Even smaller item width */
+                height: 170px;
+            }
+            .site-footer-marquee-item__media {
+                height: 100px;
+            }
+            .site-footer-marquee__grid {
+                gap: 0.75rem;
+                padding: 0 0.75rem;
+            }
+        }
+
+        /* New stylish heading class */
+        .stylish-heading {
+            font-weight: bold;
+            font-family: 'pacifico,cursive';
+            line-height: 1.2; /* Ensure line height prevents collapse */
+        }
+        #mobile-menu 
+        {
+            background-color: rgb(0, 0, 0);
+            opacity: 90%;
+            color: orangered;
+            
+
+        } 
+        #mobile-menu a
+        {
+            color: rgb(255, 145, 0);
+            font-weight: bold;
+
+        }
+         #mobile-menu a:hover
+        {
+            background-color: rgb(255, 145, 0);
+            color: rgb(255, 255, 255);
+
+        }
+     
+        /* Chatbot container styles */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: "Inter", sans-serif;
+            max-width: 95vw; 
+        }
+
+          /* Chatbot container styles */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: "Inter", sans-serif;
+            /* Add max-width to prevent the button from being too far left on very wide screens */
+            max-width: 95vw; /* Ensure it stays within viewport boundaries */
+        }
+
+        /* Chat button styles */
+        #chat-button {
+            background-color: #FF8C00; /* Dark Orange */
+            color: white;
+            padding: 1rem;
+            border-radius: 9999px; /* Fully rounded */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease-in-out;
+            width: 60px;
+            height: 60px;
+            /* Ensure it's always on top of the chat window if it overlaps */
+            position: relative;
+            z-index: 1001;
+        }
+
+        #chat-button:hover {
+            transform: scale(1.05);
+            background-color: #FF7F00; /* Slightly lighter orange on hover */
+        }
+
+        /* Chat window styles */
+        #chat-window {
+            background-color: white;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            width: 350px; /* Fixed width for chat window on larger screens */
+            height: 500px; /* Fixed height for chat window on larger screens */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: absolute;
+            bottom: calc(100% + 15px); /* Position above the button */
+            right: 0;
+            transform-origin: bottom right;
+            animation: fadeInScale 0.3s ease-out;
+        }
+
+        /* Ensure hiddenchat class strongly overrides display */
+        .hiddenchat {
+            display: none !important;
+        }
+
+        /* Animation for chat window appearance */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Chat header styles */
+        #chat-header {
+            background-color: #FFA500; /* Orange */
+            color: black; /* Changed to black for contrast */
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            font-weight: bold;
+        }
+
+        /* Close button in header */
+        #close-chat {
+            background: none;
+            border: none;
+            color: black; /* Changed to black for contrast */
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        #close-chat:hover {
+            color: #333; /* Darker grey on hover */
+        }
+
+        /* Chat messages container */
+        #chat-messages {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: #1A1A1A; /* Dark background for messages */
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* Space between messages */
+        }
+
+        /* Individual message bubble styles */
+        .message-bubble {
+            max-width: 80%; /* Ensure bubbles don't take full width unnecessarily */
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem; /* Rounded corners for bubbles */
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #FFD700; /* Gold for user messages */
+            align-self: flex-end;
+            color: #333; /* Dark text for user messages */
+            border-bottom-right-radius: 0;
+        }
+
+        .bot-message {
+            background-color: #333; /* Dark grey for bot messages */
+            align-self: flex-start;
+            color: #F8F8F8; /* Light text for bot messages */
+            border-bottom-left-radius: 0;
+        }
+
+        /* Loading indicator */
+        .loading-indicator {
+            align-self: flex-start;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            background-color: #333;
+            color: #F8F8F8;
+            font-style: italic;
+        }
+
+        /* Chat input area */
+        #chat-input-container {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #444; /* Darker border */
+            background-color: #1A1A1A; /* Dark background */
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+
+        #chat-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #555; /* Darker grey border */
+            border-radius: 0.5rem;
+            outline: none;
+            font-size: 0.9rem;
+            background-color: #2A2A2A; /* Even darker input background */
+            color: white; /* White text for input */
+            transition: border-color 0.2s ease-in-out;
+        }
+
+        #chat-input:focus {
+            border-color: #FFA500; /* Orange on focus */
+        }
+
+        #send-button {
+            background-color: #FFA500; /* Orange */
+            color: black; /* Changed to black for contrast */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-left: 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #send-button:hover {
+            background-color: #FF7F00; /* Slightly darker orange on hover */
+        }
+
+        /* New buttons for LLM features */
+        .llm-feature-button {
+            background-color: #FFD700; /* Gold */
+            color: black;
+            font-weight: bold;
+            padding: 0.5rem 1rem; /* Minimized padding for all screen sizes */
+            border-radius: 0.75rem;
+            margin-top: 0.5rem; /* Minimized margin for all screen sizes */
+            margin-bottom: 0.5rem; /* Minimized margin for all screen sizes */
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            text-align: center;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc(100% - 2rem); /* 100% minus 1rem padding on each side for container */
+            margin-left: 1rem; /* Align with input padding */
+            margin-right: 1rem; /* Align with input padding */
+        }
+
+        .llm-feature-button:hover {
+            background-color: #FFC400; /* Darker gold on hover */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 640px) {
+            #chatbot-container {
+                /* Keep it anchored to the bottom right */
+                bottom: 10px;
+                right: 10px;
+                /* Set a max-width for the container itself to indirectly control chat window size */
+                max-width: 340px; /* Slightly larger than chat window to account for button */
+                /* Ensure it doesn't stretch across the screen */
+                left: auto;
+                width: auto;
+            }
+
+            #chat-window {
+                width: 320px; /* Fixed smaller width */
+                height: 400px; /* Fixed smaller height */
+                /* Position relative to #chatbot-container */
+                bottom: calc(100% + 15px); /* Position above the button */
+                right: 0; /* Align to the right edge of its container */
+                left: auto; /* Ensure it doesn't try to stretch from left */
+                padding: 0; /* Still no padding on the window itself */
+                max-width: none; /* Override previous max-width: 100% if present */
+            }
+
+            /* Adjust internal paddings for smaller screens */
+            #chat-header {
+                padding: 0.4rem 1rem; /* Reduced vertical padding for header */
+            }
+            #chat-header span {
+                font-size: 0.9rem; /* Slightly smaller font for header text */
+            }
+            #close-chat {
+                font-size: 1.2rem; /* Slightly smaller close button */
+            }
+
+            #chat-messages,
+            #chat-input-container {
+                padding-left: 1rem; /* Maintain consistent padding for content */
+                padding-right: 1rem;
+            }
+
+            /* llm-feature-button styles for max-width: 640px are now handled by the base style,
+               but we can still make them slightly smaller if desired for this breakpoint.
+               I'll keep them as they were to ensure consistent reduction. */
+            .llm-feature-button {
+                padding: 0.4rem 1rem; /* Further reduced padding for this breakpoint */
+                margin-top: 0.4rem; /* Further reduced top margin */
+                margin-bottom: 0.4rem; /* Further reduced bottom margin */
+                font-size: 0.9rem; /* Slightly smaller font for buttons */
+            }
+        }
+
+        @media (max-width: 375px) {
+            #chatbot-container {
+                max-width: 310px; /* Adjust container max-width for very small screens */
+            }
+            #chat-window {
+                width: 290px; /* Even smaller width for very narrow screens */
+                height: 380px; /* Even smaller height */
+            }
+            #chat-input {
+                font-size: 0.85rem; /* Slightly smaller font for input */
+            }
+
+            #chat-header span {
+                font-size: 0.85rem; /* Even smaller header text for very small screens */
+            }
+
+            .message-bubble {
+                font-size: 0.85rem; /* Slightly smaller message text */
+                padding: 0.6rem 0.8rem;
+            }
+
+            .llm-feature-button {
+                padding: 0.3rem 0.8rem; /* Further reduced padding for very small screens */
+                font-size: 0.8rem; /* Further reduced font size */
+                margin-top: 0.3rem;
+                margin-bottom: 0.3rem;
+            }
+        }
+@media (max-width: 900px) {
+    #navbar 
+    {
+        font-size: smaller;
+        color: #fc6739;
+    }
+ 
+}
+@media (max-width: 900px) {
+    .container 
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+    }
+ 
+}       
+   
+/* Media query for screens up to 768px wide */
+@media (max-width: 768px) {
+    /* Adjust padding and font size for overall container responsiveness */
+    .responsive-container-block.bigContainer {
+        padding: 10px; /* Reduces horizontal padding */
+    }
+
+    /* Target the destination cards to prevent overflow */
+    .destination-card-container {
+        width: 100%; /* Makes cards full-width to prevent overflow */
+        max-width: 300px; /* Keep max-width for aesthetic */
+        margin-bottom: 20px;
+    }
+
+}
+
+/* Media query for screens up to 400px wide */
+@media (max-width: 430px) {
+    /* Further reduce padding for very small screens */
+    .responsive-container-block.bigContainer {
+        padding: 5px;
+        max-width: 100%;
+        overflow-x: hidden;
+
+    }
+    #highlights
+    {
+       width: 90%;
+    }
+
+    /* Minimize card sizes for smaller phones as requested */
+    .destination-card-container {
+         width: 80%;     
+        height: 380px; /* Explicitly minimize height */
+        margin: 0 auto 20px auto; /* Center the card and add bottom margin */
+    }
+    .destination-card-header {
+        height: 240px; 
+        width: auto;
+    }
+    .destination-image-circle {
+        top: 200px; /* Adjust image position to be on the new card size */
+        width: 90px;
+        height: 90px;
+    }
+
+    .responsive-container-block 
+    {
+        width: 90%;
+       
+    }
+ 
+}
+
+
+
+
+
+    </style>
+</head>
+<body class="animate-fade-in">
+  <!-- Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url(./assets/images/hero.jpg );">
+             <!-- Header/Navigation Bar -->
+            <header>
+             <nav class="flex justify-between items-center px-6 py-4 bg-white/70 backdrop-blur-sm  fixed w-full top-0 z-50" style="background-color: transparent; ">
+            <a href="index.html" class="text-white rounded-lg flex items-center mr-4" style="font-family: 'Pacifico', cursive; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <!-- Plane icon with orange color and white border -->
+                <i class="fas fa-plane text-3xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                Tourista
+            </a>
+            <div id="navbar" class="hidden md:flex items-center space-x-4"> 
+                <a href="index.html" class="nav-link-hover rounded-lg">Home</a>
+                <a href="./destinations.html" class="nav-link-hover rounded-lg">Destinations</a>
+                <a href="./Guides.html" class="nav-link-hover rounded-lg">Guide</a>
+                <a href="./reviews.html" class="nav-link-hover rounded-lg">Reviews</a>
+                <a href="./contact.html "class="nav-link-hover rounded-lg">Contact</a>
+                <a href="./about_us.html"class="nav-link-hover rounded-lg">About</a>
+
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-secondary hover:text-main-accent focus:outline-none rounded-lg p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-[72px] left-0 w-full bg-white py-2 shadow-lg rounded-b-lg z-40 transition-all duration-300 ease-in-out">
+            <a href="index.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Home</a>
+            <a href="./destinations.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2"> Destinations</a>
+            <a href="./Guides.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Guide</a>
+            <a href="./reviews.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Reviews</a>
+            <a href="contact.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">Contact</a>
+            <a href="./about_us.html" class="block px-4 py-2 text-primary hover:bg-gray-100 rounded-lg mx-2">About</a>
+
+        </div>
+    </header>  
+            <div class="flex flex-col justify-center items-center text-center text-white h-full px-4">
+            <div class="bg-black bg-opacity-20 p-8 rounded-xl max-w-3xl" style=" box-shadow: 0 4px 15px rgb(238, 95, 0);">
+
+               
+                <h1 class="text-5xl md:text-7xl font-extrabold  leading-tight mb-6 animate-slide-up-fade " style="animation-delay: 0.1s;font-family: 'Great Vibes', cursive; text-shadow: 5px 5px 5px #000000; color: rgb(248, 143, 6);">
+                    Your Gateway To Global Adventures</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto animate-slide-up-fade" style="animation-delay: 0.3s;">
+                </p>
+                
+            </div>
+        </section>
+        <!-- Welcome & Introduction Section -->
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center mt-5 p-8 rounded-xl shadow-md initial-hidden" data-animate="slide-up-fade" style="animation-delay: 0.1s;  box-shadow: 0 4px 15px rgb(255, 144, 70); box-sizing: border-box;">
+            <img src="./assets/images/home hero.jpg">
+            <div class="md:w-2/3 text-center md:text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl text-white mb-3 initial-hidden animate-slide-up-fade stylish-heading" style="font-family: 'Great Vibes', cursive; color: #ec791b;">Welcome to Tourista</h1>
+                <p class="text-secondary leading-relaxed initial-hidden animate-slide-up-fade " style="text-align: justify;">
+                From breathtaking landscapes and cultural wonders to guided excursions and luxury stays, 
+                we handle every detail so you can enjoy every moment.</p></p>
+            </div>
+        </div>
+    
+        <div class="responsive-container-block bigContainer">
+            <div class="responsive-container-block Container bottomContainer">
+                <div class="ultimateImg">
+                    <img class="mainImg" src="./assets/images/pc 11.png" data-animate="slide-up-fade">
+                    <div class="purpleBox">
+                        <p class="purpleText" style="text-align: justify;">
+                        Our tours consistently receive top ratings from satisfied customers around the world. With seamless planning, exceptional guides, and unforgettable experiences</p>
+                        <img class="stars" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/mp5.svg" >
+                    </div>
+                </div>
+                <div class="allText bottomText" data-animate="slide-up-fade">
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl text-primary mb-3 initial-hidden animate-slide-up-fade stylish-heading" style="font-family: 'Great Vibes', cursive; color: #ec791b;">Embark on Your Dream Journey.</h1>
+                    <p class="text-white description" style="text-align: justify;">
+                        At Tourista, we believe travel is more than just seeing new places; it's about experiencing life in its fullest, most vibrant forms. We are dedicated to designing extraordinary tours that awaken your senses, challenge your perspectives, and leave you with a profound connection to the world.      </p>
+                    <p class="text-white description" style="text-align: justify;">
+                        Join us on an unforgettable journey through breathtaking landscapes, vibrant cultures, and iconic landmarks. Whether you are chasing waterfalls in Bali, walking through the historic streets of Rome, or watching the sunset in Santorini
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Highlights / Featured Content Section -->
+        <section id="highlights" class="py-16 section-bg-white text-primary rounded-xl shadow-lg container mx-auto px-4 mb-8" style=" box-shadow: 0 4px 15px rgb(255, 144, 70); margin-top: 15px;">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-6xl font-extrabold text-center mb-12 initial-hidden stylish-heading" data-animate="slide-up-fade" style="font-family: 'Great Vibes', cursive; color: #ec791b; ">Top Destination</h1>
+                <div class="flex flex-wrap justify-center gap-8">
+
+         <!-- Top Destinations Section -->
+
+
+                    <!-- Destination Card 1: Seoul -->
+                    <a href="seoul.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/seoul .jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/seoul landmark.jpg" alt="Seoul Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Seoul</h3>
+                        </div>
+                    </a>
+
+                    <!-- Destination Card 2: Paris -->
+                    <a href="paris.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade">
+                        <div class="destination-card-header" style="background-image: url('./assets/images/paris.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/paris landmark.jpg" alt="Paris Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Paris</h3>
+                        </div>
+                    </a>
+
+                    <!-- Destination Card 3: London -->
+                    <a href="london.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/london.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/london landmark.jpg" alt="London  Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">London </h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 4: Dubai -->
+                    <a href="dubai.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade">
+                        <div class="destination-card-header" style="background-image: url('./assets/images/dubai.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/dubai landmark.jpg" alt="Dubai Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Dubai</h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 5: Rome -->
+                    <a href="rome.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/rome.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/rome landmark.jpg" alt="Rome Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Rome</h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 6: Singapore -->
+                    <a href="singapore.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/singapore.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/singapore landmark .jpg" alt="Singapore Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Singapore</h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 7: New York -->
+                    <a href="new york.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/new\ york\ .jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/new york landmark.jpg" alt="New York Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">New York </h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 8: Hong Kong  -->
+                    <a href="hong kong.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/hong\ kong.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/hong kong landmark.jpg" alt="Hong Kong Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Hong Kong</h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 9: Tokyo -->
+                    <a href="tokyo.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/tokyo.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/tokyo landmark.jpg" alt="Tokyo Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Tokyo</h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 10: Kuala Lumpur  -->
+                    <a href="kaula_lumpur.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/Kuala-Lumpur\ .jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/Kuala-Lumpur landmark.jpg" alt=" Kuala Lumpur Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title"> Kuala Lumpur</h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 11: Bangkok -->
+                    <a href="bangkok.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/bangkok.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/bangkok landmark.jpg" alt="Bangkok Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Bangkok</h3>
+                        </div>
+                    </a>
+
+                    <!--  Destination Card 12: Istanbul -->
+                    <a href="istanbul.html" class="destination-card-container cursor-pointer initial-hidden" data-animate="slide-up-fade" >
+                        <div class="destination-card-header" style="background-image: url('./assets/images/istanbul.jpg');"></div>
+                        <div class="destination-image-circle">
+                            <img src="./assets/images/istanbul landmark.jpg" alt="Istanbul Flag/Icon" />
+                        </div>
+                        <div class="destination-card-content">
+                            <h3 class="destination-title">Istanbul</h3>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+      <!-- Animated Marquee Section -->
+   <div class="site-footer-marquee" data-site-footer-marquee="">
+        <div class="site-footer-marquee__track">
+            <div class="site-footer-marquee__grid">
+                <div class="site-footer-marquee-item" style="background-image: url(./assets/images/marquee.jpg);">
+                    <div class="site-footer-marquee-item__stack"></div>
+                    <div class="site-footer-marquee-item__media">
+                        <img alt="Typography" width="200" height="150" src="./assets/images/food.jpg">
+                    </div>
+                    <div class="site-footer-marquee-item__title">Foods</div>
+                </div>
+                <div class="site-footer-marquee-item" style="background-image: url(./assets/images/marquee.jpg);">
+                    <div class="site-footer-marquee-item__stack"></div>
+                    <div class="site-footer-marquee-item__media">
+                        <img alt="Illustration" width="200" height="150" src="./assets/images/Restaurant.jpg">
+                    </div>
+                    <div class="site-footer-marquee-item__title">Restaurants</div>
+                </div>
+                <div class="site-footer-marquee-item" style="background-image: url(./assets/images/marquee.jpg);">
+                    <div class="site-footer-marquee-item__stack"></div>
+                    <div class="site-footer-marquee-item__media">
+                        <img alt="Web Design" width="200" height="150" src="./assets/images/Hotel.jpg">
+                    </div>
+                    <div class="site-footer-marquee-item__title">Hotels</div>
+                </div>
+                <div class="site-footer-marquee-item" style="background-image: url(./assets/images/marquee.jpg);">
+                    <div class="site-footer-marquee-item__stack"></div>
+                    <div class="site-footer-marquee-item__media">
+                        <img alt="Print" width="200" height="150" src="./assets/images/adventure.jpg">
+                    </div>
+                    <div class="site-footer-marquee-item__title">Adventures </div>
+                </div>
+                <div class="site-footer-marquee-item" style="background-image: url(./assets/images/marquee.jpg);">
+                    <div class="site-footer-marquee-item__stack"></div>
+                    <div class="site-footer-marquee-item__media">
+                        <img alt="Branding" width="200" height="150" src="./assets/images/beach.jpg">
+                    </div>
+                    <div class="site-footer-marquee-item__title">Beaches</div>
+                </div>
+                <div class="site-footer-marquee-item" style="background-image: url(./assets/images/marquee.jpg);">
+                    <div class="site-footer-marquee-item__stack"></div>
+                    <div class="site-footer-marquee-item__media">
+                        <img alt="Animation" width="200" height="150" src="./assets/images/amusement.jpg">
+                    </div>
+                    <div class="site-footer-marquee-item__title">Amusement Parks</div>
+                </div>
+                <div class="site-footer-marquee-item" style="background-image: url(./assets/images/marquee.jpg);">
+                    <div class="site-footer-marquee-item__stack"></div>
+                    <div class="site-footer-marquee-item__media">
+                        <img alt="Mobile App" width="200" height="150" src="./assets/images/mall.jpg">
+                    </div>
+                    <div class="site-footer-marquee-item__title">Malls</div>
+                </div>
+                <div class="site-footer-marquee-item" style="background-image: url(./assets/images/marquee.jpg);">
+                    <div class="site-footer-marquee-item__stack"></div>
+                    <div class="site-footer-marquee-item__media">
+                        <img alt="Product Design" width="200" height="150" src="./assets/images/events.jpg">
+                    </div>
+                    <div class="site-footer-marquee-item__title">Events</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-bg py-8 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <a href="index.html" class="text-white rounded-lg flex items-center" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                    <i class="fas fa-plane text-2xl mr-2" style="color: #FFA500; border: 2px solid white; border-radius: 50%; padding: 2px;"></i>
+                    Tourista
+                </a>
+            </div>
+            <p class="mb-4 md:mb-0">&copy; 2023 Tourista. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="index.html" class="hover:text-white transition duration-300 footer-link-hover">Home</a>
+                <a href="about_us.html" class="hover:text-white transition duration-300 footer-link-hover">About </a>
+                <a href="destinations.html" class="hover:text-white transition duration-300 footer-link-hover">Destinations</a>
+                <a href="reviews.html" class="hover:text-white transition duration-300 footer-link-hover">Reviews</a>
+                <a href="contact.html" class="hover:text-white transition duration-300 footer-link-hover">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+        <!-- Chat Button -->
+        <div id="chat-button">
+            <!-- New Plane icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-8 h-8">
+                <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A1.5 1.5 0 0 1 10.5 16h-5a1.5 1.5 0 0 1-1.062-2.503l1.318-1.318-.375-2.253-5.507.918A.5.5 0 0 1 0 12V9.618a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.569.14-.97.428-1.151Z"/>
+            </svg>
+        </div>
+
+        <!-- Chat Window (initially hiddenchat) -->
+        <div id="chat-window" class="hiddenchat">
+            <div id="chat-header">
+                <span>Tourista Assistant</span>
+                <button id="close-chat">&times;</button>
+            </div>
+            <div id="chat-messages">
+                <!-- Initial bot message -->
+                <div class="message-bubble bot-message">
+                    Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)
+                </div>
+            </div>
+            <div id="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-button">
+                    <!-- Send icon (SVG) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Existing Tour Suggestion Button -->
+            <button id="suggest-tour-button" class="llm-feature-button">Suggest a Tour ✨</button>
+            <!-- New Itinerary Suggestion Button -->
+            <button id="plan-trip-button" class="llm-feature-button">Plan My Trip ✨</button>
+        </div>
+    </div>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile Poses Dropdown Toggle
+        const mobilePosesDropdownToggle = document.getElementById('mobile-poses-dropdown-toggle');
+        const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
+
+        if (mobilePosesDropdownToggle && mobileDropdownMenu) {
+            mobilePosesDropdownToggle.addEventListener('click', () => {
+                mobileDropdownMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Handle desktop dropdown hover/click state (for accessibility)
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const dropdownButton = dropdown.querySelector('button');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+            // Toggle on click for better accessibility
+            if (dropdownButton) {
+                dropdownButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default button action
+                    dropdown.classList.toggle('active'); // Toggle active class
+                });
+
+                // Close dropdown if clicked outside
+                document.addEventListener('click', (event) => {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Function to handle animations on scroll using Intersection Observer
+        const animateOnScroll = () => {
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const animationType = element.dataset.animate;
+
+                        // Apply animation class based on data-animate attribute
+                        if (animationType === 'slide-up-fade') {
+                            element.classList.add('animate-slide-up-fade');
+                        }
+                        // Add more conditions here for other animation types if needed
+
+                        element.classList.remove('initial-hidden'); // Remove the initial hidden state
+                        observer.unobserve(element); // Stop observing once the element has animated
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with the 'data-animate' attribute
+            document.querySelectorAll('[data-animate]').forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        // Call the animation function when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+
+            // Marquee script
+            const marqueeTrack = document.querySelector('.site-footer-marquee__track');
+            const marqueeGrid = document.querySelector('.site-footer-marquee__grid');
+
+            if (marqueeTrack && marqueeGrid) {
+                // Duplicate the grid content to create a seamless loop
+                const clonedGrid = marqueeGrid.cloneNode(true);
+                marqueeTrack.appendChild(clonedGrid);
+
+                // Calculate animation duration based on content width and speed
+                // This ensures consistent speed regardless of number of items
+                const itemWidth = marqueeGrid.firstElementChild ? marqueeGrid.firstElementChild.offsetWidth : 0;
+                const gap = parseFloat(getComputedStyle(marqueeGrid).gap) || 0;
+                const totalGridWidth = (itemWidth + gap) * marqueeGrid.children.length;
+                const speedFactor = 0.07; // pixels per millisecond (adjust for desired speed)
+                const animationDuration = totalGridWidth / speedFactor / 1000; // Convert to seconds
+
+                marqueeTrack.style.setProperty('--animation-duration', `${animationDuration}s`);
+
+                console.log('Marquee initialized successfully.');
+                console.log('Total grid width:', totalGridWidth);
+                console.log('Animation duration:', animationDuration, 's');
+            } else {
+                console.error('Marquee track or grid not found.');
+            }
+        });
+    </script>
+
+        <script type="module">
+        // Get references to DOM elements
+        const chatButton = document.getElementById('chat-button');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChatButton = document.getElementById('close-chat');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-button');
+        const suggestTourButton = document.getElementById('suggest-tour-button'); // Existing button reference
+        const planTripButton = document.getElementById('plan-trip-button'); // New button reference
+
+        // Flags to indicate if the next user message is for a specific LLM feature
+        let tourSuggestionMode = false;
+        let itineraryMode = false; // New flag for itinerary generation
+
+        // Initial chat history for the LLM API call
+        // Removed 'system' role. Instructions are now part of the initial model message or dynamically added to user prompts.
+        let chatHistory = [
+            {
+                role: "model",
+                parts: [{ text: "Hello! I'm Touristabot, your virtual assistant. How can I help you plan your perfect tour today? (Please keep responses brief.)" }]
+            }
+        ];
+
+        // Function to toggle chat window visibility
+        function toggleChat() {
+            chatWindow.classList.toggle('hiddenchat');
+            if (!chatWindow.classList.contains('hiddenchat')) {
+                chatInput.focus(); // Focus input when chat opens
+                scrollToBottom(); // Scroll to the latest message
+            }
+        }
+
+        // Function to add a message to the chat display
+        function addMessage(text, sender) {
+            const messageBubble = document.createElement('div');
+            messageBubble.classList.add('message-bubble');
+            messageBubble.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageBubble.textContent = text;
+            chatMessages.appendChild(messageBubble);
+            scrollToBottom(); // Always scroll to the bottom after adding a message
+        }
+
+        // Function to scroll chat messages to the bottom
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to display a loading indicator
+        function showLoadingIndicator() {
+            const loadingDiv = document.createElement('div');
+            loadingDiv.classList.add('message-bubble', 'loading-indicator');
+            loadingDiv.id = 'loading-indicator';
+            loadingDiv.textContent = 'Touristabot is typing...';
+            chatMessages.appendChild(loadingDiv);
+            scrollToBottom();
+        }
+
+        // Function to remove the loading indicator
+        function hideLoadingIndicator() {
+            const loadingDiv = document.getElementById('loading-indicator');
+            if (loadingDiv) {
+                loadingDiv.remove();
+            }
+        }
+
+        // Function to send message to the LLM API
+        async function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') {
+                return; // Don't send empty messages
+            }
+
+            // Add user message to display
+            addMessage(userMessage, 'user');
+            chatInput.value = ''; // Clear input field
+
+            showLoadingIndicator(); // Show loading indicator
+
+            try {
+                let currentPrompt = userMessage; // The prompt to send to the AI
+
+                if (tourSuggestionMode) {
+                    // Prepend specific instructions for tour suggestions to the user's message
+                    currentPrompt = `The user is asking for a tour suggestion based on their interests. Their interests are: "${userMessage}". Provide a brief (2-3 sentences) and exciting tour idea. Do not ask follow-up questions in this response. Focus on the type of tour requested (e.g., adventure, cultural, relaxing, family-friendly).`;
+                    tourSuggestionMode = false; // Reset the flag after processing
+                } else if (itineraryMode) {
+                    // New prompt for itinerary generation
+                    currentPrompt = `The user wants a tour itinerary. Their input is: "${userMessage}". Please generate a brief (3-4 bullet points) and exciting itinerary. Include a destination, 2-3 activities, and a concluding remark. For example: "For an adventure in [City], you could [Activity 1], then [Activity 2], and finally [Activity 3]. Enjoy your trip!"`;
+                    itineraryMode = false; // Reset the flag after processing
+                }
+
+                // Prepare the payload for the Gemini API
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: currentPrompt }] }], // Send only the current user message as a new turn
+                    generationConfig: {
+                        maxOutputTokens: 150, // Increased token limit for slightly longer itineraries
+                        temperature: 0.7 // Adjust creativity (0.0-1.0)
+                    }
+                };
+
+                // Log the payload to the console for debugging
+                console.log("Sending payload to Gemini API:", JSON.stringify(payload, null, 2));
+
+                // IMPORTANT: Your actual API key is inserted here.
+                const apiKey = "AIzaSyAPgSrBQxe05u3eS3-EU9LhRcKBxQyqlfg"; 
+                
+                if (!apiKey || apiKey === "YOUR_GENERATED_API_KEY_HERE") {
+                    hideLoadingIndicator();
+                    addMessage("Oops! It looks like the API key is missing or invalid. Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.", 'bot');
+                    console.error("API Key Error: Please ensure you've replaced 'YOUR_GENERATED_API_KEY_HERE' with your actual Gemini API key in the code.");
+                    return; // Stop execution if API key is invalid
+                }
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                // Make the API call
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorDetails = await response.json().catch(() => ({ message: 'Could not parse error response.' }));
+                    console.error(`HTTP error! Status: ${response.status}, Error Details:`, errorDetails);
+                    throw new Error(`API request failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                hideLoadingIndicator(); // Hide loading indicator
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const botResponse = result.candidates[0].content.parts[0].text;
+                    addMessage(botResponse, 'bot');
+                    // For models that don't support system role, we typically don't add the system instruction to chatHistory
+                    // We only add the direct user-model turns
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] }); // Add original user message to history
+                    chatHistory.push({ role: "model", parts: [{ text: botResponse }] }); // Add bot response to history
+                } else if (result.error) {
+                    console.error("Gemini API returned an error:", result.error);
+                    addMessage(`Sorry, an API error occurred: ${result.error.message || 'Unknown error'}. Please try again.`, 'bot');
+                }
+                else {
+                    addMessage("Sorry, I couldn't get a valid response from the AI. Please try again.", 'bot');
+                    console.error("Unexpected API response structure or no content:", result);
+                }
+            } catch (error) {
+                hideLoadingIndicator(); // Hide loading indicator on error
+                addMessage("Oops! Something went wrong. Please try again later.", 'bot');
+                console.error("Error fetching AI response:", error);
+            }
+        }
+
+        // Event Listener for the existing "Suggest a Tour" button
+        suggestTourButton.addEventListener('click', () => {
+            addMessage("Great! Tell me what kind of tours you're interested in (e.g., 'adventure', 'cultural', 'relaxing', 'family-friendly'). I'll suggest something amazing for you! ✨", 'bot');
+            tourSuggestionMode = true; // Activate tour suggestion mode
+            itineraryMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+        // Event Listener for the new "Plan My Trip" button
+        planTripButton.addEventListener('click', () => {
+            addMessage("Fantastic! To plan your trip, tell me your desired destination and what kind of activities you enjoy (e.g., 'Paris, history and art' or 'Mountains, hiking and nature'). ✨", 'bot');
+            itineraryMode = true; // Activate itinerary mode
+            tourSuggestionMode = false; // Ensure other modes are off
+            chatInput.focus();
+        });
+
+
+        // Event Listeners for existing chat functionality
+        chatButton.addEventListener('click', toggleChat);
+        closeChatButton.addEventListener('click', toggleChat);
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Ensure the chat window is hiddenchat on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            chatWindow.classList.add('hiddenchat');
+            scrollToBottom();
+        });
+    </script>
+    
+</body>
+</html>
